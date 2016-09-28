@@ -1,0 +1,1352 @@
+{
+  "federalIncomeTax": {
+    "2015": {
+      "Annual_Married": {
+        "8600": {
+          "percent": 0,
+          "plus": 0,
+          "withheld": 0
+        },
+        "27050": {
+          "percent": 10,
+          "plus": 0,
+          "withheld": 8600
+        },
+        "83500": {
+          "percent": 15,
+          "plus": 1845,
+          "withheld": 27050
+        },
+        "159800": {
+          "percent": 25,
+          "plus": 10312.5,
+          "withheld": 83500
+        },
+        "239050": {
+          "percent": 28,
+          "plus": 29387.5,
+          "withheld": 159800
+        },
+        "420100": {
+          "percent": 33,
+          "plus": 51577.5,
+          "withheld": 239050
+        },
+        "473450": {
+          "percent": 35,
+          "plus": 111324,
+          "withheld": 420100
+        },
+        "max": {
+          "percent": 39.6,
+          "plus": 129996.5,
+          "withheld": 473450
+        }
+      },
+      "Annual_Single": {
+        "2300": {
+          "percent": 0,
+          "plus": 0,
+          "withheld": 0
+        },
+        "11525": {
+          "percent": 10,
+          "plus": 0,
+          "withheld": 2300
+        },
+        "36750": {
+          "percent": 15,
+          "plus": 922.5,
+          "withheld": 11525
+        },
+        "93050": {
+          "percent": 25,
+          "plus": 5156.25,
+          "withheld": 36750
+        },
+        "191600": {
+          "percent": 28,
+          "plus": 18481.25,
+          "withheld": 93050
+        },
+        "413800": {
+          "percent": 33,
+          "plus": 46075.25,
+          "withheld": 191600
+        },
+        "415500": {
+          "percent": 35,
+          "plus": 119401.25,
+          "withheld": 413800
+        },
+        "max": {
+          "percent": 39.6,
+          "plus": 119996.25,
+          "withheld": 415500
+        }
+      },
+      "Biweekly_Married": {
+        "331": {
+          "percent": 0,
+          "plus": 0,
+          "withheld": 0
+        },
+        "1040": {
+          "percent": 10,
+          "plus": 0,
+          "withheld": 331
+        },
+        "3212": {
+          "percent": 15,
+          "plus": 70.5,
+          "withheld": 1040
+        },
+        "6146": {
+          "percent": 25,
+          "plus": 396.7,
+          "withheld": 3212
+        },
+        "9194": {
+          "percent": 28,
+          "plus": 1130.2,
+          "withheld": 6146
+        },
+        "16158": {
+          "percent": 33,
+          "plus": 1983.64,
+          "withheld": 9194
+        },
+        "18210": {
+          "percent": 35,
+          "plus": 4281.76,
+          "withheld": 16158
+        },
+        "max": {
+          "percent": 39.6,
+          "plus": 4999.96,
+          "withheld": 18210
+        }
+      },
+      "Biweekly_Single": {
+        "88": {
+          "percent": 0,
+          "plus": 0,
+          "withheld": 0
+        },
+        "443": {
+          "percent": 10,
+          "plus": 0,
+          "withheld": 88
+        },
+        "1529": {
+          "percent": 15,
+          "plus": 35.5,
+          "withheld": 443
+        },
+        "3579": {
+          "percent": 25,
+          "plus": 198.4,
+          "withheld": 1529
+        },
+        "7369": {
+          "percent": 28,
+          "plus": 710.9,
+          "withheld": 3579
+        },
+        "15915": {
+          "percent": 33,
+          "plus": 1772.1,
+          "withheld": 7369
+        },
+        "15981": {
+          "percent": 35,
+          "plus": 4592.28,
+          "withheld": 15915
+        },
+        "max": {
+          "percent": 39.6,
+          "plus": 4615.38,
+          "withheld": 15981
+        }
+      },
+      "Daily_Married": {
+        "104": {
+          "percent": 10,
+          "plus": 0,
+          "withheld": 33.1
+        },
+        "1821": {
+          "percent": 35,
+          "plus": 428.17,
+          "withheld": 1615.8
+        },
+        "1615,80": {
+          "percent": 33,
+          "plus": 198.36,
+          "withheld": 919.4
+        },
+        "321,20": {
+          "percent": 15,
+          "plus": 7.09,
+          "withheld": 104
+        },
+        "33,10": {
+          "percent": 0,
+          "plus": 0,
+          "withheld": 0
+        },
+        "614,60": {
+          "percent": 25,
+          "plus": 39.67,
+          "withheld": 321.2
+        },
+        "919,40": {
+          "percent": 28,
+          "plus": 113.02,
+          "withheld": 614.6
+        },
+        "max": {
+          "percent": 39.6,
+          "plus": 499.99,
+          "withheld": 1821
+        }
+      },
+      "Daily_Single": {
+        "152,90": {
+          "percent": 15,
+          "plus": 3.55,
+          "withheld": 44.3
+        },
+        "1591,50": {
+          "percent": 33,
+          "plus": 177.21,
+          "withheld": 736.9
+        },
+        "1598,10": {
+          "percent": 35,
+          "plus": 459.23,
+          "withheld": 1591.5
+        },
+        "357,90": {
+          "percent": 25,
+          "plus": 19.84,
+          "withheld": 152.9
+        },
+        "44,30": {
+          "percent": 10,
+          "plus": 0,
+          "withheld": 8.8
+        },
+        "736,90": {
+          "percent": 28,
+          "plus": 71.09,
+          "withheld": 357.9
+        },
+        "8,80": {
+          "percent": 0,
+          "plus": 0,
+          "withheld": 0
+        },
+        "max": {
+          "percent": 39.6,
+          "plus": 461.54,
+          "withheld": 1598.1
+        }
+      },
+      "Monthly_Married": {
+        "717": {
+          "percent": 0,
+          "plus": 0,
+          "withheld": 0
+        },
+        "2254": {
+          "percent": 10,
+          "plus": 0,
+          "withheld": 717
+        },
+        "6958": {
+          "percent": 15,
+          "plus": 153.7,
+          "withheld": 2254
+        },
+        "13317": {
+          "percent": 25,
+          "plus": 859.3,
+          "withheld": 6958
+        },
+        "19921": {
+          "percent": 28,
+          "plus": 2449.05,
+          "withheld": 13317
+        },
+        "35008": {
+          "percent": 33,
+          "plus": 4298.17,
+          "withheld": 19921
+        },
+        "39454": {
+          "percent": 35,
+          "plus": 9276.88,
+          "withheld": 35008
+        },
+        "max": {
+          "percent": 39.6,
+          "plus": 10832.98,
+          "withheld": 39454
+        }
+      },
+      "Monthly_Single": {
+        "192": {
+          "percent": 0,
+          "plus": 0,
+          "withheld": 0
+        },
+        "960": {
+          "percent": 10,
+          "plus": 0,
+          "withheld": 192
+        },
+        "3313": {
+          "percent": 15,
+          "plus": 76.8,
+          "withheld": 960
+        },
+        "7754": {
+          "percent": 25,
+          "plus": 429.75,
+          "withheld": 3313
+        },
+        "15967": {
+          "percent": 28,
+          "plus": 1540,
+          "withheld": 7754
+        },
+        "34483": {
+          "percent": 33,
+          "plus": 3839.64,
+          "withheld": 15967
+        },
+        "34625": {
+          "percent": 35,
+          "plus": 9949.92,
+          "withheld": 34483
+        },
+        "max": {
+          "percent": 39.6,
+          "plus": 4999.96,
+          "withheld": 34625
+        }
+      },
+      "Quarterly_Married": {
+        "2150": {
+          "percent": 0,
+          "plus": 0,
+          "withheld": 0
+        },
+        "6763": {
+          "percent": 10,
+          "plus": 0,
+          "withheld": 2150
+        },
+        "20875": {
+          "percent": 15,
+          "plus": 461.3,
+          "withheld": 6763
+        },
+        "39950": {
+          "percent": 25,
+          "plus": 2578.1,
+          "withheld": 20875
+        },
+        "59763": {
+          "percent": 28,
+          "plus": 7346.85,
+          "withheld": 39950
+        },
+        "105025": {
+          "percent": 33,
+          "plus": 12894.49,
+          "withheld": 59763
+        },
+        "118363": {
+          "percent": 35,
+          "plus": 27830.95,
+          "withheld": 105025
+        },
+        "max": {
+          "percent": 39.6,
+          "plus": 32499.25,
+          "withheld": 118363
+        }
+      },
+      "Quarterly_Single": {
+        "575": {
+          "percent": 0,
+          "plus": 0,
+          "withheld": 0
+        },
+        "2881": {
+          "percent": 10,
+          "plus": 0,
+          "withheld": 575
+        },
+        "9938": {
+          "percent": 15,
+          "plus": 230.6,
+          "withheld": 2881
+        },
+        "23263": {
+          "percent": 25,
+          "plus": 1289.15,
+          "withheld": 9938
+        },
+        "47900": {
+          "percent": 28,
+          "plus": 4620.4,
+          "withheld": 23263
+        },
+        "103450": {
+          "percent": 33,
+          "plus": 11518.76,
+          "withheld": 47900
+        },
+        "103875": {
+          "percent": 35,
+          "plus": 29850.26,
+          "withheld": 103450
+        },
+        "max": {
+          "percent": 39.6,
+          "plus": 29999.01,
+          "withheld": 103875
+        }
+      },
+      "Semiannual_Married": {
+        "4300": {
+          "percent": 0,
+          "plus": 0,
+          "withheld": 0
+        },
+        "13525": {
+          "percent": 10,
+          "plus": 0,
+          "withheld": 4300
+        },
+        "41750": {
+          "percent": 15,
+          "plus": 922.5,
+          "withheld": 13525
+        },
+        "79900": {
+          "percent": 25,
+          "plus": 5156.25,
+          "withheld": 41750
+        },
+        "119525": {
+          "percent": 28,
+          "plus": 14693.75,
+          "withheld": 79900
+        },
+        "210050": {
+          "percent": 33,
+          "plus": 25788.75,
+          "withheld": 119525
+        },
+        "236725": {
+          "percent": 35,
+          "plus": 55662,
+          "withheld": 210050
+        },
+        "max": {
+          "percent": 39.6,
+          "plus": 64998.25,
+          "withheld": 236725
+        }
+      },
+      "Semiannual_Single": {
+        "1150": {
+          "percent": 0,
+          "plus": 0,
+          "withheld": 0
+        },
+        "5763": {
+          "percent": 10,
+          "plus": 0,
+          "withheld": 1150
+        },
+        "19875": {
+          "percent": 15,
+          "plus": 461.3,
+          "withheld": 5763
+        },
+        "46525": {
+          "percent": 25,
+          "plus": 2578.1,
+          "withheld": 19875
+        },
+        "95800": {
+          "percent": 28,
+          "plus": 9240.6,
+          "withheld": 46525
+        },
+        "206900": {
+          "percent": 33,
+          "plus": 23037.6,
+          "withheld": 95800
+        },
+        "207750": {
+          "percent": 35,
+          "plus": 59700.6,
+          "withheld": 206900
+        },
+        "max": {
+          "percent": 39.6,
+          "plus": 4999.96,
+          "withheld": 207750
+        }
+      },
+      "Semimonthly_Married": {
+        "358": {
+          "percent": 0,
+          "plus": 0,
+          "withheld": 0
+        },
+        "1127": {
+          "percent": 10,
+          "plus": 0,
+          "withheld": 358
+        },
+        "3479": {
+          "percent": 15,
+          "plus": 76.9,
+          "withheld": 1127
+        },
+        "6658": {
+          "percent": 25,
+          "plus": 429.7,
+          "withheld": 3479
+        },
+        "9960": {
+          "percent": 28,
+          "plus": 1224.45,
+          "withheld": 6658
+        },
+        "17504": {
+          "percent": 33,
+          "plus": 2149.01,
+          "withheld": 9960
+        },
+        "19727": {
+          "percent": 35,
+          "plus": 4638.53,
+          "withheld": 17504
+        },
+        "max": {
+          "percent": 39.6,
+          "plus": 5416.58,
+          "withheld": 19727
+        }
+      },
+      "Semimonthly_Single": {
+        "96": {
+          "percent": 0,
+          "plus": 0,
+          "withheld": 0
+        },
+        "480": {
+          "percent": 10,
+          "plus": 0,
+          "withheld": 96
+        },
+        "1656": {
+          "percent": 15,
+          "plus": 38.4,
+          "withheld": 480
+        },
+        "3877": {
+          "percent": 25,
+          "plus": 214.8,
+          "withheld": 1656
+        },
+        "7983": {
+          "percent": 28,
+          "plus": 770.05,
+          "withheld": 3877
+        },
+        "17242": {
+          "percent": 33,
+          "plus": 1919.73,
+          "withheld": 7983
+        },
+        "17313": {
+          "percent": 35,
+          "plus": 4975.2,
+          "withheld": 17242
+        },
+        "max": {
+          "percent": 39.6,
+          "plus": 5000.05,
+          "withheld": 17313
+        }
+      },
+      "Weekly_Married": {
+        "165": {
+          "percent": 0,
+          "plus": 0,
+          "withheld": 0
+        },
+        "520": {
+          "percent": 10,
+          "plus": 0,
+          "withheld": 165
+        },
+        "1606": {
+          "percent": 15,
+          "plus": 35.5,
+          "withheld": 520
+        },
+        "3073": {
+          "percent": 25,
+          "plus": 168.4,
+          "withheld": 1606
+        },
+        "4597": {
+          "percent": 28,
+          "plus": 565.15,
+          "withheld": 3073
+        },
+        "8079": {
+          "percent": 33,
+          "plus": 991.87,
+          "withheld": 4597
+        },
+        "9105": {
+          "percent": 35,
+          "plus": 2140.93,
+          "withheld": 8079
+        },
+        "max": {
+          "percent": 39.6,
+          "plus": 2500.03,
+          "withheld": 9105
+        }
+      },
+      "Weekly_Single": {
+        "44": {
+          "percent": 0,
+          "plus": 0,
+          "withheld": 0
+        },
+        "222": {
+          "percent": 10,
+          "plus": 0,
+          "withheld": 44
+        },
+        "764": {
+          "percent": 15,
+          "plus": 17.8,
+          "withheld": 222
+        },
+        "1789": {
+          "percent": 25,
+          "plus": 99.1,
+          "withheld": 764
+        },
+        "3685": {
+          "percent": 28,
+          "plus": 355.35,
+          "withheld": 1789
+        },
+        "7958": {
+          "percent": 33,
+          "plus": 886.23,
+          "withheld": 3685
+        },
+        "7990": {
+          "percent": 35,
+          "plus": 2296.32,
+          "withheld": 7958
+        },
+        "max": {
+          "percent": 39.6,
+          "plus": 2307.52,
+          "withheld": 7990
+        }
+      }
+    },
+    "2016": {
+      "Annual_Married": {
+        "8600": {
+          "percent": 0,
+          "plus": 0,
+          "withheld": 0
+        },
+        "27050": {
+          "percent": 10,
+          "plus": 0,
+          "withheld": 8600
+        },
+        "83500": {
+          "percent": 15,
+          "plus": 1845,
+          "withheld": 27050
+        },
+        "159800": {
+          "percent": 25,
+          "plus": 10312.5,
+          "withheld": 83500
+        },
+        "239050": {
+          "percent": 28,
+          "plus": 29387.5,
+          "withheld": 159800
+        },
+        "420100": {
+          "percent": 33,
+          "plus": 51577.5,
+          "withheld": 239050
+        },
+        "473450": {
+          "percent": 35,
+          "plus": 111324,
+          "withheld": 420100
+        },
+        "max": {
+          "percent": 39.6,
+          "plus": 129996.5,
+          "withheld": 476450
+        }
+      },
+      "Annual_Single": {
+        "2300": {
+          "percent": 0,
+          "plus": 0,
+          "withheld": 0
+        },
+        "11525": {
+          "percent": 10,
+          "plus": 0,
+          "withheld": 2300
+        },
+        "36750": {
+          "percent": 15,
+          "plus": 922.5,
+          "withheld": 11525
+        },
+        "93050": {
+          "percent": 25,
+          "plus": 5156.25,
+          "withheld": 36750
+        },
+        "191600": {
+          "percent": 28,
+          "plus": 18481.25,
+          "withheld": 93050
+        },
+        "413800": {
+          "percent": 33,
+          "plus": 46075.25,
+          "withheld": 191600
+        },
+        "415500": {
+          "percent": 35,
+          "plus": 119401.25,
+          "withheld": 413800
+        },
+        "max": {
+          "percent": 39.6,
+          "plus": 119996.25,
+          "withheld": 415500
+        }
+      },
+      "Biweekly_Married": {
+        "331": {
+          "percent": 0,
+          "plus": 0,
+          "withheld": 0
+        },
+        "1040": {
+          "percent": 10,
+          "plus": 0,
+          "withheld": 331
+        },
+        "3212": {
+          "percent": 15,
+          "plus": 70.5,
+          "withheld": 1040
+        },
+        "6146": {
+          "percent": 25,
+          "plus": 396.7,
+          "withheld": 3212
+        },
+        "9194": {
+          "percent": 28,
+          "plus": 1130.2,
+          "withheld": 6146
+        },
+        "16158": {
+          "percent": 33,
+          "plus": 1983.64,
+          "withheld": 9194
+        },
+        "18210": {
+          "percent": 35,
+          "plus": 4281.76,
+          "withheld": 16158
+        },
+        "max": {
+          "percent": 39.6,
+          "plus": 4999.96,
+          "withheld": 18210
+        }
+      },
+      "Biweekly_Single": {
+        "88": {
+          "percent": 0,
+          "plus": 0,
+          "withheld": 0
+        },
+        "443": {
+          "percent": 10,
+          "plus": 0,
+          "withheld": 88
+        },
+        "1529": {
+          "percent": 15,
+          "plus": 35.5,
+          "withheld": 443
+        },
+        "3579": {
+          "percent": 25,
+          "plus": 198.4,
+          "withheld": 1529
+        },
+        "7369": {
+          "percent": 28,
+          "plus": 710.9,
+          "withheld": 3579
+        },
+        "15915": {
+          "percent": 33,
+          "plus": 1772.1,
+          "withheld": 7369
+        },
+        "15981": {
+          "percent": 35,
+          "plus": 4592.28,
+          "withheld": 15915
+        },
+        "max": {
+          "percent": 39.6,
+          "plus": 4615.38,
+          "withheld": 15981
+        }
+      },
+      "Daily_Married": {
+        "104": {
+          "percent": 10,
+          "plus": 0,
+          "withheld": 33.1
+        },
+        "1821": {
+          "percent": 35,
+          "plus": 428.17,
+          "withheld": 1615.8
+        },
+        "1615,80": {
+          "percent": 33,
+          "plus": 198.36,
+          "withheld": 919.4
+        },
+        "321,20": {
+          "percent": 15,
+          "plus": 7.09,
+          "withheld": 104
+        },
+        "33,10": {
+          "percent": 0,
+          "plus": 0,
+          "withheld": 0
+        },
+        "614,60": {
+          "percent": 25,
+          "plus": 39.67,
+          "withheld": 321.2
+        },
+        "919,40": {
+          "percent": 28,
+          "plus": 113.02,
+          "withheld": 614.6
+        },
+        "max": {
+          "percent": 39.6,
+          "plus": 499.99,
+          "withheld": 1821
+        }
+      },
+      "Daily_Single": {
+        "152,90": {
+          "percent": 15,
+          "plus": 3.55,
+          "withheld": 44.3
+        },
+        "1591,50": {
+          "percent": 33,
+          "plus": 177.21,
+          "withheld": 736.9
+        },
+        "1598,10": {
+          "percent": 35,
+          "plus": 459.23,
+          "withheld": 1591.5
+        },
+        "357,90": {
+          "percent": 25,
+          "plus": 19.84,
+          "withheld": 152.9
+        },
+        "44,30": {
+          "percent": 10,
+          "plus": 0,
+          "withheld": 8.8
+        },
+        "736,90": {
+          "percent": 28,
+          "plus": 71.09,
+          "withheld": 357.9
+        },
+        "8,80": {
+          "percent": 0,
+          "plus": 0,
+          "withheld": 0
+        },
+        "max": {
+          "percent": 39.6,
+          "plus": 461.54,
+          "withheld": 1598.1
+        }
+      },
+      "Monthly_Married": {
+        "717": {
+          "percent": 0,
+          "plus": 0,
+          "withheld": 0
+        },
+        "2254": {
+          "percent": 10,
+          "plus": 0,
+          "withheld": 717
+        },
+        "6958": {
+          "percent": 15,
+          "plus": 153.7,
+          "withheld": 2254
+        },
+        "13317": {
+          "percent": 25,
+          "plus": 859.3,
+          "withheld": 6958
+        },
+        "19921": {
+          "percent": 28,
+          "plus": 2449.05,
+          "withheld": 13317
+        },
+        "35008": {
+          "percent": 33,
+          "plus": 4298.17,
+          "withheld": 19921
+        },
+        "39454": {
+          "percent": 35,
+          "plus": 9276.88,
+          "withheld": 35008
+        },
+        "max": {
+          "percent": 39.6,
+          "plus": 10832.98,
+          "withheld": 39454
+        }
+      },
+      "Monthly_Single": {
+        "192": {
+          "percent": 0,
+          "plus": 0,
+          "withheld": 0
+        },
+        "960": {
+          "percent": 10,
+          "plus": 0,
+          "withheld": 192
+        },
+        "3313": {
+          "percent": 15,
+          "plus": 76.8,
+          "withheld": 960
+        },
+        "7754": {
+          "percent": 25,
+          "plus": 429.75,
+          "withheld": 3313
+        },
+        "15967": {
+          "percent": 28,
+          "plus": 1540,
+          "withheld": 7754
+        },
+        "34483": {
+          "percent": 33,
+          "plus": 3839.64,
+          "withheld": 15967
+        },
+        "34625": {
+          "percent": 35,
+          "plus": 9949.92,
+          "withheld": 34483
+        },
+        "max": {
+          "percent": 39.6,
+          "plus": 4999.96,
+          "withheld": 34625
+        }
+      },
+      "Quarterly_Married": {
+        "2150": {
+          "percent": 0,
+          "plus": 0,
+          "withheld": 0
+        },
+        "6763": {
+          "percent": 10,
+          "plus": 0,
+          "withheld": 2150
+        },
+        "20875": {
+          "percent": 15,
+          "plus": 461.3,
+          "withheld": 6763
+        },
+        "39950": {
+          "percent": 25,
+          "plus": 2578.1,
+          "withheld": 20875
+        },
+        "59763": {
+          "percent": 28,
+          "plus": 47346.85,
+          "withheld": 39950
+        },
+        "105025": {
+          "percent": 33,
+          "plus": 12894.49,
+          "withheld": 59763
+        },
+        "118363": {
+          "percent": 35,
+          "plus": 27830.95,
+          "withheld": 105025
+        },
+        "max": {
+          "percent": 39.6,
+          "plus": 32499.25,
+          "withheld": 118363
+        }
+      },
+      "Quarterly_Single": {
+        "575": {
+          "percent": 0,
+          "plus": 0,
+          "withheld": 0
+        },
+        "2881": {
+          "percent": 10,
+          "plus": 0,
+          "withheld": 575
+        },
+        "9938": {
+          "percent": 15,
+          "plus": 230.6,
+          "withheld": 2881
+        },
+        "23263": {
+          "percent": 25,
+          "plus": 1289.15,
+          "withheld": 9938
+        },
+        "47900": {
+          "percent": 28,
+          "plus": 4620.4,
+          "withheld": 23263
+        },
+        "103450": {
+          "percent": 33,
+          "plus": 11518.76,
+          "withheld": 47900
+        },
+        "103875": {
+          "percent": 35,
+          "plus": 29850.26,
+          "withheld": 103450
+        },
+        "max": {
+          "percent": 39.6,
+          "plus": 29999.01,
+          "withheld": 103875
+        }
+      },
+      "Semiannual_Married": {
+        "4300": {
+          "percent": 0,
+          "plus": 0,
+          "withheld": 0
+        },
+        "13525": {
+          "percent": 10,
+          "plus": 0,
+          "withheld": 4300
+        },
+        "41750": {
+          "percent": 15,
+          "plus": 922.5,
+          "withheld": 13525
+        },
+        "79900": {
+          "percent": 25,
+          "plus": 5156.25,
+          "withheld": 41750
+        },
+        "119525": {
+          "percent": 28,
+          "plus": 14693.75,
+          "withheld": 79900
+        },
+        "210050": {
+          "percent": 33,
+          "plus": 25788.75,
+          "withheld": 119525
+        },
+        "236725": {
+          "percent": 35,
+          "plus": 55662,
+          "withheld": 210050
+        },
+        "max": {
+          "percent": 39.6,
+          "plus": 46998.25,
+          "withheld": 236725
+        }
+      },
+      "Semiannual_Single": {
+        "1150": {
+          "percent": 0,
+          "plus": 0,
+          "withheld": 0
+        },
+        "5763": {
+          "percent": 10,
+          "plus": 0,
+          "withheld": 1150
+        },
+        "19875": {
+          "percent": 15,
+          "plus": 461.3,
+          "withheld": 5763
+        },
+        "46525": {
+          "percent": 25,
+          "plus": 2578.1,
+          "withheld": 19875
+        },
+        "95800": {
+          "percent": 28,
+          "plus": 9240.6,
+          "withheld": 46525
+        },
+        "206900": {
+          "percent": 33,
+          "plus": 23037.6,
+          "withheld": 95800
+        },
+        "207750": {
+          "percent": 35,
+          "plus": 59700.6,
+          "withheld": 206900
+        },
+        "max": {
+          "percent": 39.6,
+          "plus": 4999.96,
+          "withheld": 207750
+        }
+      },
+      "Semimonthly_Married": {
+        "358": {
+          "percent": 0,
+          "plus": 0,
+          "withheld": 0
+        },
+        "1127": {
+          "percent": 10,
+          "plus": 0,
+          "withheld": 358
+        },
+        "3479": {
+          "percent": 15,
+          "plus": 76.9,
+          "withheld": 1127
+        },
+        "6658": {
+          "percent": 25,
+          "plus": 429.7,
+          "withheld": 3479
+        },
+        "9960": {
+          "percent": 28,
+          "plus": 1224.45,
+          "withheld": 6658
+        },
+        "17504": {
+          "percent": 33,
+          "plus": 2149.01,
+          "withheld": 9960
+        },
+        "19727": {
+          "percent": 35,
+          "plus": 4638.53,
+          "withheld": 17504
+        },
+        "max": {
+          "percent": 39.6,
+          "plus": 5416.58,
+          "withheld": 19727
+        }
+      },
+      "Semimonthly_Single": {
+        "96": {
+          "percent": 0,
+          "plus": 0,
+          "withheld": 0
+        },
+        "480": {
+          "percent": 10,
+          "plus": 0,
+          "withheld": 96
+        },
+        "1656": {
+          "percent": 15,
+          "plus": 38.4,
+          "withheld": 480
+        },
+        "3877": {
+          "percent": 25,
+          "plus": 214.8,
+          "withheld": 1656
+        },
+        "7983": {
+          "percent": 28,
+          "plus": 770.05,
+          "withheld": 3877
+        },
+        "17242": {
+          "percent": 33,
+          "plus": 1919.73,
+          "withheld": 7983
+        },
+        "17313": {
+          "percent": 35,
+          "plus": 4975.5,
+          "withheld": 17242
+        },
+        "max": {
+          "percent": 39.6,
+          "plus": 5000.05,
+          "withheld": 17313
+        }
+      },
+      "Weekly_Married": {
+        "165": {
+          "percent": 0,
+          "plus": 0,
+          "withheld": 0
+        },
+        "520": {
+          "percent": 10,
+          "plus": 0,
+          "withheld": 165
+        },
+        "1606": {
+          "percent": 15,
+          "plus": 35.5,
+          "withheld": 520
+        },
+        "3073": {
+          "percent": 25,
+          "plus": 168.4,
+          "withheld": 1606
+        },
+        "4597": {
+          "percent": 28,
+          "plus": 565.15,
+          "withheld": 3073
+        },
+        "8079": {
+          "percent": 33,
+          "plus": 991.87,
+          "withheld": 4597
+        },
+        "9105": {
+          "percent": 35,
+          "plus": 2140.93,
+          "withheld": 8079
+        },
+        "max": {
+          "percent": 39.6,
+          "plus": 2500.03,
+          "withheld": 9105
+        }
+      },
+      "Weekly_Single": {
+        "44": {
+          "percent": 0,
+          "plus": 0,
+          "withheld": 0
+        },
+        "222": {
+          "percent": 10,
+          "plus": 0,
+          "withheld": 44
+        },
+        "764": {
+          "percent": 15,
+          "plus": 17.8,
+          "withheld": 222
+        },
+        "1789": {
+          "percent": 25,
+          "plus": 99.1,
+          "withheld": 764
+        },
+        "3685": {
+          "percent": 28,
+          "plus": 355.35,
+          "withheld": 1789
+        },
+        "7958": {
+          "percent": 33,
+          "plus": 886.23,
+          "withheld": 3685
+        },
+        "7990": {
+          "percent": 35,
+          "plus": 2296.32,
+          "withheld": 7958
+        },
+        "max": {
+          "percent": 39.6,
+          "plus": 2307.52,
+          "withheld": 7990
+        }
+      }
+    }
+  }
+}
