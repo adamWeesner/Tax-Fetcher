@@ -1,4 +1,4 @@
-package weesner.taxfetcher;
+package weesner.tax_fetcher;
 
 import android.content.Context;
 
@@ -11,16 +11,15 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 /**
- * Created by alwee on 9/26/2016.
+ * Created by alwee on 10/3/2016.
  */
 
-public class Utility {
+public class TaxFetcher {
     // the file names in assets folder to be used in retrieving values
     public static final String MEDICARE = "medicare";
     public static final String SOCIAL_SECURITY = "socialSecurity";
     public static final String ALLOWANCES = "allowances";
     public static final String FEDERAL_INCOME_TAX = "federalIncomeTax";
-
     // English constants for retrieving allowances
     public static final String PERIOD_TYPE_WEEKLY = "Weekly";
     public static final String PERIOD_TYPE_BIWEEKLY = "Biweekly";
@@ -30,10 +29,10 @@ public class Utility {
     public static final String PERIOD_TYPE_SEMIANNUAL = "Semiannual";
     public static final String PERIOD_TYPE_ANNUAL = "Annual";
     public static final String PERIOD_TYPE_DAILY = "Daily";
-
     // constants for married and single for
     public static final String MARITAL_STATUS_SINGLE = "Single";
     public static final String MARITAL_STATUS_MARRIED = "Married";
+    private static final String LOG_TAX_FETCHER = "Tax Fetcher";
 
     /**
      * A helper function to retrieve the JSON file from the assets folder
