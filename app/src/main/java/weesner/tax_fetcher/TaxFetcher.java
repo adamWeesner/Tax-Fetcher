@@ -1,6 +1,7 @@
 package weesner.tax_fetcher;
 
 import android.content.Context;
+import android.util.Log;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -71,11 +72,13 @@ public class TaxFetcher {
         if (type.equals(MEDICARE) || type.equals(SOCIAL_SECURITY)) {
             try {
                 JSONObject ficaObject = loadJSONFromAsset(context, type + ".json");
-                JSONArray ficaItems = ficaObject.getJSONArray(type);
+                JSONObject ficaItems = ficaObject.getJSONObject(type);
+                ficaValue = ficaItems.getDouble(year);
+               /* JSONArray ficaItems = ficaObject.getJSONArray(type);
                 for (int i = 0; i < ficaItems.length(); i++) {
                     if (ficaItems.get(i).equals(year))
                         ficaValue = ficaItems.getDouble(i);
-                }
+                }*/
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -144,7 +147,10 @@ public class TaxFetcher {
                 periodType.equals(PERIOD_TYPE_ANNUAL) || periodType.equals(PERIOD_TYPE_DAILY)) {
             try {
                 JSONObject allowancesObject = loadJSONFromAsset(context, ALLOWANCES + ".json");
-                JSONArray allowanceItems = allowancesObject.getJSONArray(ALLOWANCES);
+                JSONObject allowanceObject = allowancesObject.getJSONObject(ALLOWANCES);
+                JSONObject allowanceItems = allowanceObject.getJSONObject(year);
+                allowanceCost = allowanceItems.getDouble(periodType);
+                /*JSONArray allowanceItems = allowancesObject.getJSONArray(ALLOWANCES);
                 for (int i = 0; i > allowanceItems.length(); i++) {
                     if (allowanceItems.get(i).equals(year)) {
                         JSONArray allowanceTypes = allowanceItems.getJSONArray(i);
@@ -154,7 +160,7 @@ public class TaxFetcher {
                             }
                         }
                     }
-                }
+                }*/
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -206,10 +212,46 @@ public class TaxFetcher {
      * @return the amount of Federal Income Tax
      */
     public static double getFederalIncomeTax(Context context, double checkAmount, String maritalStatus, String periodType, int allowances, String year) {
+        Log.i(LOG_TAX_FETCHER, "Federal Income Tax started...");
         double fitCost = 0;
         double canBeTaxed = checkAmount - getTotalAllowancesCost(context, periodType, allowances, year);
+        Log.i(LOG_TAX_FETCHER, "Federal Income Tax, can be taxed: " + canBeTaxed);
+        Log.i(LOG_TAX_FETCHER, "Federal Income Tax, will look in \'" + periodType + "_" + maritalStatus + "\'");
         try {
             JSONObject federalIncomeTaxObject = loadJSONFromAsset(context, FEDERAL_INCOME_TAX + ".json");
+            JSONObject fitItems = federalIncomeTaxObject.getJSONObject(FEDERAL_INCOME_TAX);
+            JSONObject fitItemsForYear = fitItems.getJSONObject(year);
+            JSONArray fitItemForTypeAndStatus = fitItemsForYear.getJSONArray(periodType + "_" + maritalStatus);
+            Log.d("test", "type and status length: " + fitItemForTypeAndStatus.length());
+            boolean needValue = true;
+            for (int k = 0; k < fitItemForTypeAndStatus.length(); k++) {
+                try {
+                    JSONObject fitQualifiers = fitItemForTypeAndStatus.getJSONObject(k);
+                    if (canBeTaxed <= stringToDouble(fitQualifiers.getString("noMoreThan"))) {
+                        if (needValue) {
+                            needValue = false;
+                            double plus = fitQualifiers.getDouble("plus");
+                            double percent = fitQualifiers.getDouble("percent") / 100;
+                            double withheld = fitQualifiers.getDouble("withheld");
+                            fitCost = (canBeTaxed - withheld) * percent + plus;
+                            Log.i(LOG_TAX_FETCHER, "Federal Income Tax cost: " + fitCost);
+                        }
+                    }
+                } catch (NumberFormatException nfe) {
+                    if (needValue) {
+                        needValue = false;
+                        if (nfe.getMessage().equals("Invalid double: \"max\"")) {
+                            JSONObject fitQualifiers = fitItemForTypeAndStatus.getJSONObject(k);
+                            double plus = fitQualifiers.getDouble("plus");
+                            double percent = fitQualifiers.getDouble("percent") / 100;
+                            double withheld = fitQualifiers.getDouble("withheld");
+                            fitCost = (canBeTaxed - withheld) * percent + plus;
+                            Log.i(LOG_TAX_FETCHER, "Federal Income Tax cost from NumberFormatException: " + fitCost);
+                        }
+                    }
+                }
+            }
+            /*
             JSONArray fitItems = federalIncomeTaxObject.getJSONArray(FEDERAL_INCOME_TAX);
             for (int i = 0; i < fitItems.length(); i++) {
                 if (fitItems.get(i).equals(year)) {
@@ -227,9 +269,11 @@ public class TaxFetcher {
                                             double percent = fitQualifiers.getDouble("percent") / 100;
                                             double withheld = fitQualifiers.getDouble("withheld");
                                             fitCost = plus + percent * (canBeTaxed - withheld);
+                                            Log.i(LOG_TAX_FETCHER, "Federal Income Tax cost: " + fitCost);
                                         }
                                     }
                                 } catch (NumberFormatException nfe) {
+                                    Log.i(LOG_TAX_FETCHER, "Federal Income Tax, Number Format Exception caught...");
                                     if (needValue) {
                                         needValue = false;
                                         if (nfe.getMessage().equals("Invalid double: \"max\"")) {
@@ -238,6 +282,7 @@ public class TaxFetcher {
                                             double percent = fitQualifiers.getDouble("percent") / 100;
                                             double withheld = fitQualifiers.getDouble("withheld");
                                             fitCost = plus + percent * (canBeTaxed - withheld);
+                                            Log.i(LOG_TAX_FETCHER, "Federal Income Tax cost: " + fitCost);
                                         }
                                     }
                                 }
@@ -245,19 +290,32 @@ public class TaxFetcher {
                         }
                     }
                 }
-            }
+            }*/
         } catch (JSONException e) {
             e.printStackTrace();
+            Log.i(LOG_TAX_FETCHER, "Federal Income Tax failed with error: " + e.getMessage());
         }
         return fitCost;
     }
 
+    /**
+     * function to get the amount of Federal Income Tax to be taken out of ones check
+     *
+     * @param context       used to retrieve resources from the assets folder
+     * @param checkAmount   the gross amount to figure out how much Federal Income Tax will be taken out
+     * @param maritalStatus ones marital status needs to be equal to one of the constants starting with MARITAL_STATUS_
+     * @param periodType    needs to be an English constant provided starting with PERIOD_TYPE_
+     * @param allowances    amount of allowances one has entered, can be 0 - 10 any other number will throw error
+     * @param year          has to be 4 digit format eg: 2016
+     * @return the amount of Federal Income Tax
+     */
+    public static double getFederalIncomeTax(Context context, double checkAmount, String maritalStatus, String periodType, int allowances, int year) {
+        return getFederalIncomeTax(context, checkAmount, maritalStatus, periodType, allowances, String.valueOf(year));
+    }
+
+
     private static double stringToDouble(String value) {
-        if (value.contains(",")) {
-            value = value.replace(",", ".");
-            return Double.parseDouble(value);
-        } else {
-            return Double.parseDouble(value);
-        }
+        return Double.parseDouble(value);
     }
 }
+
