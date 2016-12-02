@@ -1,6 +1,7 @@
 package weesner.tax_fetcher;
 
 import android.content.Context;
+import android.util.Log;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -103,11 +104,27 @@ public class TaxFetcher {
         return getMedicare(context, String.valueOf(year));
     }
 
-    public static double getMedicareTax(Context context, double checkAmount, String year) {
-        return checkAmount * (getMedicare(context, year) / 100);
+    /**
+     * helper function to get the total amount that will be taken out of ones check for Medicare
+     *
+     * @param context used to retrieve resources from the assets folder
+     * @param checkAmount  the gross amount of ones check needed to figure out how much gets taxed
+     * @param year    has to be 4 digit format eg: 2016
+     * @return the percentage of ones check that is taken out by social security
+     */
+    public static double getMedicareTax(Context context, double checkAmount, String year){
+        return checkAmount * (getMedicare(context, year)/100);
     }
 
-    public static double getMedicareTax(Context context, double checkAmount, int year) {
+    /**
+     * helper function to get the total amount that will be taken out of ones check for Medicare
+     *
+     * @param context used to retrieve resources from the assets folder
+     * @param checkAmount  the gross amount of ones check needed to figure out how much gets taxed
+     * @param year    has to be 4 digit format eg: 2016
+     * @return the percentage of ones check that is taken out by social security
+     */
+    public static double getMedicareTax(Context context, double checkAmount, int year){
         return getMedicareTax(context, checkAmount, String.valueOf(year));
     }
 
@@ -133,11 +150,27 @@ public class TaxFetcher {
         return getSocialSecurity(context, String.valueOf(year));
     }
 
-    public static double getSocialSecurityTax(Context context, double checkAmount, String year) {
-        return checkAmount * (getSocialSecurity(context, year) / 100);
+    /**
+     * helper function to get the total amount that will be taken out of ones check for Social Security
+     *
+     * @param context used to retrieve resources from the assets folder
+     * @param checkAmount  the gross amount of ones check needed to figure out how much gets taxed
+     * @param year    has to be 4 digit format eg: 2016
+     * @return the percentage of ones check that is taken out by social security
+     */
+    public static double getSocialSecurityTax(Context context, double checkAmount, String year){
+        return checkAmount * (getSocialSecurity(context, year)/100);
     }
 
-    public static double getSocialSecurityTax(Context context, double checkAmount, int year) {
+    /**
+     * helper function to get the total amount that will be taken out of ones check for Social Security
+     *
+     * @param context used to retrieve resources from the assets folder
+     * @param checkAmount  the gross amount of ones check needed to figure out how much gets taxed
+     * @param year    has to be 4 digit format eg: 2016
+     * @return the percentage of ones check that is taken out by social security
+     */
+    public static double getSocialSecurityTax(Context context, double checkAmount, int year){
         return getSocialSecurityTax(context, checkAmount, String.valueOf(year));
     }
 
@@ -198,11 +231,31 @@ public class TaxFetcher {
         }
     }
 
-    public static double getCanBeTaxedAmount(Context context, String periodType, double checkAmount, int allowances, String year) {
+    /**
+     * function that gets the total amount of ones check that can be taxed
+     *
+     * @param context    used to retrieve resources from the assets folder
+     * @param periodType needs to be an English constant provided starting with PERIOD_TYPE_
+     * @param checkAmount  the gross amount of ones check needed to figure out how much of it can be taxed
+     * @param allowances amount of allowances one has entered, can be 0 - 10 any other number will throw error
+     * @param year       has to be 4 digit format eg: 2016
+     * @return total cost of all allowances
+     */
+    public static double getCanBeTaxedAmount(Context context, String periodType, double checkAmount, int allowances, String year){
         return checkAmount - getTotalAllowancesCost(context, periodType, allowances, year);
     }
 
-    public static double getCanBeTaxedAmount(Context context, String periodType, double checkAmount, int allowances, int year) {
+    /**
+     * function that gets the total amount of ones check that can be taxed
+     *
+     * @param context    used to retrieve resources from the assets folder
+     * @param periodType needs to be an English constant provided starting with PERIOD_TYPE_
+     * @param checkAmount  the gross amount of ones check needed to figure out how much of it can be taxed
+     * @param allowances amount of allowances one has entered, can be 0 - 10 any other number will throw error
+     * @param year       has to be 4 digit format eg: 2016
+     * @return total cost of all allowances
+     */
+    public static double getCanBeTaxedAmount(Context context, String periodType, double checkAmount, int allowances, int year){
         return getCanBeTaxedAmount(context, periodType, checkAmount, allowances, String.valueOf(year));
     }
 
@@ -271,7 +324,6 @@ public class TaxFetcher {
     public static double getFederalIncomeTax(Context context, double checkAmount, String maritalStatus, String periodType, int allowances, int year) {
         return getFederalIncomeTax(context, checkAmount, maritalStatus, periodType, allowances, String.valueOf(year));
     }
-
 
     private static double stringToDouble(String value) {
         return Double.parseDouble(value);
