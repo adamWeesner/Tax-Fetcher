@@ -1,7 +1,6 @@
 package weesner.tax_fetcher;
 
 import android.content.Context;
-import android.util.Log;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -30,7 +29,7 @@ public class TaxFetcher {
     public static final String PERIOD_TYPE_SEMIANNUAL = "Semiannual";
     public static final String PERIOD_TYPE_ANNUAL = "Annual";
     public static final String PERIOD_TYPE_DAILY = "Daily";
-    // constants for married and single for
+    // English constants for married and single
     public static final String MARITAL_STATUS_SINGLE = "Single";
     public static final String MARITAL_STATUS_MARRIED = "Married";
 
@@ -104,6 +103,14 @@ public class TaxFetcher {
         return getMedicare(context, String.valueOf(year));
     }
 
+    public static double getMedicareTax(Context context, double checkAmount, String year) {
+        return checkAmount * (getMedicare(context, year) / 100);
+    }
+
+    public static double getMedicareTax(Context context, double checkAmount, int year) {
+        return getMedicareTax(context, checkAmount, String.valueOf(year));
+    }
+
     /**
      * helper function to get socialSecurity.json using only year qualifier
      *
@@ -124,6 +131,14 @@ public class TaxFetcher {
      */
     public static double getSocialSecurity(Context context, int year) {
         return getSocialSecurity(context, String.valueOf(year));
+    }
+
+    public static double getSocialSecurityTax(Context context, double checkAmount, String year) {
+        return checkAmount * (getSocialSecurity(context, year) / 100);
+    }
+
+    public static double getSocialSecurityTax(Context context, double checkAmount, int year) {
+        return getSocialSecurityTax(context, checkAmount, String.valueOf(year));
     }
 
     /**
@@ -181,6 +196,14 @@ public class TaxFetcher {
         } else {
             throw new IllegalArgumentException("The amount of allowances cannot exceed 10");
         }
+    }
+
+    public static double getCanBeTaxedAmount(Context context, String periodType, double checkAmount, int allowances, String year) {
+        return checkAmount - getTotalAllowancesCost(context, periodType, allowances, year);
+    }
+
+    public static double getCanBeTaxedAmount(Context context, String periodType, double checkAmount, int allowances, int year) {
+        return getCanBeTaxedAmount(context, periodType, checkAmount, allowances, String.valueOf(year));
     }
 
     /**
