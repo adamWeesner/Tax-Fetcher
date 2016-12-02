@@ -13,7 +13,7 @@ ext {
     siteUrl = 'https://github.com/adamWeesner/Tax-Fetcher'
     gitUrl = 'https://github.com/adamWeesner/Tax-Fetcher.git'
 
-    libraryVersion = '1.0.1'
+    libraryVersion = '1.0.3'
 
     developerId = 'alweesner'
     developerName = 'Adam Weesner'
@@ -32,7 +32,7 @@ android {
         minSdkVersion 14
         targetSdkVersion 24
         versionCode 1
-        versionName "1.0.1"
+        versionName "1.0.3"
     }
     buildTypes {
         release {

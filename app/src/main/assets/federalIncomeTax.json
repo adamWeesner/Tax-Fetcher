@@ -1,1352 +1,1608 @@
 {
   "federalIncomeTax": {
     "2015": {
-      "Annual_Married": {
-        "8600": {
+      "Annual_Married": [
+        {
+          "noMoreThan": "8600",
           "percent": 0,
           "plus": 0,
           "withheld": 0
         },
-        "27050": {
+        {
+          "noMoreThan": "27050",
           "percent": 10,
           "plus": 0,
           "withheld": 8600
         },
-        "83500": {
+        {
+          "noMoreThan": "83500",
           "percent": 15,
           "plus": 1845,
           "withheld": 27050
         },
-        "159800": {
+        {
+          "noMoreThan": "159800",
           "percent": 25,
           "plus": 10312.5,
           "withheld": 83500
         },
-        "239050": {
+        {
+          "noMoreThan": "239050",
           "percent": 28,
           "plus": 29387.5,
           "withheld": 159800
         },
-        "420100": {
+        {
+          "noMoreThan": "420100",
           "percent": 33,
           "plus": 51577.5,
           "withheld": 239050
         },
-        "473450": {
+        {
+          "noMoreThan": "473450",
           "percent": 35,
           "plus": 111324,
           "withheld": 420100
         },
-        "max": {
+        {
+          "noMoreThan": "max",
           "percent": 39.6,
           "plus": 129996.5,
           "withheld": 473450
         }
-      },
-      "Annual_Single": {
-        "2300": {
+      ],
+      "Annual_Single": [
+        {
+          "noMoreThan": "2300",
           "percent": 0,
           "plus": 0,
           "withheld": 0
         },
-        "11525": {
+        {
+          "noMoreThan": "11525",
           "percent": 10,
           "plus": 0,
           "withheld": 2300
         },
-        "36750": {
+        {
+          "noMoreThan": "36750",
           "percent": 15,
           "plus": 922.5,
           "withheld": 11525
         },
-        "93050": {
+        {
+          "noMoreThan": "93050",
           "percent": 25,
           "plus": 5156.25,
           "withheld": 36750
         },
-        "191600": {
+        {
+          "noMoreThan": "191600",
           "percent": 28,
           "plus": 18481.25,
           "withheld": 93050
         },
-        "413800": {
+        {
+          "noMoreThan": "413800",
           "percent": 33,
           "plus": 46075.25,
           "withheld": 191600
         },
-        "415500": {
+        {
+          "noMoreThan": "415500",
           "percent": 35,
           "plus": 119401.25,
           "withheld": 413800
         },
-        "max": {
+        {
+          "noMoreThan": "max",
           "percent": 39.6,
           "plus": 119996.25,
           "withheld": 415500
         }
-      },
-      "Biweekly_Married": {
-        "331": {
+      ],
+      "Biweekly_Married": [
+        {
+          "noMoreThan": "331",
           "percent": 0,
           "plus": 0,
           "withheld": 0
         },
-        "1040": {
+        {
+          "noMoreThan": "1040",
           "percent": 10,
           "plus": 0,
           "withheld": 331
         },
-        "3212": {
+        {
+          "noMoreThan": "3212",
           "percent": 15,
           "plus": 70.5,
           "withheld": 1040
         },
-        "6146": {
+        {
+          "noMoreThan": "6146",
           "percent": 25,
           "plus": 396.7,
           "withheld": 3212
         },
-        "9194": {
+        {
+          "noMoreThan": "9194",
           "percent": 28,
           "plus": 1130.2,
           "withheld": 6146
         },
-        "16158": {
+        {
+          "noMoreThan": "16158",
           "percent": 33,
           "plus": 1983.64,
           "withheld": 9194
         },
-        "18210": {
+        {
+          "noMoreThan": "18210",
           "percent": 35,
           "plus": 4281.76,
           "withheld": 16158
         },
-        "max": {
+        {
+          "noMoreThan": "max",
           "percent": 39.6,
           "plus": 4999.96,
           "withheld": 18210
         }
-      },
-      "Biweekly_Single": {
-        "88": {
+      ],
+      "Biweekly_Single": [
+        {
+          "noMoreThan": "88",
           "percent": 0,
           "plus": 0,
           "withheld": 0
         },
-        "443": {
+        {
+          "noMoreThan": "443",
           "percent": 10,
           "plus": 0,
           "withheld": 88
         },
-        "1529": {
+        {
+          "noMoreThan": "1529",
           "percent": 15,
           "plus": 35.5,
           "withheld": 443
         },
-        "3579": {
+        {
+          "noMoreThan": "3579",
           "percent": 25,
           "plus": 198.4,
           "withheld": 1529
         },
-        "7369": {
+        {
+          "noMoreThan": "7369",
           "percent": 28,
           "plus": 710.9,
           "withheld": 3579
         },
-        "15915": {
+        {
+          "noMoreThan": "15915",
           "percent": 33,
           "plus": 1772.1,
           "withheld": 7369
         },
-        "15981": {
+        {
+          "noMoreThan": "15981",
           "percent": 35,
           "plus": 4592.28,
           "withheld": 15915
         },
-        "max": {
+        {
+          "noMoreThan": "max",
           "percent": 39.6,
           "plus": 4615.38,
           "withheld": 15981
         }
-      },
-      "Daily_Married": {
-        "104": {
+      ],
+      "Daily_Married": [
+        {
+          "noMoreThan": "104",
           "percent": 10,
           "plus": 0,
           "withheld": 33.1
         },
-        "1821": {
+        {
+          "noMoreThan": "1821",
           "percent": 35,
           "plus": 428.17,
           "withheld": 1615.8
         },
-        "1615,80": {
+        {
+          "noMoreThan": "1615.80",
           "percent": 33,
           "plus": 198.36,
           "withheld": 919.4
         },
-        "321,20": {
+        {
+          "noMoreThan": "321.20",
           "percent": 15,
           "plus": 7.09,
           "withheld": 104
         },
-        "33,10": {
+        {
+          "noMoreThan": "33.10",
           "percent": 0,
           "plus": 0,
           "withheld": 0
         },
-        "614,60": {
+        {
+          "noMoreThan": "614.60",
           "percent": 25,
           "plus": 39.67,
           "withheld": 321.2
         },
-        "919,40": {
+        {
+          "noMoreThan": "919.40",
           "percent": 28,
           "plus": 113.02,
           "withheld": 614.6
         },
-        "max": {
+        {
+          "noMoreThan": "max",
           "percent": 39.6,
           "plus": 499.99,
           "withheld": 1821
         }
-      },
-      "Daily_Single": {
-        "152,90": {
+      ],
+      "Daily_Single": [
+        {
+          "noMoreThan": "152.9",
           "percent": 15,
           "plus": 3.55,
           "withheld": 44.3
         },
-        "1591,50": {
+        {
+          "noMoreThan": "1591.5",
           "percent": 33,
           "plus": 177.21,
           "withheld": 736.9
         },
-        "1598,10": {
+        {
+          "noMoreThan": "1598.1",
           "percent": 35,
           "plus": 459.23,
           "withheld": 1591.5
         },
-        "357,90": {
+        {
+          "noMoreThan": "357.9",
           "percent": 25,
           "plus": 19.84,
           "withheld": 152.9
         },
-        "44,30": {
+        {
+          "noMoreThan": "44.3",
           "percent": 10,
           "plus": 0,
           "withheld": 8.8
         },
-        "736,90": {
+        {
+          "noMoreThan": "736.9",
           "percent": 28,
           "plus": 71.09,
           "withheld": 357.9
         },
-        "8,80": {
+        {
+          "noMoreThan": "8.8",
           "percent": 0,
           "plus": 0,
           "withheld": 0
         },
-        "max": {
+        {
+          "noMoreThan": "max",
           "percent": 39.6,
           "plus": 461.54,
           "withheld": 1598.1
         }
-      },
-      "Monthly_Married": {
-        "717": {
+      ],
+      "Monthly_Married": [
+        {
+          "noMoreThan": "717",
           "percent": 0,
           "plus": 0,
           "withheld": 0
         },
-        "2254": {
+        {
+          "noMoreThan": "2254",
           "percent": 10,
           "plus": 0,
           "withheld": 717
         },
-        "6958": {
+        {
+          "noMoreThan": "6958",
           "percent": 15,
           "plus": 153.7,
           "withheld": 2254
         },
-        "13317": {
+        {
+          "noMoreThan": "13317",
           "percent": 25,
           "plus": 859.3,
           "withheld": 6958
         },
-        "19921": {
+        {
+          "noMoreThan": "19921",
           "percent": 28,
           "plus": 2449.05,
           "withheld": 13317
         },
-        "35008": {
+        {
+          "noMoreThan": "35008",
           "percent": 33,
           "plus": 4298.17,
           "withheld": 19921
         },
-        "39454": {
+        {
+          "noMoreThan": "39454",
           "percent": 35,
           "plus": 9276.88,
           "withheld": 35008
         },
-        "max": {
+        {
+          "noMoreThan": "max",
           "percent": 39.6,
           "plus": 10832.98,
           "withheld": 39454
         }
-      },
-      "Monthly_Single": {
-        "192": {
+      ],
+      "Monthly_Single": [
+        {
+          "noMoreThan": "192",
           "percent": 0,
           "plus": 0,
           "withheld": 0
         },
-        "960": {
+        {
+          "noMoreThan": "960",
           "percent": 10,
           "plus": 0,
           "withheld": 192
         },
-        "3313": {
+        {
+          "noMoreThan": "3313",
           "percent": 15,
           "plus": 76.8,
           "withheld": 960
         },
-        "7754": {
+        {
+          "noMoreThan": "7754",
           "percent": 25,
           "plus": 429.75,
           "withheld": 3313
         },
-        "15967": {
+        {
+          "noMoreThan": "15967",
           "percent": 28,
           "plus": 1540,
           "withheld": 7754
         },
-        "34483": {
+        {
+          "noMoreThan": "34483",
           "percent": 33,
           "plus": 3839.64,
           "withheld": 15967
         },
-        "34625": {
+        {
+          "noMoreThan": "34625",
           "percent": 35,
           "plus": 9949.92,
           "withheld": 34483
         },
-        "max": {
+        {
+          "noMoreThan": "max",
           "percent": 39.6,
           "plus": 4999.96,
           "withheld": 34625
         }
-      },
-      "Quarterly_Married": {
-        "2150": {
+      ],
+      "Quarterly_Married": [
+        {
+          "noMoreThan": "2150",
           "percent": 0,
           "plus": 0,
           "withheld": 0
         },
-        "6763": {
+        {
+          "noMoreThan": "6763",
           "percent": 10,
           "plus": 0,
           "withheld": 2150
         },
-        "20875": {
+        {
+          "noMoreThan": "20875",
           "percent": 15,
           "plus": 461.3,
           "withheld": 6763
         },
-        "39950": {
+        {
+          "noMoreThan": "39950",
           "percent": 25,
           "plus": 2578.1,
           "withheld": 20875
         },
-        "59763": {
+        {
+          "noMoreThan": "59763",
           "percent": 28,
           "plus": 7346.85,
           "withheld": 39950
         },
-        "105025": {
+        {
+          "noMoreThan": "105025",
           "percent": 33,
           "plus": 12894.49,
           "withheld": 59763
         },
-        "118363": {
+        {
+          "noMoreThan": "118363",
           "percent": 35,
           "plus": 27830.95,
           "withheld": 105025
         },
-        "max": {
+        {
+          "noMoreThan": "max",
           "percent": 39.6,
           "plus": 32499.25,
           "withheld": 118363
         }
-      },
-      "Quarterly_Single": {
-        "575": {
+      ],
+      "Quarterly_Single": [
+        {
+          "noMoreThan": "575",
           "percent": 0,
           "plus": 0,
           "withheld": 0
         },
-        "2881": {
+        {
+          "noMoreThan": "2881",
           "percent": 10,
           "plus": 0,
           "withheld": 575
         },
-        "9938": {
+        {
+          "noMoreThan": "9938",
           "percent": 15,
           "plus": 230.6,
           "withheld": 2881
         },
-        "23263": {
+        {
+          "noMoreThan": "23263",
           "percent": 25,
           "plus": 1289.15,
           "withheld": 9938
         },
-        "47900": {
+        {
+          "noMoreThan": "47900",
           "percent": 28,
           "plus": 4620.4,
           "withheld": 23263
         },
-        "103450": {
+        {
+          "noMoreThan": "103450",
           "percent": 33,
           "plus": 11518.76,
           "withheld": 47900
         },
-        "103875": {
+        {
+          "noMoreThan": "103875",
           "percent": 35,
           "plus": 29850.26,
           "withheld": 103450
         },
-        "max": {
+        {
+          "noMoreThan": "max",
           "percent": 39.6,
           "plus": 29999.01,
           "withheld": 103875
         }
-      },
-      "Semiannual_Married": {
-        "4300": {
+      ],
+      "Semiannual_Married": [
+        {
+          "noMoreThan": "4300",
           "percent": 0,
           "plus": 0,
           "withheld": 0
         },
-        "13525": {
+        {
+          "noMoreThan": "13525",
           "percent": 10,
           "plus": 0,
           "withheld": 4300
         },
-        "41750": {
+        {
+          "noMoreThan": "41750",
           "percent": 15,
           "plus": 922.5,
           "withheld": 13525
         },
-        "79900": {
+        {
+          "noMoreThan": "79900",
           "percent": 25,
           "plus": 5156.25,
           "withheld": 41750
         },
-        "119525": {
+        {
+          "noMoreThan": "119525",
           "percent": 28,
           "plus": 14693.75,
           "withheld": 79900
         },
-        "210050": {
+        {
+          "noMoreThan": "210050",
           "percent": 33,
           "plus": 25788.75,
           "withheld": 119525
         },
-        "236725": {
+        {
+          "noMoreThan": "236725",
           "percent": 35,
           "plus": 55662,
           "withheld": 210050
         },
-        "max": {
+        {
+          "noMoreThan": "max",
           "percent": 39.6,
           "plus": 64998.25,
           "withheld": 236725
         }
-      },
-      "Semiannual_Single": {
-        "1150": {
+      ],
+      "Semiannual_Single": [
+        {
+          "noMoreThan": "1150",
           "percent": 0,
           "plus": 0,
           "withheld": 0
         },
-        "5763": {
+        {
+          "noMoreThan": "5763",
           "percent": 10,
           "plus": 0,
           "withheld": 1150
         },
-        "19875": {
+        {
+          "noMoreThan": "19875",
           "percent": 15,
           "plus": 461.3,
           "withheld": 5763
         },
-        "46525": {
+        {
+          "noMoreThan": "46525",
           "percent": 25,
           "plus": 2578.1,
           "withheld": 19875
         },
-        "95800": {
+        {
+          "noMoreThan": "95800",
           "percent": 28,
           "plus": 9240.6,
           "withheld": 46525
         },
-        "206900": {
+        {
+          "noMoreThan": "206900",
           "percent": 33,
           "plus": 23037.6,
           "withheld": 95800
         },
-        "207750": {
+        {
+          "noMoreThan": "207750",
           "percent": 35,
           "plus": 59700.6,
           "withheld": 206900
         },
-        "max": {
+        {
+          "noMoreThan": "max",
           "percent": 39.6,
           "plus": 4999.96,
           "withheld": 207750
         }
-      },
-      "Semimonthly_Married": {
-        "358": {
+      ],
+      "Semimonthly_Married": [
+        {
+          "noMoreThan": "358",
           "percent": 0,
           "plus": 0,
           "withheld": 0
         },
-        "1127": {
+        {
+          "noMoreThan": "1127",
           "percent": 10,
           "plus": 0,
           "withheld": 358
         },
-        "3479": {
+        {
+          "noMoreThan": "3479",
           "percent": 15,
           "plus": 76.9,
           "withheld": 1127
         },
-        "6658": {
+        {
+          "noMoreThan": "6658",
           "percent": 25,
           "plus": 429.7,
           "withheld": 3479
         },
-        "9960": {
+        {
+          "noMoreThan": "9960",
           "percent": 28,
           "plus": 1224.45,
           "withheld": 6658
         },
-        "17504": {
+        {
+          "noMoreThan": "17504",
           "percent": 33,
           "plus": 2149.01,
           "withheld": 9960
         },
-        "19727": {
+        {
+          "noMoreThan": "19727",
           "percent": 35,
           "plus": 4638.53,
           "withheld": 17504
         },
-        "max": {
+        {
+          "noMoreThan": "max",
           "percent": 39.6,
           "plus": 5416.58,
           "withheld": 19727
         }
-      },
-      "Semimonthly_Single": {
-        "96": {
+      ],
+      "Semimonthly_Single": [
+        {
+          "noMoreThan": "96",
           "percent": 0,
           "plus": 0,
           "withheld": 0
         },
-        "480": {
+        {
+          "noMoreThan": "480",
           "percent": 10,
           "plus": 0,
           "withheld": 96
         },
-        "1656": {
+        {
+          "noMoreThan": "1656",
           "percent": 15,
           "plus": 38.4,
           "withheld": 480
         },
-        "3877": {
+        {
+          "noMoreThan": "3877",
           "percent": 25,
           "plus": 214.8,
           "withheld": 1656
         },
-        "7983": {
+        {
+          "noMoreThan": "7983",
           "percent": 28,
           "plus": 770.05,
           "withheld": 3877
         },
-        "17242": {
+        {
+          "noMoreThan": "17242",
           "percent": 33,
           "plus": 1919.73,
           "withheld": 7983
         },
-        "17313": {
+        {
+          "noMoreThan": "17313",
           "percent": 35,
           "plus": 4975.2,
           "withheld": 17242
         },
-        "max": {
+        {
+          "noMoreThan": "max",
           "percent": 39.6,
           "plus": 5000.05,
           "withheld": 17313
         }
-      },
-      "Weekly_Married": {
-        "165": {
+      ],
+      "Weekly_Married": [
+        {
+          "noMoreThan": "165",
           "percent": 0,
           "plus": 0,
           "withheld": 0
         },
-        "520": {
+        {
+          "noMoreThan": "520",
           "percent": 10,
           "plus": 0,
           "withheld": 165
         },
-        "1606": {
+        {
+          "noMoreThan": "1606",
           "percent": 15,
           "plus": 35.5,
           "withheld": 520
         },
-        "3073": {
+        {
+          "noMoreThan": "3073",
           "percent": 25,
           "plus": 168.4,
           "withheld": 1606
         },
-        "4597": {
+        {
+          "noMoreThan": "4597",
           "percent": 28,
           "plus": 565.15,
           "withheld": 3073
         },
-        "8079": {
+        {
+          "noMoreThan": "8079",
           "percent": 33,
           "plus": 991.87,
           "withheld": 4597
         },
-        "9105": {
+        {
+          "noMoreThan": "9105",
           "percent": 35,
           "plus": 2140.93,
           "withheld": 8079
         },
-        "max": {
+        {
+          "noMoreThan": "max",
           "percent": 39.6,
           "plus": 2500.03,
           "withheld": 9105
         }
-      },
-      "Weekly_Single": {
-        "44": {
+      ],
+      "Weekly_Single": [
+        {
+          "noMoreThan": "44",
           "percent": 0,
           "plus": 0,
           "withheld": 0
         },
-        "222": {
+        {
+          "noMoreThan": "222",
           "percent": 10,
           "plus": 0,
           "withheld": 44
         },
-        "764": {
+        {
+          "noMoreThan": "764",
           "percent": 15,
           "plus": 17.8,
           "withheld": 222
         },
-        "1789": {
+        {
+          "noMoreThan": "1789",
           "percent": 25,
           "plus": 99.1,
           "withheld": 764
         },
-        "3685": {
+        {
+          "noMoreThan": "3685",
           "percent": 28,
           "plus": 355.35,
           "withheld": 1789
         },
-        "7958": {
+        {
+          "noMoreThan": "7958",
           "percent": 33,
           "plus": 886.23,
           "withheld": 3685
         },
-        "7990": {
+        {
+          "noMoreThan": "7990",
           "percent": 35,
           "plus": 2296.32,
           "withheld": 7958
         },
-        "max": {
+        {
+          "noMoreThan": "max",
           "percent": 39.6,
           "plus": 2307.52,
           "withheld": 7990
         }
-      }
+      ]
     },
     "2016": {
-      "Annual_Married": {
-        "8600": {
+      "Weekly_Single": [
+        {
+          "noMoreThan": "43",
           "percent": 0,
           "plus": 0,
           "withheld": 0
         },
-        "27050": {
+        {
+          "noMoreThan": "222",
           "percent": 10,
           "plus": 0,
-          "withheld": 8600
+          "withheld": 43
         },
-        "83500": {
+        {
+          "noMoreThan": "767",
           "percent": 15,
-          "plus": 1845,
-          "withheld": 27050
-        },
-        "159800": {
-          "percent": 25,
-          "plus": 10312.5,
-          "withheld": 83500
-        },
-        "239050": {
-          "percent": 28,
-          "plus": 29387.5,
-          "withheld": 159800
-        },
-        "420100": {
-          "percent": 33,
-          "plus": 51577.5,
-          "withheld": 239050
-        },
-        "473450": {
-          "percent": 35,
-          "plus": 111324,
-          "withheld": 420100
-        },
-        "max": {
-          "percent": 39.6,
-          "plus": 129996.5,
-          "withheld": 476450
-        }
-      },
-      "Annual_Single": {
-        "2300": {
-          "percent": 0,
-          "plus": 0,
-          "withheld": 0
-        },
-        "11525": {
-          "percent": 10,
-          "plus": 0,
-          "withheld": 2300
-        },
-        "36750": {
-          "percent": 15,
-          "plus": 922.5,
-          "withheld": 11525
-        },
-        "93050": {
-          "percent": 25,
-          "plus": 5156.25,
-          "withheld": 36750
-        },
-        "191600": {
-          "percent": 28,
-          "plus": 18481.25,
-          "withheld": 93050
-        },
-        "413800": {
-          "percent": 33,
-          "plus": 46075.25,
-          "withheld": 191600
-        },
-        "415500": {
-          "percent": 35,
-          "plus": 119401.25,
-          "withheld": 413800
-        },
-        "max": {
-          "percent": 39.6,
-          "plus": 119996.25,
-          "withheld": 415500
-        }
-      },
-      "Biweekly_Married": {
-        "331": {
-          "percent": 0,
-          "plus": 0,
-          "withheld": 0
-        },
-        "1040": {
-          "percent": 10,
-          "plus": 0,
-          "withheld": 331
-        },
-        "3212": {
-          "percent": 15,
-          "plus": 70.5,
-          "withheld": 1040
-        },
-        "6146": {
-          "percent": 25,
-          "plus": 396.7,
-          "withheld": 3212
-        },
-        "9194": {
-          "percent": 28,
-          "plus": 1130.2,
-          "withheld": 6146
-        },
-        "16158": {
-          "percent": 33,
-          "plus": 1983.64,
-          "withheld": 9194
-        },
-        "18210": {
-          "percent": 35,
-          "plus": 4281.76,
-          "withheld": 16158
-        },
-        "max": {
-          "percent": 39.6,
-          "plus": 4999.96,
-          "withheld": 18210
-        }
-      },
-      "Biweekly_Single": {
-        "88": {
-          "percent": 0,
-          "plus": 0,
-          "withheld": 0
-        },
-        "443": {
-          "percent": 10,
-          "plus": 0,
-          "withheld": 88
-        },
-        "1529": {
-          "percent": 15,
-          "plus": 35.5,
-          "withheld": 443
-        },
-        "3579": {
-          "percent": 25,
-          "plus": 198.4,
-          "withheld": 1529
-        },
-        "7369": {
-          "percent": 28,
-          "plus": 710.9,
-          "withheld": 3579
-        },
-        "15915": {
-          "percent": 33,
-          "plus": 1772.1,
-          "withheld": 7369
-        },
-        "15981": {
-          "percent": 35,
-          "plus": 4592.28,
-          "withheld": 15915
-        },
-        "max": {
-          "percent": 39.6,
-          "plus": 4615.38,
-          "withheld": 15981
-        }
-      },
-      "Daily_Married": {
-        "104": {
-          "percent": 10,
-          "plus": 0,
-          "withheld": 33.1
-        },
-        "1821": {
-          "percent": 35,
-          "plus": 428.17,
-          "withheld": 1615.8
-        },
-        "1615,80": {
-          "percent": 33,
-          "plus": 198.36,
-          "withheld": 919.4
-        },
-        "321,20": {
-          "percent": 15,
-          "plus": 7.09,
-          "withheld": 104
-        },
-        "33,10": {
-          "percent": 0,
-          "plus": 0,
-          "withheld": 0
-        },
-        "614,60": {
-          "percent": 25,
-          "plus": 39.67,
-          "withheld": 321.2
-        },
-        "919,40": {
-          "percent": 28,
-          "plus": 113.02,
-          "withheld": 614.6
-        },
-        "max": {
-          "percent": 39.6,
-          "plus": 499.99,
-          "withheld": 1821
-        }
-      },
-      "Daily_Single": {
-        "152,90": {
-          "percent": 15,
-          "plus": 3.55,
-          "withheld": 44.3
-        },
-        "1591,50": {
-          "percent": 33,
-          "plus": 177.21,
-          "withheld": 736.9
-        },
-        "1598,10": {
-          "percent": 35,
-          "plus": 459.23,
-          "withheld": 1591.5
-        },
-        "357,90": {
-          "percent": 25,
-          "plus": 19.84,
-          "withheld": 152.9
-        },
-        "44,30": {
-          "percent": 10,
-          "plus": 0,
-          "withheld": 8.8
-        },
-        "736,90": {
-          "percent": 28,
-          "plus": 71.09,
-          "withheld": 357.9
-        },
-        "8,80": {
-          "percent": 0,
-          "plus": 0,
-          "withheld": 0
-        },
-        "max": {
-          "percent": 39.6,
-          "plus": 461.54,
-          "withheld": 1598.1
-        }
-      },
-      "Monthly_Married": {
-        "717": {
-          "percent": 0,
-          "plus": 0,
-          "withheld": 0
-        },
-        "2254": {
-          "percent": 10,
-          "plus": 0,
-          "withheld": 717
-        },
-        "6958": {
-          "percent": 15,
-          "plus": 153.7,
-          "withheld": 2254
-        },
-        "13317": {
-          "percent": 25,
-          "plus": 859.3,
-          "withheld": 6958
-        },
-        "19921": {
-          "percent": 28,
-          "plus": 2449.05,
-          "withheld": 13317
-        },
-        "35008": {
-          "percent": 33,
-          "plus": 4298.17,
-          "withheld": 19921
-        },
-        "39454": {
-          "percent": 35,
-          "plus": 9276.88,
-          "withheld": 35008
-        },
-        "max": {
-          "percent": 39.6,
-          "plus": 10832.98,
-          "withheld": 39454
-        }
-      },
-      "Monthly_Single": {
-        "192": {
-          "percent": 0,
-          "plus": 0,
-          "withheld": 0
-        },
-        "960": {
-          "percent": 10,
-          "plus": 0,
-          "withheld": 192
-        },
-        "3313": {
-          "percent": 15,
-          "plus": 76.8,
-          "withheld": 960
-        },
-        "7754": {
-          "percent": 25,
-          "plus": 429.75,
-          "withheld": 3313
-        },
-        "15967": {
-          "percent": 28,
-          "plus": 1540,
-          "withheld": 7754
-        },
-        "34483": {
-          "percent": 33,
-          "plus": 3839.64,
-          "withheld": 15967
-        },
-        "34625": {
-          "percent": 35,
-          "plus": 9949.92,
-          "withheld": 34483
-        },
-        "max": {
-          "percent": 39.6,
-          "plus": 4999.96,
-          "withheld": 34625
-        }
-      },
-      "Quarterly_Married": {
-        "2150": {
-          "percent": 0,
-          "plus": 0,
-          "withheld": 0
-        },
-        "6763": {
-          "percent": 10,
-          "plus": 0,
-          "withheld": 2150
-        },
-        "20875": {
-          "percent": 15,
-          "plus": 461.3,
-          "withheld": 6763
-        },
-        "39950": {
-          "percent": 25,
-          "plus": 2578.1,
-          "withheld": 20875
-        },
-        "59763": {
-          "percent": 28,
-          "plus": 47346.85,
-          "withheld": 39950
-        },
-        "105025": {
-          "percent": 33,
-          "plus": 12894.49,
-          "withheld": 59763
-        },
-        "118363": {
-          "percent": 35,
-          "plus": 27830.95,
-          "withheld": 105025
-        },
-        "max": {
-          "percent": 39.6,
-          "plus": 32499.25,
-          "withheld": 118363
-        }
-      },
-      "Quarterly_Single": {
-        "575": {
-          "percent": 0,
-          "plus": 0,
-          "withheld": 0
-        },
-        "2881": {
-          "percent": 10,
-          "plus": 0,
-          "withheld": 575
-        },
-        "9938": {
-          "percent": 15,
-          "plus": 230.6,
-          "withheld": 2881
-        },
-        "23263": {
-          "percent": 25,
-          "plus": 1289.15,
-          "withheld": 9938
-        },
-        "47900": {
-          "percent": 28,
-          "plus": 4620.4,
-          "withheld": 23263
-        },
-        "103450": {
-          "percent": 33,
-          "plus": 11518.76,
-          "withheld": 47900
-        },
-        "103875": {
-          "percent": 35,
-          "plus": 29850.26,
-          "withheld": 103450
-        },
-        "max": {
-          "percent": 39.6,
-          "plus": 29999.01,
-          "withheld": 103875
-        }
-      },
-      "Semiannual_Married": {
-        "4300": {
-          "percent": 0,
-          "plus": 0,
-          "withheld": 0
-        },
-        "13525": {
-          "percent": 10,
-          "plus": 0,
-          "withheld": 4300
-        },
-        "41750": {
-          "percent": 15,
-          "plus": 922.5,
-          "withheld": 13525
-        },
-        "79900": {
-          "percent": 25,
-          "plus": 5156.25,
-          "withheld": 41750
-        },
-        "119525": {
-          "percent": 28,
-          "plus": 14693.75,
-          "withheld": 79900
-        },
-        "210050": {
-          "percent": 33,
-          "plus": 25788.75,
-          "withheld": 119525
-        },
-        "236725": {
-          "percent": 35,
-          "plus": 55662,
-          "withheld": 210050
-        },
-        "max": {
-          "percent": 39.6,
-          "plus": 46998.25,
-          "withheld": 236725
-        }
-      },
-      "Semiannual_Single": {
-        "1150": {
-          "percent": 0,
-          "plus": 0,
-          "withheld": 0
-        },
-        "5763": {
-          "percent": 10,
-          "plus": 0,
-          "withheld": 1150
-        },
-        "19875": {
-          "percent": 15,
-          "plus": 461.3,
-          "withheld": 5763
-        },
-        "46525": {
-          "percent": 25,
-          "plus": 2578.1,
-          "withheld": 19875
-        },
-        "95800": {
-          "percent": 28,
-          "plus": 9240.6,
-          "withheld": 46525
-        },
-        "206900": {
-          "percent": 33,
-          "plus": 23037.6,
-          "withheld": 95800
-        },
-        "207750": {
-          "percent": 35,
-          "plus": 59700.6,
-          "withheld": 206900
-        },
-        "max": {
-          "percent": 39.6,
-          "plus": 4999.96,
-          "withheld": 207750
-        }
-      },
-      "Semimonthly_Married": {
-        "358": {
-          "percent": 0,
-          "plus": 0,
-          "withheld": 0
-        },
-        "1127": {
-          "percent": 10,
-          "plus": 0,
-          "withheld": 358
-        },
-        "3479": {
-          "percent": 15,
-          "plus": 76.9,
-          "withheld": 1127
-        },
-        "6658": {
-          "percent": 25,
-          "plus": 429.7,
-          "withheld": 3479
-        },
-        "9960": {
-          "percent": 28,
-          "plus": 1224.45,
-          "withheld": 6658
-        },
-        "17504": {
-          "percent": 33,
-          "plus": 2149.01,
-          "withheld": 9960
-        },
-        "19727": {
-          "percent": 35,
-          "plus": 4638.53,
-          "withheld": 17504
-        },
-        "max": {
-          "percent": 39.6,
-          "plus": 5416.58,
-          "withheld": 19727
-        }
-      },
-      "Semimonthly_Single": {
-        "96": {
-          "percent": 0,
-          "plus": 0,
-          "withheld": 0
-        },
-        "480": {
-          "percent": 10,
-          "plus": 0,
-          "withheld": 96
-        },
-        "1656": {
-          "percent": 15,
-          "plus": 38.4,
-          "withheld": 480
-        },
-        "3877": {
-          "percent": 25,
-          "plus": 214.8,
-          "withheld": 1656
-        },
-        "7983": {
-          "percent": 28,
-          "plus": 770.05,
-          "withheld": 3877
-        },
-        "17242": {
-          "percent": 33,
-          "plus": 1919.73,
-          "withheld": 7983
-        },
-        "17313": {
-          "percent": 35,
-          "plus": 4975.5,
-          "withheld": 17242
-        },
-        "max": {
-          "percent": 39.6,
-          "plus": 5000.05,
-          "withheld": 17313
-        }
-      },
-      "Weekly_Married": {
-        "165": {
-          "percent": 0,
-          "plus": 0,
-          "withheld": 0
-        },
-        "520": {
-          "percent": 10,
-          "plus": 0,
-          "withheld": 165
-        },
-        "1606": {
-          "percent": 15,
-          "plus": 35.5,
-          "withheld": 520
-        },
-        "3073": {
-          "percent": 25,
-          "plus": 168.4,
-          "withheld": 1606
-        },
-        "4597": {
-          "percent": 28,
-          "plus": 565.15,
-          "withheld": 3073
-        },
-        "8079": {
-          "percent": 33,
-          "plus": 991.87,
-          "withheld": 4597
-        },
-        "9105": {
-          "percent": 35,
-          "plus": 2140.93,
-          "withheld": 8079
-        },
-        "max": {
-          "percent": 39.6,
-          "plus": 2500.03,
-          "withheld": 9105
-        }
-      },
-      "Weekly_Single": {
-        "44": {
-          "percent": 0,
-          "plus": 0,
-          "withheld": 0
-        },
-        "222": {
-          "percent": 10,
-          "plus": 0,
-          "withheld": 44
-        },
-        "764": {
-          "percent": 15,
-          "plus": 17.8,
+          "plus": 17.9,
           "withheld": 222
         },
-        "1789": {
+        {
+          "noMoreThan": "1796",
           "percent": 25,
-          "plus": 99.1,
-          "withheld": 764
+          "plus": 99.65,
+          "withheld": 767
         },
-        "3685": {
+        {
+          "noMoreThan": "3700",
           "percent": 28,
-          "plus": 355.35,
-          "withheld": 1789
+          "plus": 356.90,
+          "withheld": 1796
         },
-        "7958": {
+        {
+          "noMoreThan": "7992",
           "percent": 33,
-          "plus": 886.23,
-          "withheld": 3685
+          "plus": 890.02,
+          "withheld": 3700
         },
-        "7990": {
+        {
+          "noMoreThan": "8025",
           "percent": 35,
-          "plus": 2296.32,
-          "withheld": 7958
+          "plus": 2306.38,
+          "withheld": 7992
         },
-        "max": {
+        {
+          "noMoreThan": "max",
           "percent": 39.6,
-          "plus": 2307.52,
-          "withheld": 7990
+          "plus": 2317.93,
+          "withheld": 8025
         }
-      }
+      ],
+      "Weekly_Married": [
+        {
+          "noMoreThan": "164",
+          "percent": 0,
+          "plus": 0,
+          "withheld": 0
+        },
+        {
+          "noMoreThan": "521",
+          "percent": 10,
+          "plus": 0,
+          "withheld": 164
+        },
+        {
+          "noMoreThan": "1613",
+          "percent": 15,
+          "plus": 35.7,
+          "withheld": 521
+        },
+        {
+          "noMoreThan": "3086",
+          "percent": 25,
+          "plus": 199.5,
+          "withheld": 1613
+        },
+        {
+          "noMoreThan": "4615",
+          "percent": 28,
+          "plus": 567.75,
+          "withheld": 3086
+        },
+        {
+          "noMoreThan": "8113",
+          "percent": 33,
+          "plus": 995.87,
+          "withheld": 4615
+        },
+        {
+          "noMoreThan": "9144",
+          "percent": 35,
+          "plus": 2150.21,
+          "withheld": 8113
+        },
+        {
+          "noMoreThan": "max",
+          "percent": 39.6,
+          "plus": 2511.06,
+          "withheld": 9144
+        }
+      ],
+      "Biweekly_Single": [
+        {
+          "noMoreThan": "87",
+          "percent": 0,
+          "plus": 0,
+          "withheld": 0
+        },
+        {
+          "noMoreThan": "443",
+          "percent": 10,
+          "plus": 0,
+          "withheld": 87
+        },
+        {
+          "noMoreThan": "1535",
+          "percent": 15,
+          "plus": 35.6,
+          "withheld": 443
+        },
+        {
+          "noMoreThan": "3592",
+          "percent": 25,
+          "plus": 199.4,
+          "withheld": 1535
+        },
+        {
+          "noMoreThan": "7400",
+          "percent": 28,
+          "plus": 713.65,
+          "withheld": 3592
+        },
+        {
+          "noMoreThan": "15985",
+          "percent": 33,
+          "plus": 1779.89,
+          "withheld": 7400
+        },
+        {
+          "noMoreThan": "16050",
+          "percent": 35,
+          "plus": 4612.94,
+          "withheld": 15985
+        },
+        {
+          "noMoreThan": "max",
+          "percent": 39.6,
+          "plus": 4635.69,
+          "withheld": 16050
+        }
+      ],
+      "Biweekly_Married": [
+        {
+          "noMoreThan": "329",
+          "percent": 0,
+          "plus": 0,
+          "withheld": 0
+        },
+        {
+          "noMoreThan": "1042",
+          "percent": 10,
+          "plus": 0,
+          "withheld": 329
+        },
+        {
+          "noMoreThan": "3225",
+          "percent": 15,
+          "plus": 71.3,
+          "withheld": 1042
+        },
+        {
+          "noMoreThan": "6171",
+          "percent": 25,
+          "plus": 398.75,
+          "withheld": 3225
+        },
+        {
+          "noMoreThan": "9231",
+          "percent": 28,
+          "plus": 1135.25,
+          "withheld": 6171
+        },
+        {
+          "noMoreThan": "16227",
+          "percent": 33,
+          "plus": 1992.05,
+          "withheld": 9231
+        },
+        {
+          "noMoreThan": "18288",
+          "percent": 35,
+          "plus": 4300.73,
+          "withheld": 16227
+        },
+        {
+          "noMoreThan": "max",
+          "percent": 39.6,
+          "plus": 5022.08,
+          "withheld": 18288
+        }
+      ],
+      "Semimonthly_Single": [
+        {
+          "noMoreThan": "94",
+          "percent": 0,
+          "plus": 0,
+          "withheld": 0
+        },
+        {
+          "noMoreThan": "480",
+          "percent": 10,
+          "plus": 0,
+          "withheld": 94
+        },
+        {
+          "noMoreThan": "1663",
+          "percent": 15,
+          "plus": 38.6,
+          "withheld": 480
+        },
+        {
+          "noMoreThan": "3892",
+          "percent": 25,
+          "plus": 216.05,
+          "withheld": 1663
+        },
+        {
+          "noMoreThan": "8017",
+          "percent": 28,
+          "plus": 773.30,
+          "withheld": 3892
+        },
+        {
+          "noMoreThan": "17317",
+          "percent": 33,
+          "plus": 1928.30,
+          "withheld": 8017
+        },
+        {
+          "noMoreThan": "17388",
+          "percent": 35,
+          "plus": 4997.30,
+          "withheld": 17317
+        },
+        {
+          "noMoreThan": "max",
+          "percent": 39.6,
+          "plus": 5022.15,
+          "withheld": 17388
+        }
+      ],
+      "Semimonthly_Married": [
+        {
+          "noMoreThan": "356",
+          "percent": 0,
+          "plus": 0,
+          "withheld": 0
+        },
+        {
+          "noMoreThan": "1129",
+          "percent": 10,
+          "plus": 0,
+          "withheld": 356
+        },
+        {
+          "noMoreThan": "3494",
+          "percent": 15,
+          "plus": 77.30,
+          "withheld": 1129
+        },
+        {
+          "noMoreThan": "6685",
+          "percent": 25,
+          "plus": 432.05,
+          "withheld": 3494
+        },
+        {
+          "noMoreThan": "10000",
+          "percent": 28,
+          "plus": 1229.80,
+          "withheld": 6685
+        },
+        {
+          "noMoreThan": "17579",
+          "percent": 33,
+          "plus": 2158,
+          "withheld": 10000
+        },
+        {
+          "noMoreThan": "19813",
+          "percent": 35,
+          "plus": 4659.07,
+          "withheld": 17579
+        },
+        {
+          "noMoreThan": "max",
+          "percent": 39.6,
+          "plus": 5440.97,
+          "withheld": 19813
+        }
+      ],
+      "Monthly_Single": [
+        {
+          "noMoreThan": "188",
+          "percent": 0,
+          "plus": 0,
+          "withheld": 0
+        },
+        {
+          "noMoreThan": "960",
+          "percent": 10,
+          "plus": 0,
+          "withheld": 188
+        },
+        {
+          "noMoreThan": "3325",
+          "percent": 15,
+          "plus": 77.20,
+          "withheld": 960
+        },
+        {
+          "noMoreThan": "7783",
+          "percent": 25,
+          "plus": 431.95,
+          "withheld": 3325
+        },
+        {
+          "noMoreThan": "16033",
+          "percent": 28,
+          "plus": 1546.45,
+          "withheld": 7783
+        },
+        {
+          "noMoreThan": "34633",
+          "percent": 33,
+          "plus": 3856.45,
+          "withheld": 16033
+        },
+        {
+          "noMoreThan": "34775",
+          "percent": 35,
+          "plus": 9994.45,
+          "withheld": 34633
+        },
+        {
+          "noMoreThan": "max",
+          "percent": 39.6,
+          "plus": 10044.15,
+          "withheld": 34775
+        }
+      ],
+      "Monthly_Married": [
+        {
+          "noMoreThan": "713",
+          "percent": 0,
+          "plus": 0,
+          "withheld": 0
+        },
+        {
+          "noMoreThan": "2258",
+          "percent": 10,
+          "plus": 0,
+          "withheld": 713
+        },
+        {
+          "noMoreThan": "6988",
+          "percent": 15,
+          "plus": 154.50,
+          "withheld": 2258
+        },
+        {
+          "noMoreThan": "13371",
+          "percent": 25,
+          "plus": 864,
+          "withheld": 6988
+        },
+        {
+          "noMoreThan": "20000",
+          "percent": 28,
+          "plus": 2459.75,
+          "withheld": 13371
+        },
+        {
+          "noMoreThan": "35158",
+          "percent": 33,
+          "plus": 4315.87,
+          "withheld": 20000
+        },
+        {
+          "noMoreThan": "39625",
+          "percent": 35,
+          "plus": 9318.01,
+          "withheld": 35158
+        },
+        {
+          "noMoreThan": "max",
+          "percent": 39.6,
+          "plus": 10881.46,
+          "withheld": 39625
+        }
+      ],
+      "Quarterly_Single": [
+        {
+          "noMoreThan": "563",
+          "percent": 0,
+          "plus": 0,
+          "withheld": 0
+        },
+        {
+          "noMoreThan": "2881",
+          "percent": 10,
+          "plus": 0,
+          "withheld": 563
+        },
+        {
+          "noMoreThan": "9975",
+          "percent": 15,
+          "plus": 231.8,
+          "withheld": 2881
+        },
+        {
+          "noMoreThan": "23350",
+          "percent": 25,
+          "plus": 1295.9,
+          "withheld": 9975
+        },
+        {
+          "noMoreThan": "48100",
+          "percent": 28,
+          "plus": 4639.65,
+          "withheld": 23350
+        },
+        {
+          "noMoreThan": "103900",
+          "percent": 33,
+          "plus": 11569.65,
+          "withheld": 48100
+        },
+        {
+          "noMoreThan": "104325",
+          "percent": 35,
+          "plus": 29983.65,
+          "withheld": 103900
+        },
+        {
+          "noMoreThan": "max",
+          "percent": 39.6,
+          "plus": 30132.4,
+          "withheld": 104325
+        }
+      ],
+      "Quarterly_Married": [
+        {
+          "noMoreThan": "2138",
+          "percent": 0,
+          "plus": 0,
+          "withheld": 0
+        },
+        {
+          "noMoreThan": "6775",
+          "percent": 10,
+          "plus": 0,
+          "withheld": 2138
+        },
+        {
+          "noMoreThan": "20963",
+          "percent": 15,
+          "plus": 463.7,
+          "withheld": 6775
+        },
+        {
+          "noMoreThan": "40113",
+          "percent": 25,
+          "plus": 2591.90,
+          "withheld": 20963
+        },
+        {
+          "noMoreThan": "60000",
+          "percent": 28,
+          "plus": 7379.40,
+          "withheld": 40113
+        },
+        {
+          "noMoreThan": "105475",
+          "percent": 33,
+          "plus": 12947.76,
+          "withheld": 60000
+        },
+        {
+          "noMoreThan": "118875",
+          "percent": 35,
+          "plus": 27954.51,
+          "withheld": 105475
+        },
+        {
+          "noMoreThan": "max",
+          "percent": 39.6,
+          "plus": 32644.51,
+          "withheld": 118875
+        }
+      ],
+      "Semiannual_Single": [
+        {
+          "noMoreThan": "1125",
+          "percent": 0,
+          "plus": 0,
+          "withheld": 0
+        },
+        {
+          "noMoreThan": "5763",
+          "percent": 10,
+          "plus": 0,
+          "withheld": 1125
+        },
+        {
+          "noMoreThan": "19950",
+          "percent": 15,
+          "plus": 463.8,
+          "withheld": 5763
+        },
+        {
+          "noMoreThan": "46700",
+          "percent": 25,
+          "plus": 2591.85,
+          "withheld": 19950
+        },
+        {
+          "noMoreThan": "96200",
+          "percent": 28,
+          "plus": 9279.35,
+          "withheld": 46700
+        },
+        {
+          "noMoreThan": "207800",
+          "percent": 33,
+          "plus": 23139.35,
+          "withheld": 96200
+        },
+        {
+          "noMoreThan": "208650",
+          "percent": 35,
+          "plus": 59967.35,
+          "withheld": 207800
+        },
+        {
+          "noMoreThan": "max",
+          "percent": 39.6,
+          "plus": 60264.85,
+          "withheld": 208650
+        }
+      ],
+      "Semiannual_Married": [
+        {
+          "noMoreThan": "4275",
+          "percent": 0,
+          "plus": 0,
+          "withheld": 0
+        },
+        {
+          "noMoreThan": "13550",
+          "percent": 10,
+          "plus": 0,
+          "withheld": 4275
+        },
+        {
+          "noMoreThan": "41925",
+          "percent": 15,
+          "plus": 927.50,
+          "withheld": 13550
+        },
+        {
+          "noMoreThan": "80225",
+          "percent": 25,
+          "plus": 5183.75,
+          "withheld": 41925
+        },
+        {
+          "noMoreThan": "120000",
+          "percent": 28,
+          "plus": 14758.75,
+          "withheld": 80225
+        },
+        {
+          "noMoreThan": "210950",
+          "percent": 33,
+          "plus": 25895.75,
+          "withheld": 120000
+        },
+        {
+          "noMoreThan": "237750",
+          "percent": 35,
+          "plus": 55909.25,
+          "withheld": 210950
+        },
+        {
+          "noMoreThan": "max",
+          "percent": 39.6,
+          "plus": 65289.25,
+          "withheld": 237750
+        }
+      ],
+      "Annual_Single": [
+        {
+          "noMoreThan": "2250",
+          "percent": 0,
+          "plus": 0,
+          "withheld": 0
+        },
+        {
+          "noMoreThan": "11525",
+          "percent": 10,
+          "plus": 0,
+          "withheld": 2250
+        },
+        {
+          "noMoreThan": "39900",
+          "percent": 15,
+          "plus": 927.50,
+          "withheld": 11525
+        },
+        {
+          "noMoreThan": "93400",
+          "percent": 25,
+          "plus": 5183.75,
+          "withheld": 39900
+        },
+        {
+          "noMoreThan": "192400",
+          "percent": 28,
+          "plus": 18558.75,
+          "withheld": 93400
+        },
+        {
+          "noMoreThan": "415600",
+          "percent": 33,
+          "plus": 46278.75,
+          "withheld": 192400
+        },
+        {
+          "noMoreThan": "417300",
+          "percent": 35,
+          "plus": 119934.75,
+          "withheld": 415600
+        },
+        {
+          "noMoreThan": "max",
+          "percent": 39.6,
+          "plus": 120529.75,
+          "withheld": 417300
+        }
+      ],
+      "Annual_Married": [
+        {
+          "noMoreThan": "8550",
+          "percent": 0,
+          "plus": 0,
+          "withheld": 0
+        },
+        {
+          "noMoreThan": "27100",
+          "percent": 10,
+          "plus": 0,
+          "withheld": 8550
+        },
+        {
+          "noMoreThan": "83850",
+          "percent": 15,
+          "plus": 1855,
+          "withheld": 27100
+        },
+        {
+          "noMoreThan": "160450",
+          "percent": 25,
+          "plus": 10367.50,
+          "withheld": 83850
+        },
+        {
+          "noMoreThan": "240000",
+          "percent": 28,
+          "plus": 29517.50,
+          "withheld": 160450
+        },
+        {
+          "noMoreThan": "421900",
+          "percent": 33,
+          "plus": 51791.50,
+          "withheld": 240000
+        },
+        {
+          "noMoreThan": "475500",
+          "percent": 35,
+          "plus": 111818.50,
+          "withheld": 421900
+        },
+        {
+          "noMoreThan": "max",
+          "percent": 39.6,
+          "plus": 130578.50,
+          "withheld": 475500
+        }
+      ],
+      "Daily_Single": [
+        {
+          "noMoreThan": "8.7",
+          "percent": 0,
+          "plus": 0,
+          "withheld": 0
+        },
+        {
+          "noMoreThan": "44.3",
+          "percent": 10,
+          "plus": 0,
+          "withheld": 8.7
+        },
+        {
+          "noMoreThan": "153.5",
+          "percent": 15,
+          "plus": 3.56,
+          "withheld": 44.3
+        },
+        {
+          "noMoreThan": "359.2",
+          "percent": 25,
+          "plus": 19.94,
+          "withheld": 153.5
+        },
+        {
+          "noMoreThan": "740",
+          "percent": 28,
+          "plus": 71.37,
+          "withheld": 359.2
+        },
+        {
+          "noMoreThan": "1598.5",
+          "percent": 33,
+          "plus": 177.99,
+          "withheld": 740
+        },
+        {
+          "noMoreThan": "1605",
+          "percent": 35,
+          "plus": 461.3,
+          "withheld": 1598.5
+        },
+        {
+          "noMoreThan": "max",
+          "percent": 39.6,
+          "plus": 463.58,
+          "withheld": 1605
+        }
+      ],
+      "Daily_Married": [
+        {
+          "noMoreThan": "32.9",
+          "percent": 0,
+          "plus": 0,
+          "withheld": 0
+        },
+        {
+          "noMoreThan": "104.2",
+          "percent": 10,
+          "plus": 0,
+          "withheld": 32.9
+        },
+        {
+          "noMoreThan": "322.5",
+          "percent": 15,
+          "plus": 7.13,
+          "withheld": 104.2
+        },
+        {
+          "noMoreThan": "617.1",
+          "percent": 25,
+          "plus": 39.88,
+          "withheld": 322.5
+        },
+        {
+          "noMoreThan": "923.1",
+          "percent": 28,
+          "plus": 113.53,
+          "withheld": 617.1
+        },
+        {
+          "noMoreThan": "1622.7",
+          "percent": 33,
+          "plus": 199.21,
+          "withheld": 923.1
+        },
+        {
+          "noMoreThan": "1828.8",
+          "percent": 35,
+          "plus": 430.08,
+          "withheld": 1622.7
+        },
+        {
+          "noMoreThan": "max",
+          "percent": 39.6,
+          "plus": 502.22,
+          "withheld": 1828.8
+        }
+      ]
     }
   }
 }

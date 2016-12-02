@@ -33,7 +33,6 @@ public class TaxFetcher {
     // constants for married and single for
     public static final String MARITAL_STATUS_SINGLE = "Single";
     public static final String MARITAL_STATUS_MARRIED = "Married";
-    private static final String LOG_TAX_FETCHER = "Tax Fetcher";
 
     /**
      * A helper function to retrieve the JSON file from the assets folder
@@ -74,11 +73,6 @@ public class TaxFetcher {
                 JSONObject ficaObject = loadJSONFromAsset(context, type + ".json");
                 JSONObject ficaItems = ficaObject.getJSONObject(type);
                 ficaValue = ficaItems.getDouble(year);
-               /* JSONArray ficaItems = ficaObject.getJSONArray(type);
-                for (int i = 0; i < ficaItems.length(); i++) {
-                    if (ficaItems.get(i).equals(year))
-                        ficaValue = ficaItems.getDouble(i);
-                }*/
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -150,17 +144,6 @@ public class TaxFetcher {
                 JSONObject allowanceObject = allowancesObject.getJSONObject(ALLOWANCES);
                 JSONObject allowanceItems = allowanceObject.getJSONObject(year);
                 allowanceCost = allowanceItems.getDouble(periodType);
-                /*JSONArray allowanceItems = allowancesObject.getJSONArray(ALLOWANCES);
-                for (int i = 0; i > allowanceItems.length(); i++) {
-                    if (allowanceItems.get(i).equals(year)) {
-                        JSONArray allowanceTypes = allowanceItems.getJSONArray(i);
-                        for (int j = 0; j < allowanceTypes.length(); j++) {
-                            if (allowanceTypes.get(j).equals(periodType)) {
-                                allowanceCost = allowanceTypes.getDouble(j);
-                            }
-                        }
-                    }
-                }*/
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -212,17 +195,13 @@ public class TaxFetcher {
      * @return the amount of Federal Income Tax
      */
     public static double getFederalIncomeTax(Context context, double checkAmount, String maritalStatus, String periodType, int allowances, String year) {
-        Log.i(LOG_TAX_FETCHER, "Federal Income Tax started...");
         double fitCost = 0;
         double canBeTaxed = checkAmount - getTotalAllowancesCost(context, periodType, allowances, year);
-        Log.i(LOG_TAX_FETCHER, "Federal Income Tax, can be taxed: " + canBeTaxed);
-        Log.i(LOG_TAX_FETCHER, "Federal Income Tax, will look in \'" + periodType + "_" + maritalStatus + "\'");
         try {
             JSONObject federalIncomeTaxObject = loadJSONFromAsset(context, FEDERAL_INCOME_TAX + ".json");
             JSONObject fitItems = federalIncomeTaxObject.getJSONObject(FEDERAL_INCOME_TAX);
             JSONObject fitItemsForYear = fitItems.getJSONObject(year);
             JSONArray fitItemForTypeAndStatus = fitItemsForYear.getJSONArray(periodType + "_" + maritalStatus);
-            Log.d("test", "type and status length: " + fitItemForTypeAndStatus.length());
             boolean needValue = true;
             for (int k = 0; k < fitItemForTypeAndStatus.length(); k++) {
                 try {
@@ -234,7 +213,6 @@ public class TaxFetcher {
                             double percent = fitQualifiers.getDouble("percent") / 100;
                             double withheld = fitQualifiers.getDouble("withheld");
                             fitCost = (canBeTaxed - withheld) * percent + plus;
-                            Log.i(LOG_TAX_FETCHER, "Federal Income Tax cost: " + fitCost);
                         }
                     }
                 } catch (NumberFormatException nfe) {
@@ -246,54 +224,12 @@ public class TaxFetcher {
                             double percent = fitQualifiers.getDouble("percent") / 100;
                             double withheld = fitQualifiers.getDouble("withheld");
                             fitCost = (canBeTaxed - withheld) * percent + plus;
-                            Log.i(LOG_TAX_FETCHER, "Federal Income Tax cost from NumberFormatException: " + fitCost);
                         }
                     }
                 }
             }
-            /*
-            JSONArray fitItems = federalIncomeTaxObject.getJSONArray(FEDERAL_INCOME_TAX);
-            for (int i = 0; i < fitItems.length(); i++) {
-                if (fitItems.get(i).equals(year)) {
-                    JSONArray fitYearItems = fitItems.getJSONArray(i);
-                    for (int j = 0; j < fitYearItems.length(); j++) {
-                        if (fitYearItems.get(j).equals(periodType + "_" + maritalStatus)) {
-                            boolean needValue = true;
-                            for (int k = 0; k < fitYearItems.length(); k++) {
-                                try {
-                                    if (canBeTaxed <= stringToDouble(fitYearItems.getString(j))) {
-                                        if (needValue) {
-                                            needValue = false;
-                                            JSONObject fitQualifiers = fitYearItems.getJSONObject(j);
-                                            double plus = fitQualifiers.getDouble("plus");
-                                            double percent = fitQualifiers.getDouble("percent") / 100;
-                                            double withheld = fitQualifiers.getDouble("withheld");
-                                            fitCost = plus + percent * (canBeTaxed - withheld);
-                                            Log.i(LOG_TAX_FETCHER, "Federal Income Tax cost: " + fitCost);
-                                        }
-                                    }
-                                } catch (NumberFormatException nfe) {
-                                    Log.i(LOG_TAX_FETCHER, "Federal Income Tax, Number Format Exception caught...");
-                                    if (needValue) {
-                                        needValue = false;
-                                        if (nfe.getMessage().equals("Invalid double: \"max\"")) {
-                                            JSONObject fitQualifiers = fitYearItems.getJSONObject(j);
-                                            double plus = fitQualifiers.getDouble("plus");
-                                            double percent = fitQualifiers.getDouble("percent") / 100;
-                                            double withheld = fitQualifiers.getDouble("withheld");
-                                            fitCost = plus + percent * (canBeTaxed - withheld);
-                                            Log.i(LOG_TAX_FETCHER, "Federal Income Tax cost: " + fitCost);
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }*/
         } catch (JSONException e) {
             e.printStackTrace();
-            Log.i(LOG_TAX_FETCHER, "Federal Income Tax failed with error: " + e.getMessage());
         }
         return fitCost;
     }
