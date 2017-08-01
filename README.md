@@ -1,16 +1,16 @@
 # Tax-Fetcher
-  A small library to fetch tax information for a given amount. Calculates Federal Income Tax, Medicare, Social Security, and Allowance cost for 2015 and 2016.
+  A small library to fetch tax information for a given amount. Calculates Federal Income Tax, Medicare, Social Security, and Allowance cost for 2015, 2016 and 2017.
 
 ## Installation
   Add the gradle dependency to your Android project
   
-  `compile 'weesner:tax-fetcher:1.0.4'`
+  `compile 'weesner:tax-fetcher:1.0.6'`
 
 ## Example Usage
   How much Federal Income Tax will I get taken out of my weekly check that is $400?
   
   Adding the below line of code will give you how much Federal Income Tax will be taken out of your check with 0 Allowances
-  `TaxFetcher.getFederalIncomeTax(this, 400, TaxFetcher.MARITAL_STATUS_SINGLE, TaxFetcher.PERIOD_TYPE_WEEKLY, 0, 2016);`
+  `TaxFetcher.getFederalIncomeTax(this, 400, Constants.MARITAL_STATUS_SINGLE, Constants.PERIOD_TYPE_WEEKLY, 0, 2016);`
   
   The function definition is:
   `public static double getFederalIncomeTax(Context context, double checkAmount, String maritalStatus, String periodType, int allowances, int year)`
