@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Tax-Fetcher</string>
+    <string name="invalid_fica_type_error">Invalid type. Type can only be: %1$s or %2$s</string>
+    <string name="invalid_allowance_type_error">Period Type must be equal to one of the English constants provided starting with PERIOD_TYPE_ eg: PERIOD_TYPE_WEEKLY</string>
+    <string name="invalid_allowance_quantity_error">The amount of allowances cannot exceed 10</string>
+    <string name="invalid_double_error">Invalid double: \"max\"</string>
 </resources>

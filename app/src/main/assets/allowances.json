@@ -1,24 +1,34 @@
 {
   "allowances": {
     "2015": {
-      "Annual": 4000,
+      "Weekly": 76.9,
       "Biweekly": 153.8,
-      "Daily": 15.4,
+      "Semimonthly": 166.7,
       "Monthly": 333.3,
       "Quarterly": 1000,
       "Semiannual": 2000,
-      "Semimonthly": 166.7,
-      "Weekly": 76.9
+      "Annual": 4000,
+      "Daily": 15.4
     },
     "2016": {
-      "Annual": 4050,
+      "Weekly": 77.9,
       "Biweekly": 155.8,
-      "Daily": 15.6,
-      "Monthly": 337.5,
-      "Quarterly": 10112.5,
-      "Semiannual": 2025,
       "Semimonthly": 168.8,
-      "Weekly": 77.9
+      "Monthly": 337.5,
+      "Quarterly": 1012.5,
+      "Semiannual": 2025,
+      "Annual": 4050,
+      "Daily": 15.6
+    },
+    "2017": {
+      "Weekly": 77.9,
+      "Biweekly": 155.8,
+      "Semimonthly": 168.8,
+      "Monthly": 337.5,
+      "Quarterly": 1012.5,
+      "Semiannual": 2025,
+      "Annual": 4050,
+      "Daily": 15.6
     }
   }
 }
