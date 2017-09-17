@@ -4,7 +4,7 @@
 ## Installation
   Add the gradle dependency to your Android project
   
-  `compile 'weesner:tax-fetcher:1.0.6'`
+  `compile 'weesner:tax-fetcher:1.0.7'`
 
 ## Example Usage
   How much Federal Income Tax will I get taken out of my weekly check that is $400?
