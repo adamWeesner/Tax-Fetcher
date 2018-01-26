@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Tax-Fetcher.iml" filepath="$PROJECT_DIR$/Tax-Fetcher.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tax-fetcher/tax-fetcher.iml" filepath="$PROJECT_DIR$/tax-fetcher/tax-fetcher.iml" />
     </modules>
   </component>
 </project>

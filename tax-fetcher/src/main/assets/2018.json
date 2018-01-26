@@ -1,0 +1,971 @@
+{
+  "socialSecurity": {
+    "percent": 6.2,
+    "limit": 128400
+  },
+  "medicare": {
+    "percent": 1.45,
+    "additional": 0.9,
+    "limits": {
+      "Single": 200000,
+      "Married": 250000,
+      "Separate": 125000
+    }
+  },
+  "taxWithholding": {
+    "general": {
+      "Weekly": 79.8,
+      "Biweekly": 159.6,
+      "Semimonthly": 172.9,
+      "Monthly": 345.8,
+      "Quarterly": 1037.5,
+      "Semiannual": 2075,
+      "Annual": 4150,
+      "Daily": 16
+    },
+    "nonResidents": {
+      "Weekly": 151,
+      "Biweekly": 301.9,
+      "Semimonthly": 327.1,
+      "Monthly": 654.2,
+      "Quarterly": 1962.5,
+      "Semiannual": 3925,
+      "Annual": 7850,
+      "Daily": 30.2
+    }
+  },
+  "federalIncomeTax": {
+    "Single": {
+      "Weekly": [
+        {
+          "over": 0,
+          "notOver": 71,
+          "plus": 0,
+          "percent": 0,
+          "nonTaxable": 0
+        },
+        {
+          "over": 71,
+          "notOver": 254,
+          "plus": 0,
+          "percent": 10,
+          "nonTaxable": 71
+        },
+        {
+          "over": 254,
+          "notOver": 815,
+          "plus": 18.3,
+          "percent": 12,
+          "nonTaxable": 254
+        },
+        {
+          "over": 815,
+          "notOver": 1658,
+          "plus": 85.62,
+          "percent": 22,
+          "nonTaxable": 815
+        },
+        {
+          "over": 1658,
+          "notOver": 3100,
+          "plus": 271.08,
+          "percent": 24,
+          "nonTaxable": 1658
+        },
+        {
+          "over": 3100,
+          "notOver": 3917,
+          "plus": 617.16,
+          "percent": 32,
+          "nonTaxable": 3100
+        },
+        {
+          "over": 3917,
+          "notOver": 9687,
+          "plus": 878.6,
+          "percent": 35,
+          "nonTaxable": 3917
+        },
+        {
+          "over": 9687,
+          "notOver": "max",
+          "plus": 2898.1,
+          "percent": 37,
+          "nonTaxable": 9687
+        }
+      ],
+      "Biweekly": [
+        {
+          "over": 0,
+          "notOver": 142,
+          "plus": 0,
+          "percent": 0,
+          "nonTaxable": 0
+        },
+        {
+          "over": 142,
+          "notOver": 509,
+          "plus": 0,
+          "percent": 10,
+          "nonTaxable": 142
+        },
+        {
+          "over": 509,
+          "notOver": 1631,
+          "plus": 36.7,
+          "percent": 12,
+          "nonTaxable": 509
+        },
+        {
+          "over": 1631,
+          "notOver": 3315,
+          "plus": 171.34,
+          "percent": 22,
+          "nonTaxable": 1631
+        },
+        {
+          "over": 3315,
+          "notOver": 6200,
+          "plus": 541.82,
+          "percent": 24,
+          "nonTaxable": 3315
+        },
+        {
+          "over": 6200,
+          "notOver": 7835,
+          "plus": 1234.22,
+          "percent": 32,
+          "nonTaxable": 6200
+        },
+        {
+          "over": 7835,
+          "notOver": 19373,
+          "plus": 1757.42,
+          "percent": 35,
+          "nonTaxable": 7835
+        },
+        {
+          "over": 19373,
+          "notOver": "max",
+          "plus": 5795.72,
+          "percent": 37,
+          "nonTaxable": 19373
+        }
+      ],
+      "Semimonthly": [
+        {
+          "over": 0,
+          "notOver": 154,
+          "plus": 0,
+          "percent": 0,
+          "nonTaxable": 0
+        },
+        {
+          "over": 154,
+          "notOver": 551,
+          "plus": 0,
+          "percent": 10,
+          "nonTaxable": 154
+        },
+        {
+          "over": 551,
+          "notOver": 1767,
+          "plus": 39.7,
+          "percent": 12,
+          "nonTaxable": 551
+        },
+        {
+          "over": 1767,
+          "notOver": 3592,
+          "plus": 185.62,
+          "percent": 22,
+          "nonTaxable": 1767
+        },
+        {
+          "over": 3592,
+          "notOver": 6717,
+          "plus": 587.12,
+          "percent": 24,
+          "nonTaxable": 3592
+        },
+        {
+          "over": 6717,
+          "notOver": 8488,
+          "plus": 1337.12,
+          "percent": 32,
+          "nonTaxable": 6717
+        },
+        {
+          "over": 8488,
+          "notOver": 20988,
+          "plus": 1903.84,
+          "percent": 35,
+          "nonTaxable": 8488
+        },
+        {
+          "over": 20988,
+          "notOver": "max",
+          "plus": 6278.84,
+          "percent": 37,
+          "nonTaxable": 20988
+        }
+      ],
+      "Monthly": [
+        {
+          "over": 0,
+          "notOver": 308,
+          "plus": 0,
+          "percent": 0,
+          "nonTaxable": 0
+        },
+        {
+          "over": 308,
+          "notOver": 1102,
+          "plus": 0,
+          "percent": 10,
+          "nonTaxable": 308
+        },
+        {
+          "over": 1102,
+          "notOver": 3533,
+          "plus": 79.4,
+          "percent": 12,
+          "nonTaxable": 1102
+        },
+        {
+          "over": 3533,
+          "notOver": 7183,
+          "plus": 371.12,
+          "percent": 22,
+          "nonTaxable": 3533
+        },
+        {
+          "over": 7183,
+          "notOver": 13433,
+          "plus": 1174.12,
+          "percent": 24,
+          "nonTaxable": 7183
+        },
+        {
+          "over": 13433,
+          "notOver": 16975,
+          "plus": 2674.12,
+          "percent": 32,
+          "nonTaxable": 13433
+        },
+        {
+          "over": 16975,
+          "notOver": 41975,
+          "plus": 3807.56,
+          "percent": 35,
+          "nonTaxable": 16975
+        },
+        {
+          "over": 41975,
+          "notOver": "max",
+          "plus": 12557.56,
+          "percent": 37,
+          "nonTaxable": 41975
+        }
+      ],
+      "Quarterly": [
+        {
+          "over": 0,
+          "notOver": 925,
+          "plus": 0,
+          "percent": 0,
+          "nonTaxable": 0
+        },
+        {
+          "over": 925,
+          "notOver": 3306,
+          "plus": 0,
+          "percent": 10,
+          "nonTaxable": 925
+        },
+        {
+          "over": 3306,
+          "notOver": 10600,
+          "plus": 238.1,
+          "percent": 12,
+          "nonTaxable": 3306
+        },
+        {
+          "over": 10600,
+          "notOver": 21550,
+          "plus": 1113.38,
+          "percent": 22,
+          "nonTaxable": 10600
+        },
+        {
+          "over": 21550,
+          "notOver": 40300,
+          "plus": 3522.38,
+          "percent": 24,
+          "nonTaxable": 21550
+        },
+        {
+          "over": 40300,
+          "notOver": 50925,
+          "plus": 8022.38,
+          "percent": 32,
+          "nonTaxable": 40300
+        },
+        {
+          "over": 50925,
+          "notOver": 125925,
+          "plus": 11422.38,
+          "percent": 35,
+          "nonTaxable": 50925
+        },
+        {
+          "over": 125925,
+          "notOver": "max",
+          "plus": 37672.38,
+          "percent": 37,
+          "nonTaxable": 125925
+        }
+      ],
+      "Semiannual": [
+        {
+          "over": 0,
+          "notOver": 1850,
+          "plus": 0,
+          "percent": 0,
+          "nonTaxable": 0
+        },
+        {
+          "over": 1850,
+          "notOver": 6613,
+          "plus": 0,
+          "percent": 10,
+          "nonTaxable": 1850
+        },
+        {
+          "over": 6613,
+          "notOver": 21200,
+          "plus": 476.3,
+          "percent": 12,
+          "nonTaxable": 6613
+        },
+        {
+          "over": 21200,
+          "notOver": 43100,
+          "plus": 2226.74,
+          "percent": 22,
+          "nonTaxable": 21200
+        },
+        {
+          "over": 43100,
+          "notOver": 80600,
+          "plus": 7044.74,
+          "percent": 24,
+          "nonTaxable": 43100
+        },
+        {
+          "over": 80600,
+          "notOver": 101850,
+          "plus": 16044.74,
+          "percent": 32,
+          "nonTaxable": 80600
+        },
+        {
+          "over": 101850,
+          "notOver": 251850,
+          "plus": 22844.74,
+          "percent": 35,
+          "nonTaxable": 101850
+        },
+        {
+          "over": 251850,
+          "notOver": "max",
+          "plus": 75344.74,
+          "percent": 37,
+          "nonTaxable": 251850
+        }
+      ],
+      "Annual": [
+        {
+          "over": 0,
+          "notOver": 3700,
+          "plus": 0,
+          "percent": 0,
+          "nonTaxable": 0
+        },
+        {
+          "over": 3700,
+          "notOver": 13225,
+          "plus": 0,
+          "percent": 10,
+          "nonTaxable": 3700
+        },
+        {
+          "over": 13225,
+          "notOver": 42400,
+          "plus": 952.5,
+          "percent": 12,
+          "nonTaxable": 13225
+        },
+        {
+          "over": 42400,
+          "notOver": 86200,
+          "plus": 4453.5,
+          "percent": 22,
+          "nonTaxable": 42400
+        },
+        {
+          "over": 86200,
+          "notOver": 161200,
+          "plus": 14089.5,
+          "percent": 24,
+          "nonTaxable": 86200
+        },
+        {
+          "over": 161200,
+          "notOver": 203700,
+          "plus": 32089.5,
+          "percent": 32,
+          "nonTaxable": 161200
+        },
+        {
+          "over": 203700,
+          "notOver": 503700,
+          "plus": 45679.5,
+          "percent": 35,
+          "nonTaxable": 203700
+        },
+        {
+          "over": 503700,
+          "notOver": "max",
+          "plus": 150689.5,
+          "percent": 37,
+          "nonTaxable": 503700
+        }
+      ],
+      "Daily": [
+        {
+          "over": 0,
+          "notOver": 14.2,
+          "plus": 0,
+          "percent": 0,
+          "nonTaxable": 0
+        },
+        {
+          "over": 14.2,
+          "notOver": 50.9,
+          "plus": 0,
+          "percent": 10,
+          "nonTaxable": 14.2
+        },
+        {
+          "over": 50.9,
+          "notOver": 163.1,
+          "plus": 3.67,
+          "percent": 12,
+          "nonTaxable": 50.9
+        },
+        {
+          "over": 163.1,
+          "notOver": 331.5,
+          "plus": 17.13,
+          "percent": 22,
+          "nonTaxable": 163.1
+        },
+        {
+          "over": 331.5,
+          "notOver": 620,
+          "plus": 54.18,
+          "percent": 24,
+          "nonTaxable": 331.5
+        },
+        {
+          "over": 620,
+          "notOver": 783.5,
+          "plus": 123.42,
+          "percent": 32,
+          "nonTaxable": 620
+        },
+        {
+          "over": 783.5,
+          "notOver": 1937.3,
+          "plus": 175.74,
+          "percent": 35,
+          "nonTaxable": 783.5
+        },
+        {
+          "over": 1937.3,
+          "notOver": "max",
+          "plus": 579.57,
+          "percent": 37,
+          "nonTaxable": 1937.3
+        }
+      ]
+    },
+    "Married": {
+      "Weekly": [
+        {
+          "over": 0,
+          "notOver": 222,
+          "plus": 0,
+          "percent": 0,
+          "nonTaxable": 0
+        },
+        {
+          "over": 222,
+          "notOver": 588,
+          "plus": 0,
+          "percent": 10,
+          "nonTaxable": 222
+        },
+        {
+          "over": 588,
+          "notOver": 1711,
+          "plus": 36.6,
+          "percent": 12,
+          "nonTaxable": 588
+        },
+        {
+          "over": 1711,
+          "notOver": 3395,
+          "plus": 171.36,
+          "percent": 22,
+          "nonTaxable": 1711
+        },
+        {
+          "over": 3395,
+          "notOver": 6280,
+          "plus": 541.84,
+          "percent": 24,
+          "nonTaxable": 3395
+        },
+        {
+          "over": 6280,
+          "notOver": 7914,
+          "plus": 1234.24,
+          "percent": 32,
+          "nonTaxable": 6280
+        },
+        {
+          "over": 7914,
+          "notOver": 11761,
+          "plus": 1757.12,
+          "percent": 35,
+          "nonTaxable": 7914
+        },
+        {
+          "over": 11761,
+          "notOver": "max",
+          "plus": 3103.57,
+          "percent": 37,
+          "nonTaxable": 11761
+        }
+      ],
+      "Biweekly": [
+        {
+          "over": 0,
+          "notOver": 444,
+          "plus": 0,
+          "percent": 0,
+          "nonTaxable": 0
+        },
+        {
+          "over": 444,
+          "notOver": 1177,
+          "plus": 0,
+          "percent": 10,
+          "nonTaxable": 444
+        },
+        {
+          "over": 1177,
+          "notOver": 3421,
+          "plus": 73.3,
+          "percent": 12,
+          "nonTaxable": 1177
+        },
+        {
+          "over": 3421,
+          "notOver": 6790,
+          "plus": 342.58,
+          "percent": 22,
+          "nonTaxable": 3421
+        },
+        {
+          "over": 6790,
+          "notOver": 12560,
+          "plus": 1083.76,
+          "percent": 24,
+          "nonTaxable": 6790
+        },
+        {
+          "over": 12560,
+          "notOver": 15829,
+          "plus": 2468.56,
+          "percent": 32,
+          "nonTaxable": 12560
+        },
+        {
+          "over": 15829,
+          "notOver": 23521,
+          "plus": 3514.64,
+          "percent": 35,
+          "nonTaxable": 15829
+        },
+        {
+          "over": 23521,
+          "notOver": "max",
+          "plus": 6206.84,
+          "percent": 37,
+          "nonTaxable": 23521
+        }
+      ],
+      "Semimonthly": [
+        {
+          "over": 0,
+          "notOver": 481,
+          "plus": 0,
+          "percent": 0,
+          "nonTaxable": 0
+        },
+        {
+          "over": 481,
+          "notOver": 1275,
+          "plus": 0,
+          "percent": 10,
+          "nonTaxable": 481
+        },
+        {
+          "over": 1275,
+          "notOver": 3706,
+          "plus": 79.4,
+          "percent": 12,
+          "nonTaxable": 1275
+        },
+        {
+          "over": 3706,
+          "notOver": 7356,
+          "plus": 371.12,
+          "percent": 22,
+          "nonTaxable": 3706
+        },
+        {
+          "over": 7356,
+          "notOver": 13606,
+          "plus": 1174.12,
+          "percent": 24,
+          "nonTaxable": 7356
+        },
+        {
+          "over": 13606,
+          "notOver": 17148,
+          "plus": 2674.12,
+          "percent": 32,
+          "nonTaxable": 13606
+        },
+        {
+          "over": 17148,
+          "notOver": 25481,
+          "plus": 3807.56,
+          "percent": 35,
+          "nonTaxable": 17148
+        },
+        {
+          "over": 25481,
+          "notOver": "max",
+          "plus": 6724.11,
+          "percent": 37,
+          "nonTaxable": 25481
+        }
+      ],
+      "Monthly": [
+        {
+          "over": 0,
+          "notOver": 963,
+          "plus": 0,
+          "percent": 0,
+          "nonTaxable": 0
+        },
+        {
+          "over": 963,
+          "notOver": 2550,
+          "plus": 0,
+          "percent": 10,
+          "nonTaxable": 963
+        },
+        {
+          "over": 2550,
+          "notOver": 7413,
+          "plus": 158.7,
+          "percent": 12,
+          "nonTaxable": 2550
+        },
+        {
+          "over": 7413,
+          "notOver": 14713,
+          "plus": 742.26,
+          "percent": 22,
+          "nonTaxable": 7413
+        },
+        {
+          "over": 14713,
+          "notOver": 27213,
+          "plus": 2348.26,
+          "percent": 24,
+          "nonTaxable": 14713
+        },
+        {
+          "over": 27213,
+          "notOver": 34296,
+          "plus": 5348.26,
+          "percent": 32,
+          "nonTaxable": 27213
+        },
+        {
+          "over": 34296,
+          "notOver": 50963,
+          "plus": 7614.82,
+          "percent": 35,
+          "nonTaxable": 34296
+        },
+        {
+          "over": 50963,
+          "notOver": "max",
+          "plus": 13448.27,
+          "percent": 37,
+          "nonTaxable": 50963
+        }
+      ],
+      "Quarterly": [
+        {
+          "over": 0,
+          "notOver": 2888,
+          "plus": 0,
+          "percent": 0,
+          "nonTaxable": 0
+        },
+        {
+          "over": 2888,
+          "notOver": 7650,
+          "plus": 0,
+          "percent": 10,
+          "nonTaxable": 2888
+        },
+        {
+          "over": 7650,
+          "notOver": 22238,
+          "plus": 476.2,
+          "percent": 12,
+          "nonTaxable": 7650
+        },
+        {
+          "over": 22238,
+          "notOver": 44138,
+          "plus": 2226.76,
+          "percent": 22,
+          "nonTaxable": 22238
+        },
+        {
+          "over": 44138,
+          "notOver": 81638,
+          "plus": 7044.76,
+          "percent": 24,
+          "nonTaxable": 81638
+        },
+        {
+          "over": 81638,
+          "notOver": 102888,
+          "plus": 16044.76,
+          "percent": 32,
+          "nonTaxable": 81638
+        },
+        {
+          "over": 102888,
+          "notOver": 152888,
+          "plus": 22844.76,
+          "percent": 35,
+          "nonTaxable": 102888
+        },
+        {
+          "over": 152888,
+          "notOver": "max",
+          "plus": 40344.76,
+          "percent": 37,
+          "nonTaxable": 152888
+        }
+      ],
+      "Semiannual": [
+        {
+          "over": 0,
+          "notOver": 5775,
+          "plus": 0,
+          "percent": 0,
+          "nonTaxable": 0
+        },
+        {
+          "over": 5775,
+          "notOver": 15300,
+          "plus": 0,
+          "percent": 10,
+          "nonTaxable": 5775
+        },
+        {
+          "over": 15300,
+          "notOver": 44475,
+          "plus": 852.5,
+          "percent": 12,
+          "nonTaxable": 15300
+        },
+        {
+          "over": 44475,
+          "notOver": 88275,
+          "plus": 4453.5,
+          "percent": 22,
+          "nonTaxable": 44475
+        },
+        {
+          "over": 88275,
+          "notOver": 163275,
+          "plus": 14089.5,
+          "percent": 24,
+          "nonTaxable": 88275
+        },
+        {
+          "over": 163275,
+          "notOver": 205775,
+          "plus": 32089.5,
+          "percent": 32,
+          "nonTaxable": 163275
+        },
+        {
+          "over": 205775,
+          "notOver": 305775,
+          "plus": 45689.5,
+          "percent": 35,
+          "nonTaxable": 205775
+        },
+        {
+          "over": 305775,
+          "notOver": "max",
+          "plus": 80689.5,
+          "percent": 37,
+          "nonTaxable": 305775
+        }
+      ],
+      "Annual": [
+        {
+          "over": 0,
+          "notOver": 11550,
+          "plus": 0,
+          "percent": 0,
+          "nonTaxable": 0
+        },
+        {
+          "over": 11550,
+          "notOver": 30600,
+          "plus": 0,
+          "percent": 10,
+          "nonTaxable": 11550
+        },
+        {
+          "over": 30600,
+          "notOver": 88950,
+          "plus": 1905,
+          "percent": 12,
+          "nonTaxable": 30600
+        },
+        {
+          "over": 88950,
+          "notOver": 176550,
+          "plus": 8907,
+          "percent": 22,
+          "nonTaxable": 88950
+        },
+        {
+          "over": 176550,
+          "notOver": 326550,
+          "plus": 28179,
+          "percent": 24,
+          "nonTaxable": 176550
+        },
+        {
+          "over": 326550,
+          "notOver": 411500,
+          "plus": 64179,
+          "percent": 32,
+          "nonTaxable": 326550
+        },
+        {
+          "over": 411500,
+          "notOver": 611550,
+          "plus": 91379,
+          "percent": 35,
+          "nonTaxable": 411500
+        },
+        {
+          "over": 611550,
+          "notOver": "max",
+          "plus": 161379,
+          "percent": 37,
+          "nonTaxable": 611550
+        }
+      ],
+      "Daily": [
+        {
+          "over": 0,
+          "notOver": 44.4,
+          "plus": 0,
+          "percent": 0,
+          "nonTaxable": 0
+        },
+        {
+          "over": 44.4,
+          "notOver": 117.7,
+          "plus": 0,
+          "percent": 10,
+          "nonTaxable": 44.4
+        },
+        {
+          "over": 117.7,
+          "notOver": 342.1,
+          "plus": 7.33,
+          "percent": 12,
+          "nonTaxable": 117.7
+        },
+        {
+          "over": 342.1,
+          "notOver": 679,
+          "plus": 34.26,
+          "percent": 22,
+          "nonTaxable": 342.1
+        },
+        {
+          "over": 679,
+          "notOver": 1256,
+          "plus": 108.38,
+          "percent": 24,
+          "nonTaxable": 679
+        },
+        {
+          "over": 1256,
+          "notOver": 1582.9,
+          "plus": 246.86,
+          "percent": 32,
+          "nonTaxable": 1256
+        },
+        {
+          "over": 1582.9,
+          "notOver": 2352.1,
+          "plus": 351.47,
+          "percent": 35,
+          "nonTaxable": 1582.9
+        },
+        {
+          "over": 2352.1,
+          "notOver": "max",
+          "plus": 520.69,
+          "percent": 37,
+          "nonTaxable": 2352.1
+        }
+      ]
+    }
+  }
+}

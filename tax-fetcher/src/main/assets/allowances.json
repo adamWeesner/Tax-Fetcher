@@ -29,6 +29,16 @@
       "Semiannual": 2025,
       "Annual": 4050,
       "Daily": 15.6
+    },
+    "2018": {
+      "Weekly": 79.8,
+      "Biweekly": 159.6,
+      "Semimonthly": 172.9,
+      "Monthly": 345.8,
+      "Quarterly": 1037.5,
+      "Semiannual": 2075,
+      "Annual": 4150,
+      "Daily": 16
     }
   }
 }
