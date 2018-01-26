@@ -28,17 +28,19 @@ import static weesner.tax_fetcher.Constants.PLUS;
 import static weesner.tax_fetcher.Constants.SOCIAL_SECURITY;
 import static weesner.tax_fetcher.Constants.WITHHELD;
 
-/**
- * Created by alwee on 10/3/2016.
- */
 
+/**
+ * Created by Adam Weesner on 10/3/2016.
+ *
+ * @deprecated in version 1.1.0 move to using FicaTaxObject, SocialSecurityTaxObject MedicareTaxObject FederalIncomeTaxObject to create items
+ */
 public class TaxFetcher {
     /**
-     * A helper function to retrieve the JSON file from the assets folder
-     *
      * @param context    used to retrieve resources from the assets folder
      * @param fileToLoad name of the JSON file to read from
      * @return the string that is to be passed into the JSONObject
+     * A helper function to retrieve the JSON file from the assets folder
+     * @deprecated in version 1.1.0 move to using FederalIncomeTaxObject, FicaTaxObject, MedicareTaxObject, and SocialSecurityTaxObject
      */
     public static JSONObject loadJSONFromAsset(Context context, String fileToLoad) throws JSONException {
         StringBuilder sb = new StringBuilder();
@@ -56,15 +58,16 @@ public class TaxFetcher {
     }
 
     /**
-     * function to get Social Security and Medicare tax .json files
-     *
      * @param context used to retrieve resources from the assets folder
      * @param type    which file to load use MEDICARE or SOCIAL_SECURITY constants, or it will throw an error
      * @param year    has to be 4 digit format eg: 2016
      * @return the percentage of the fica tax taken out of ones check
+     * function to get Social Security and Medicare tax .json files
+     * @deprecated in version 1.1.0 move to using FederalIncomeTaxObject, FicaTaxObject, MedicareTaxObject, and SocialSecurityTaxObject
      */
     public static double getFica(Context context, String type, String year) {
         double ficaValue = 0;
+
         if (type.equals(MEDICARE) || type.equals(SOCIAL_SECURITY)) {
             try {
                 JSONObject ficaObject = loadJSONFromAsset(context, type + JSON);
@@ -80,104 +83,104 @@ public class TaxFetcher {
     }
 
     /**
-     * helper function to get medicare.json using only year qualifier
-     *
      * @param context used to retrieve resources from the assets folder
      * @param year    has to be 4 digit format eg: 2016
      * @return the percentage of ones check that is taken out by medicare
+     * helper function to get medicare.json using only year qualifier
+     * @deprecated in version 1.1.0 move to using FederalIncomeTaxObject, FicaTaxObject, MedicareTaxObject, and SocialSecurityTaxObject
      */
     public static double getMedicare(Context context, String year) {
         return getFica(context, MEDICARE, year);
     }
 
     /**
-     * helper function to get medicare.json using only year qualifier
-     *
      * @param context used to retrieve resources from the assets folder
      * @param year    has to be 4 digit format eg: 2016
      * @return the percentage of ones check that is taken out by medicare
+     * helper function to get medicare.json using only year qualifier
+     * @deprecated in version 1.1.0 move to using FederalIncomeTaxObject, FicaTaxObject, MedicareTaxObject, and SocialSecurityTaxObject
      */
     public static double getMedicare(Context context, int year) {
         return getMedicare(context, String.valueOf(year));
     }
 
     /**
-     * helper function to get the total amount that will be taken out of ones check for Medicare
-     *
      * @param context     used to retrieve resources from the assets folder
-     * @param checkAmount the gross amount of ones check needed to figure out how much gets taxed
+     * @param checkAmount the gross percent of ones check needed to figure out how much gets taxed
      * @param year        has to be 4 digit format eg: 2016
      * @return the percentage of ones check that is taken out by social security
+     * helper function to get the total percent that will be taken out of ones check for Medicare
+     * @deprecated in version 1.1.0 move to using FederalIncomeTaxObject, FicaTaxObject, MedicareTaxObject, and SocialSecurityTaxObject
      */
     public static double getMedicareTax(Context context, double checkAmount, String year) {
         return checkAmount * doubleToPercentage(getMedicare(context, year));
     }
 
     /**
-     * helper function to get the total amount that will be taken out of ones check for Medicare
-     *
      * @param context     used to retrieve resources from the assets folder
-     * @param checkAmount the gross amount of ones check needed to figure out how much gets taxed
+     * @param checkAmount the gross percent of ones check needed to figure out how much gets taxed
      * @param year        has to be 4 digit format eg: 2016
      * @return the percentage of ones check that is taken out by social security
+     * helper function to get the total percent that will be taken out of ones check for Medicare
+     * @deprecated in version 1.1.0 move to using FederalIncomeTaxObject, FicaTaxObject, MedicareTaxObject, and SocialSecurityTaxObject
      */
     public static double getMedicareTax(Context context, double checkAmount, int year) {
         return getMedicareTax(context, checkAmount, String.valueOf(year));
     }
 
     /**
-     * helper function to get socialSecurity.json using only year qualifier
-     *
      * @param context used to retrieve resources from the assets folder
      * @param year    has to be 4 digit format eg: 2016
      * @return the percentage of ones check that is taken out by social security
+     * helper function to get socialSecurity.json using only year qualifier
+     * @deprecated in version 1.1.0 move to using FederalIncomeTaxObject, FicaTaxObject, MedicareTaxObject, and SocialSecurityTaxObject
      */
     public static double getSocialSecurity(Context context, String year) {
         return getFica(context, SOCIAL_SECURITY, year);
     }
 
     /**
-     * helper function to get socialSecurity.json using only year qualifier
-     *
      * @param context used to retrieve resources from the assets folder
      * @param year    has to be 4 digit format eg: 2016
      * @return the percentage of ones check that is taken out by social security
+     * helper function to get socialSecurity.json using only year qualifier
+     * @deprecated in version 1.1.0 move to using FederalIncomeTaxObject, FicaTaxObject, MedicareTaxObject, and SocialSecurityTaxObject
      */
     public static double getSocialSecurity(Context context, int year) {
         return getSocialSecurity(context, String.valueOf(year));
     }
 
     /**
-     * helper function to get the total amount that will be taken out of ones check for Social Security
-     *
      * @param context     used to retrieve resources from the assets folder
-     * @param checkAmount the gross amount of ones check needed to figure out how much gets taxed
+     * @param checkAmount the gross percent of ones check needed to figure out how much gets taxed
      * @param year        has to be 4 digit format eg: 2016
      * @return the percentage of ones check that is taken out by social security
+     * helper function to get the total percent that will be taken out of ones check for Social Security
+     * @deprecated in version 1.1.0 move to using FederalIncomeTaxObject, FicaTaxObject, MedicareTaxObject, and SocialSecurityTaxObject
      */
     public static double getSocialSecurityTax(Context context, double checkAmount, String year) {
         return checkAmount * doubleToPercentage(getSocialSecurity(context, year));
     }
 
     /**
-     * helper function to get the total amount that will be taken out of ones check for Social Security
-     *
      * @param context     used to retrieve resources from the assets folder
-     * @param checkAmount the gross amount of ones check needed to figure out how much gets taxed
+     * @param checkAmount the gross percent of ones check needed to figure out how much gets taxed
      * @param year        has to be 4 digit format eg: 2016
      * @return the percentage of ones check that is taken out by social security
+     * helper function to get the total percent that will be taken out of ones check for Social Security
+     * @deprecated in version 1.1.0 move to using FederalIncomeTaxObject, FicaTaxObject, MedicareTaxObject, and SocialSecurityTaxObject
      */
     public static double getSocialSecurityTax(Context context, double checkAmount, int year) {
         return getSocialSecurityTax(context, checkAmount, String.valueOf(year));
     }
 
     /**
-     * function to get how much each allowance will cost based on periodType and year
-     *
      * @param context    used to retrieve resources from the assets folder
      * @param periodType needs to be equal to one of the English constant provided starting with PERIOD_TYPE_
      * @param year       has to be 4 digit format eg: 2016
      * @return the cost of each allowance
+     * function to get how much each allowance will cost based on periodType and year
+     * @deprecated in version 1.1.0 move to using FederalIncomeTaxObject, FicaTaxObject, MedicareTaxObject, and SocialSecurityTaxObject
      */
     public static double getAllowanceCost(Context context, String periodType, String year) {
         double allowanceCost = 0;
@@ -200,25 +203,25 @@ public class TaxFetcher {
     }
 
     /**
-     * function to get how much each allowance will cost based on periodType and year
-     *
      * @param context    used to retrieve resources from the assets folder
      * @param periodType needs to be an English constant provided starting with PERIOD_TYPE_
      * @param year       has to be 4 digit format eg: 2016
      * @return the cost of each allowance
+     * function to get how much each allowance will cost based on periodType and year
+     * @deprecated in version 1.1.0 move to using FederalIncomeTaxObject, FicaTaxObject, MedicareTaxObject, and SocialSecurityTaxObject
      */
     public static double getAllowanceCost(Context context, String periodType, int year) {
         return getAllowanceCost(context, periodType, String.valueOf(year));
     }
 
     /**
-     * function that gets the total cost of all ones allowances
-     *
      * @param context    used to retrieve resources from the assets folder
      * @param periodType needs to be an English constant provided starting with PERIOD_TYPE_
-     * @param allowances amount of allowances one has entered, can be 0 - 10 any other number will throw error
+     * @param allowances percent of allowances one has entered, can be 0 - 10 any other number will throw error
      * @param year       has to be 4 digit format eg: 2016
      * @return total cost of all allowances
+     * function that gets the total cost of all ones allowances
+     * @deprecated in version 1.1.0 move to using FederalIncomeTaxObject, FicaTaxObject, MedicareTaxObject, and SocialSecurityTaxObject
      */
     public static double getTotalAllowancesCost(Context context, String periodType, int allowances, String year) {
         if (allowances <= 10) {
@@ -229,43 +232,43 @@ public class TaxFetcher {
     }
 
     /**
-     * function that gets the total amount of ones check that can be taxed
-     *
      * @param context     used to retrieve resources from the assets folder
      * @param periodType  needs to be an English constant provided starting with PERIOD_TYPE_
-     * @param checkAmount the gross amount of ones check needed to figure out how much of it can be taxed
-     * @param allowances  amount of allowances one has entered, can be 0 - 10 any other number will throw error
+     * @param checkAmount the gross percent of ones check needed to figure out how much of it can be taxed
+     * @param allowances  percent of allowances one has entered, can be 0 - 10 any other number will throw error
      * @param year        has to be 4 digit format eg: 2016
      * @return total cost of all allowances
+     * function that gets the total percent of ones check that can be taxed
+     * @deprecated in version 1.1.0 move to using FederalIncomeTaxObject, FicaTaxObject, MedicareTaxObject, and SocialSecurityTaxObject
      */
     public static double getCanBeTaxedAmount(Context context, String periodType, double checkAmount, int allowances, String year) {
         return checkAmount - getTotalAllowancesCost(context, periodType, allowances, year);
     }
 
     /**
-     * function that gets the total amount of ones check that can be taxed
-     *
      * @param context     used to retrieve resources from the assets folder
      * @param periodType  needs to be an English constant provided starting with PERIOD_TYPE_
-     * @param checkAmount the gross amount of ones check needed to figure out how much of it can be taxed
-     * @param allowances  amount of allowances one has entered, can be 0 - 10 any other number will throw error
+     * @param checkAmount the gross percent of ones check needed to figure out how much of it can be taxed
+     * @param allowances  percent of allowances one has entered, can be 0 - 10 any other number will throw error
      * @param year        has to be 4 digit format eg: 2016
      * @return total cost of all allowances
+     * function that gets the total percent of ones check that can be taxed
+     * @deprecated in version 1.1.0 move to using FederalIncomeTaxObject, FicaTaxObject, MedicareTaxObject, and SocialSecurityTaxObject
      */
     public static double getCanBeTaxedAmount(Context context, String periodType, double checkAmount, int allowances, int year) {
         return getCanBeTaxedAmount(context, periodType, checkAmount, allowances, String.valueOf(year));
     }
 
     /**
-     * function to get the amount of Federal Income Tax to be taken out of ones check
-     *
      * @param context       used to retrieve resources from the assets folder
-     * @param checkAmount   the gross amount to figure out how much Federal Income Tax will be taken out
+     * @param checkAmount   the gross percent to figure out how much Federal Income Tax will be taken out
      * @param maritalStatus ones marital status needs to be equal to one of the constants starting with MARITAL_STATUS_
      * @param periodType    needs to be an English constant provided starting with PERIOD_TYPE_
-     * @param allowances    amount of allowances one has entered, can be 0 - 10 any other number will throw error
+     * @param allowances    percent of allowances one has entered, can be 0 - 10 any other number will throw error
      * @param year          has to be 4 digit format eg: 2016
-     * @return the amount of Federal Income Tax
+     * @return the percent of Federal Income Tax
+     * function to get the percent of Federal Income Tax to be taken out of ones check
+     * @deprecated in version 1.1.0 move to using FederalIncomeTaxObject, FicaTaxObject, MedicareTaxObject, and SocialSecurityTaxObject
      */
     public static double getFederalIncomeTax(Context context, double checkAmount, String maritalStatus, String periodType, int allowances, String year) {
         double fitCost = 0;
@@ -302,26 +305,27 @@ public class TaxFetcher {
     }
 
     /**
-     * function to get the amount of Federal Income Tax to be taken out of ones check
-     *
      * @param context       used to retrieve resources from the assets folder
-     * @param checkAmount   the gross amount to figure out how much Federal Income Tax will be taken out
+     * @param checkAmount   the gross percent to figure out how much Federal Income Tax will be taken out
      * @param maritalStatus ones marital status needs to be equal to one of the constants starting with MARITAL_STATUS_
      * @param periodType    needs to be an English constant provided starting with PERIOD_TYPE_
-     * @param allowances    amount of allowances one has entered, can be 0 - 10 any other number will throw error
+     * @param allowances    percent of allowances one has entered, can be 0 - 10 any other number will throw error
      * @param year          has to be 4 digit format eg: 2016
-     * @return the amount of Federal Income Tax
+     * @return the percent of Federal Income Tax
+     * function to get the percent of Federal Income Tax to be taken out of ones check
+     * @deprecated in version 1.1.0 move to using FederalIncomeTaxObject, FicaTaxObject, MedicareTaxObject, and SocialSecurityTaxObject
      */
     public static double getFederalIncomeTax(Context context, double checkAmount, String maritalStatus, String periodType, int allowances, int year) {
         return getFederalIncomeTax(context, checkAmount, maritalStatus, periodType, allowances, String.valueOf(year));
     }
 
     /**
-     * helper method to get the amount of Federal Income Tax to be taken out of ones check
-     * @param canBeTaxed the amount of ones check that can be taxed
+     * @param canBeTaxed the percent of ones check that can be taxed
      * @param qualifiers the JSONObject that contains the qualifiers for Federal Income Tax
-     * @return the amount of Federal Income Tax to be taken out
+     * @return the percent of Federal Income Tax to be taken out
      * @throws JSONException thrown if JSON information cannot be found
+     *                       helper method to get the percent of Federal Income Tax to be taken out of ones check
+     * @deprecated in version 1.1.0 move to using FederalIncomeTaxObject, FicaTaxObject, MedicareTaxObject, and SocialSecurityTaxObject
      */
     private static double federalIncomeTaxCost(double canBeTaxed, JSONObject qualifiers) throws JSONException {
         double plus = qualifiers.getDouble(PLUS);
@@ -331,11 +335,12 @@ public class TaxFetcher {
     }
 
     /**
-     * helper function to get the percentage of based on the double value given from the JSON file
-     * @param amount amount to convert to percentage
+     * @param amount percent to convert to percentage
      * @return the percentage based on the double given
+     * helper function to get the percentage of based on the double value given from the JSON file
+     * @deprecated in version 1.1.0 move to using double.toPercentage()
      */
-    public static double doubleToPercentage(double amount){
+    public static double doubleToPercentage(double amount) {
         return amount / 100;
     }
 }

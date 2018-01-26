@@ -1,0 +1,12 @@
+{
+  "2018": {
+    "socialSecurity": {
+      "additional": -6.2,
+      "over": 128400
+    },
+    "medicare": {
+        "additional": 0.9,
+        "over": 200000
+    }
+  }
+}
