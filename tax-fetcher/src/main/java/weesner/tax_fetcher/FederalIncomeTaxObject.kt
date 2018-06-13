@@ -1,6 +1,7 @@
 package weesner.tax_fetcher
 
 import android.content.Context
+import com.google.gson.Gson
 import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
@@ -50,32 +51,34 @@ class FederalIncomeTaxObject(var context: Context, var year: Int, var allowanceC
 
     private var fitForTypeAndStatus: JSONArray? = null
 
-    /** only applicable for 2018+, otherwise is an empty object */
-    private val jsonYear: JSONObject
+    /** only applicable for 2018+, otherwise is null */
+    private var jsonYear: TaxModel? = null
+    /** only applicable for 2018+, otherwise is null */
+    private var fitBrackets: ArrayList<TaxModel.FITBracket>? = null
 
     init {
-        if (year >= 2018) jsonYear = loadJSON(context, year.toString().toJson())
-        else jsonYear = JSONObject()
+        val status = maritalStatus.validate("maritalStatus", listOf(SINGLE, MARRIED))
+        val periodType = payPeriodType.validate("payPeriodType", payPeriodTypes)
+        val allowType = allowanceType.validate("allowanceType", listOf("general", "nonResident"))
+        val allowCount = allowanceCount.toString().validate("allowanceCount", listOf("0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10")).toInt()
 
-        fetchAllowanceCost(allowanceType)
-        allowancesTotal =
-                if (allowanceCount < 10) allowanceCost * allowanceCount
-                else throw IllegalArgumentException("allowanceCount parameter has to be less than 10")
-
-        try {
-            if (year >= 2018) {
-                val fitBaseObject = jsonYear.getJSONObject(FEDERAL_INCOME_TAX)
-                val fitForStatus = fitBaseObject.getJSONObject(maritalStatus)
-                fitForTypeAndStatus = fitForStatus.getJSONArray(payPeriodType)
-            } else {
+        if (year >= 2018) {
+            jsonYear = Gson().fromJson<TaxModel>(loadJSONFile(context, year.toString()), TaxModel::class.java)
+            fitBrackets = jsonYear!!.federalIncomeTax.forStatus(status).forPeriod(periodType)
+            allowanceCost = jsonYear!!.taxWithholding.forType(allowType).forPeriod(periodType)
+        } else {
+            fetchAllowanceCost()
+            try {
                 val jsonObject = loadJSON(context, FEDERAL_INCOME_TAX)
                 val fitList = jsonObject.getJSONObject(FEDERAL_INCOME_TAX)
                 val fitListForYear = fitList.getJSONObject(year.toString())
                 fitForTypeAndStatus = fitListForYear.getJSONArray(payPeriodType + "_" + maritalStatus)
+            } catch (e: JSONException) {
+                e.printStackTrace()
             }
-        } catch (e: JSONException) {
-            throw e
         }
+
+        allowancesTotal = allowanceCost * allowCount
     }
 
 
@@ -83,29 +86,17 @@ class FederalIncomeTaxObject(var context: Context, var year: Int, var allowanceC
      * calculates the amount federal income tax to be taken out
      * @param amount the amount of the check you want to calculate federal income tax for
      */
-    fun forCheckAmount(amount: Double) {
+    fun forCheckAmount(amount: Double): FederalIncomeTaxObject {
         taxableAmount = amount - allowancesTotal
-        for (taxBracket in 0..fitForTypeAndStatus!!.length()) {
-            if (year >= 2018) {
-                try {
-                    val fitQualifiers = fitForTypeAndStatus!!.getJSONObject(taxBracket)
-                    if (taxableAmount > fitQualifiers.getDouble(OVER) && taxableAmount < fitQualifiers.getDouble(NOT_OVER)) {
-                        val plus = fitQualifiers.getDouble(PLUS)
-                        val percent = fitQualifiers.getDouble(PERCENT).toPercentage()
-                        val notTaxable = fitQualifiers.getDouble(NOT_TAXABLE)
-                        federalIncomeTaxAmount = (taxableAmount - notTaxable) * percent + plus
-                        break
-                    }
-                } catch (nfe: NumberFormatException) {
-                    if (nfe.message == context.getString(R.string.invalid_double_error)) {
-                        val fitQualifiers = fitForTypeAndStatus!!.getJSONObject(taxBracket)
-                        val plus = fitQualifiers.getDouble(PLUS)
-                        val percent = fitQualifiers.getDouble(PERCENT).toPercentage()
-                        val notTaxable = fitQualifiers.getDouble(NOT_TAXABLE)
-                        federalIncomeTaxAmount = (taxableAmount - notTaxable) * percent + plus
-                    }
+        if (year >= 2018) {
+            for (bracket in fitBrackets!!) {
+                if (taxableAmount > bracket.over && taxableAmount <= bracket.notOver) {
+                    federalIncomeTaxAmount = (taxableAmount - bracket.nonTaxable) * bracket.percent.toPercentage() + bracket.plus
+                    break
                 }
-            } else {
+            }
+        } else {
+            for (taxBracket in 0..fitForTypeAndStatus!!.length()) {
                 try {
                     val fitQualifiers = fitForTypeAndStatus!!.getJSONObject(taxBracket)
                     if (taxableAmount <= fitQualifiers.getDouble(NO_MORE_THAN)) {
@@ -120,27 +111,17 @@ class FederalIncomeTaxObject(var context: Context, var year: Int, var allowanceC
                 }
             }
         }
-
+        return this
     }
 
-    private fun fetchAllowanceCost(allowanceType: String) {
-        if (payPeriodTypes.contains(payPeriodType)) {
-            try {
-                if (year >= 2018) {
-                    val allowancesList = jsonYear.getJSONObject("taxWithholding")
-                    val withholdingType = allowancesList.getJSONObject(allowanceType)
-                    allowanceCost = withholdingType.getDouble(payPeriodType)
-                } else {
-                    val jsonObject = loadJSON(context, ALLOWANCES)
-                    val allowancesList = jsonObject.getJSONObject(ALLOWANCES)
-                    val allowanceItem = allowancesList.getJSONObject(year.toString())
-                    allowanceCost = allowanceItem.getDouble(payPeriodType)
-                }
-            } catch (e: JSONException) {
-                throw e
-            }
-        } else {
-            throw IllegalArgumentException("$payPeriodType is not a valid pay period payPeriodType...")
+    private fun fetchAllowanceCost() {
+        try {
+            val jsonObject = loadJSON(context, ALLOWANCES)
+            val allowancesList = jsonObject.getJSONObject(ALLOWANCES)
+            val allowanceItem = allowancesList.getJSONObject(year.toString())
+            allowanceCost = allowanceItem.getDouble(payPeriodType)
+        } catch (e: JSONException) {
+            e.printStackTrace()
         }
     }
 
