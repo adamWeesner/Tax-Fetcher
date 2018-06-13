@@ -56,9 +56,13 @@ const val SINGLE = "Single"
 const val MARRIED = "Married"
 /** "Separate" this used for Married filing separate status */
 const val SEPARATE = "Separate"
+/** general */
+const val GENERAL = "general"
+/** nonResident */
+const val NON_RESIDENT = "nonResident"
 
 /**
- * list of valid pay period types; [WEEKLY], [BIWEEKLY], [SEMIMONTHLY], [MONTHLY], [QUARTERLY], [SEMIANNUAL], [ANNUAL], [DAILY]
+ * list of valid pay period maritalStatus; [WEEKLY], [BIWEEKLY], [SEMIMONTHLY], [MONTHLY], [QUARTERLY], [SEMIANNUAL], [ANNUAL], [DAILY]
  */
 val payPeriodTypes = listOf(WEEKLY, BIWEEKLY, SEMIMONTHLY, MONTHLY, QUARTERLY, SEMIANNUAL, ANNUAL, DAILY)
 
@@ -81,8 +85,36 @@ fun loadJSON(context: Context, fileName: String): JSONObject {
     return JSONObject(sb.toString())
 }
 
+/**
+ * retrieves the JSON file from the assets folder with the given file name; short of the .json extension
+ *
+ * @param fileName name of the json file to read from
+ * @return          the JSONObject created from getting the JSON file
+ */
+fun loadJSONFile(context: Context, fileName: String): String? {
+    try {
+        val stream = context.resources.assets.open(fileName.toJson())
+        val byte = ByteArray(stream.available())
+        stream.read(byte, 0, byte.size)
+        return String(byte)
+    } catch (e: IOException) {
+        return null
+    }
+}
+
 /** adds .json to the end of the string */
 fun String.toJson(): String = "$this.json"
 
 /** converts the double to a percentage */
 fun Double.toPercentage(): Double = this / 100
+
+fun String.validate(stringName: String, validItems: List<String>): String {
+    var validList = ""
+    for (i in 0 until validItems.size) {
+        validList += if (i != validItems.size - 1) "${validItems[i]}, "
+        else validItems[i]
+    }
+
+    if (validItems.contains(this)) return this
+    else throw IllegalArgumentException("$stringName can only be one of the following: $validList")
+}

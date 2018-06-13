@@ -1,7 +1,7 @@
 package weesner.tax_fetcher
 
 import android.content.Context
-import org.json.JSONException
+import com.google.gson.Gson
 
 /**
  * creates a new FicaTaxObject
@@ -43,29 +43,28 @@ open class FicaTaxObject(var context: Context, var type: String, var year: Int, 
     var yearToDateAmount = 0.0
 
     init {
-        if (type == MEDICARE || type == SOCIAL_SECURITY) {
-            try {
-                if (year >= 2018) {
-                    val jsonObject = loadJSON(context, year.toString().toJson())
-                    val ficaObject = jsonObject.getJSONObject(type)
-                    percent = ficaObject.getDouble(PERCENT)
-                    if (type == SOCIAL_SECURITY) {
-                        limit = ficaObject.getInt("limit")
-                    } else {
-                        additionalMedicare = ficaObject.getDouble("additional")
-                        val limits = ficaObject.getJSONObject("limits")
-                        limit = limits.getInt(maritalStatus)
-                    }
-                } else {
-                    val ficaObject = loadJSON(context, type.toJson())
-                    val ficaItems = ficaObject.getJSONObject(type)
-                    percent = ficaItems.getDouble(year.toString())
+        val validType = type.validate("type", listOf(MEDICARE, SOCIAL_SECURITY))
+        val status = maritalStatus.validate("maritalStatus", listOf(SINGLE, MARRIED))
+
+        if (year >= 2018) {
+            val jsonObject = Gson().fromJson<TaxModel>(loadJSONFile(context, year.toString()), TaxModel::class.java)
+            when (validType) {
+                MEDICARE -> {
+                    val medicare = jsonObject.medicare
+                    percent = medicare.percent
+                    additionalMedicare = medicare.additional
+                    limit = medicare.forStatus(status)
                 }
-            } catch (e: JSONException) {
-                throw e
+                SOCIAL_SECURITY -> {
+                    val socialSecurity = jsonObject.socialSecurity
+                    percent = socialSecurity.percent
+                    limit = socialSecurity.limit
+                }
             }
         } else {
-            throw IllegalArgumentException("Invalid type. Type can only be: $SOCIAL_SECURITY or $MEDICARE")
+            val ficaObject = loadJSON(context, validType)
+            val ficaItems = ficaObject.getJSONObject(validType)
+            percent = ficaItems.getDouble(year.toString())
         }
     }
 

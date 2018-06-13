@@ -88,7 +88,7 @@
         },
         {
           "over": 9687,
-          "notOver": "max",
+          "notOver": 1e1000,
           "plus": 2898.1,
           "percent": 37,
           "nonTaxable": 9687
@@ -146,7 +146,7 @@
         },
         {
           "over": 19373,
-          "notOver": "max",
+          "notOver": 1e1000,
           "plus": 5795.72,
           "percent": 37,
           "nonTaxable": 19373
@@ -204,7 +204,7 @@
         },
         {
           "over": 20988,
-          "notOver": "max",
+          "notOver": 1e1000,
           "plus": 6278.84,
           "percent": 37,
           "nonTaxable": 20988
@@ -262,7 +262,7 @@
         },
         {
           "over": 41975,
-          "notOver": "max",
+          "notOver": 1e1000,
           "plus": 12557.56,
           "percent": 37,
           "nonTaxable": 41975
@@ -320,7 +320,7 @@
         },
         {
           "over": 125925,
-          "notOver": "max",
+          "notOver": 1e1000,
           "plus": 37672.38,
           "percent": 37,
           "nonTaxable": 125925
@@ -378,7 +378,7 @@
         },
         {
           "over": 251850,
-          "notOver": "max",
+          "notOver": 1e1000,
           "plus": 75344.74,
           "percent": 37,
           "nonTaxable": 251850
@@ -436,7 +436,7 @@
         },
         {
           "over": 503700,
-          "notOver": "max",
+          "notOver": 1e1000,
           "plus": 150689.5,
           "percent": 37,
           "nonTaxable": 503700
@@ -494,7 +494,7 @@
         },
         {
           "over": 1937.3,
-          "notOver": "max",
+          "notOver": 1e1000,
           "plus": 579.57,
           "percent": 37,
           "nonTaxable": 1937.3
@@ -554,7 +554,7 @@
         },
         {
           "over": 11761,
-          "notOver": "max",
+          "notOver": 1e1000,
           "plus": 3103.57,
           "percent": 37,
           "nonTaxable": 11761
@@ -612,7 +612,7 @@
         },
         {
           "over": 23521,
-          "notOver": "max",
+          "notOver": 1e1000,
           "plus": 6206.84,
           "percent": 37,
           "nonTaxable": 23521
@@ -670,7 +670,7 @@
         },
         {
           "over": 25481,
-          "notOver": "max",
+          "notOver": 1e1000,
           "plus": 6724.11,
           "percent": 37,
           "nonTaxable": 25481
@@ -728,7 +728,7 @@
         },
         {
           "over": 50963,
-          "notOver": "max",
+          "notOver": 1e1000,
           "plus": 13448.27,
           "percent": 37,
           "nonTaxable": 50963
@@ -786,7 +786,7 @@
         },
         {
           "over": 152888,
-          "notOver": "max",
+          "notOver": 1e1000,
           "plus": 40344.76,
           "percent": 37,
           "nonTaxable": 152888
@@ -844,7 +844,7 @@
         },
         {
           "over": 305775,
-          "notOver": "max",
+          "notOver": 1e1000,
           "plus": 80689.5,
           "percent": 37,
           "nonTaxable": 305775
@@ -902,7 +902,7 @@
         },
         {
           "over": 611550,
-          "notOver": "max",
+          "notOver": 1e1000,
           "plus": 161379,
           "percent": 37,
           "nonTaxable": 611550
@@ -960,7 +960,7 @@
         },
         {
           "over": 2352.1,
-          "notOver": "max",
+          "notOver": 1e1000,
           "plus": 520.69,
           "percent": 37,
           "nonTaxable": 2352.1
