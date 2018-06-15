@@ -35,7 +35,7 @@
     }
   },
   "federalIncomeTax": {
-    "Single": {
+    "single": {
       "Weekly": [
         {
           "over": 0,
@@ -501,7 +501,7 @@
         }
       ]
     },
-    "Married": {
+    "married": {
       "Weekly": [
         {
           "over": 0,

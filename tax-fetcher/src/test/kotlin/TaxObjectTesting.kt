@@ -1,6 +1,9 @@
 import com.google.gson.Gson
 import org.junit.Before
 import weesner.tax_fetcher.*
+import weesner.tax_fetcher.FederalTaxModel.Companion.checkAmount
+import weesner.tax_fetcher.FederalTaxModel.Companion.maritalStatus
+import weesner.tax_fetcher.FederalTaxModel.Companion.yearToDateGross
 import kotlin.test.Test
 
 /**
@@ -23,13 +26,13 @@ class TaxObjectTesting {
     @Test
     fun testGson() {
         val taxModelGson = Gson().fromJson<TaxModel>(taxString, TaxModel::class.java)
-        println("TaxModel:\n${taxModelGson.toReadable()}")
-        println("FederalIncomeTaxObject:\n${taxModelGson.federalIncomeTax.toReadable()}")
+        println("TaxModel:\n${taxModelGson.values()}")
+        println("FederalIncomeTaxObject:\n${taxModelGson.federalIncomeTax.values()}")
         println("FederalIncomeTaxObject-Married-Weekly: ${taxModelGson.federalIncomeTax.forStatus(MARRIED).forPeriod(WEEKLY)}\n")
-        println("MedicareObject:\n${taxModelGson.medicare.toReadable()}")
+        println("MedicareObject:\n${taxModelGson.medicare.values()}")
         println("MedicareLimits-Married: ${taxModelGson.medicare.forStatus(MARRIED)}\n")
-        println("SocialSecurityObject:\n${taxModelGson.socialSecurity.toReadable()}")
-        println("TaxWithholding:\n${taxModelGson.taxWithholding.toReadable()}")
+        println("SocialSecurityObject:\n${taxModelGson.socialSecurity.values()}")
+        println("TaxWithholding:\n${taxModelGson.taxWithholding.values()}")
         println("TaxWithholding-General-Weekly: ${taxModelGson.taxWithholding.forType(GENERAL).forPeriod(WEEKLY)}\n")
         println("TaxWithholding-NonResident-BiWeekly: ${taxModelGson.taxWithholding.forType(NON_RESIDENT).forPeriod(BIWEEKLY)}\n\n\n")
 
@@ -51,5 +54,22 @@ class TaxObjectTesting {
         }
 
         assert(taxModelGson != null)
+    }
+
+    @Test
+    fun testNewGson() {
+        val taxModel = Gson().fromJson<FederalTaxes>(taxString, FederalTaxes::class.java)
+        taxModel.apply {
+            yearToDateGross = 200000.0
+            checkAmount = 400.0
+            maritalStatus = SINGLE
+        }
+
+        val medicare = taxModel.medicare
+
+        println("TaxModel: ${taxModel.values(taxModel)}")
+        println("Medicare: ${medicare.values(medicare)}")
+        println("-limit: ${medicare.limit()}")
+        println("-amountOfCheck: ${medicare.amountOfCheck()}")
     }
 }

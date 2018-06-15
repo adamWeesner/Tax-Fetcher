@@ -1,6 +1,7 @@
 package weesner.tax_fetcher
 
 import android.content.Context
+import android.content.res.Resources
 import org.json.JSONObject
 import java.io.BufferedReader
 import java.io.IOException
@@ -67,11 +68,13 @@ const val NON_RESIDENT = "nonResident"
 val payPeriodTypes = listOf(WEEKLY, BIWEEKLY, SEMIMONTHLY, MONTHLY, QUARTERLY, SEMIANNUAL, ANNUAL, DAILY)
 
 /**
- * retrieves the JSON file from the assets folder with the given file name; short of the .json extension
+ * retrieves the JSON file from the assets folder with the given file name; short of the
+ * .json extension.
  *
  * @param fileName name of the json file to read from
  * @return          the JSONObject created from getting the JSON file
  */
+@Deprecated("Used for deprecated TaxFetcher.java only", ReplaceWith("loadJsonFile()"))
 fun loadJSON(context: Context, fileName: String): JSONObject {
     val sb = StringBuilder()
     try {
@@ -85,20 +88,15 @@ fun loadJSON(context: Context, fileName: String): JSONObject {
     return JSONObject(sb.toString())
 }
 
-/**
- * retrieves the JSON file from the assets folder with the given file name; short of the .json extension
- *
- * @param fileName name of the json file to read from
- * @return          the JSONObject created from getting the JSON file
- */
-fun loadJSONFile(context: Context, fileName: String): String? {
-    try {
-        val stream = context.resources.assets.open(fileName.toJson())
+/** Gets the JSON file from assets with the given [fileName] */
+fun loadJSONFile(fileName: String): String? {
+    return try {
+        val stream = Resources.getSystem().assets.open(fileName.toJson())
         val byte = ByteArray(stream.available())
         stream.read(byte, 0, byte.size)
-        return String(byte)
+        String(byte)
     } catch (e: IOException) {
-        return null
+        null
     }
 }
 
