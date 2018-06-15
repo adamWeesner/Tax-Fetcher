@@ -12,15 +12,6 @@ import java.io.InputStreamReader
  * @author Adam Weesner
  * @since 1/15/2018
  */
-
-/** allowances */
-const val ALLOWANCES = "allowances"
-/** medicare */
-const val MEDICARE = "medicare"
-/** socialSecurity */
-const val SOCIAL_SECURITY = "socialSecurity"
-/** federalIncomeTax */
-const val FEDERAL_INCOME_TAX = "federalIncomeTax"
 /** Weekly */
 const val WEEKLY = "Weekly"
 /** Biweekly */
@@ -37,20 +28,6 @@ const val SEMIANNUAL = "Semiannual"
 const val ANNUAL = "Annual"
 /** Daily */
 const val DAILY = "Daily"
-/** over */
-const val OVER = "over"
-/** notOver */
-const val NOT_OVER = "notOver"
-/** noMoreThan *///OLD
-const val NO_MORE_THAN = "noMoreThan"
-/** plus */
-const val PLUS = "plus"
-/** percent */
-const val PERCENT = "percent"
-/** nonTaxable */
-const val NOT_TAXABLE = "nonTaxable"
-/** withheld *///OLD
-const val WITHHELD = "withheld"
 /** Single */
 const val SINGLE = "Single"
 /** Married */
@@ -62,31 +39,6 @@ const val GENERAL = "general"
 /** nonResident */
 const val NON_RESIDENT = "nonResident"
 
-/**
- * list of valid pay period maritalStatus; [WEEKLY], [BIWEEKLY], [SEMIMONTHLY], [MONTHLY], [QUARTERLY], [SEMIANNUAL], [ANNUAL], [DAILY]
- */
-val payPeriodTypes = listOf(WEEKLY, BIWEEKLY, SEMIMONTHLY, MONTHLY, QUARTERLY, SEMIANNUAL, ANNUAL, DAILY)
-
-/**
- * retrieves the JSON file from the assets folder with the given file name; short of the
- * .json extension.
- *
- * @param fileName name of the json file to read from
- * @return          the JSONObject created from getting the JSON file
- */
-@Deprecated("Used for deprecated TaxFetcher.java only", ReplaceWith("loadJsonFile()"))
-fun loadJSON(context: Context, fileName: String): JSONObject {
-    val sb = StringBuilder()
-    try {
-        val br = BufferedReader(InputStreamReader(context.resources.assets.open(fileName.toJson())))
-        while (br.readLine() != null) sb.append(br.readLine())
-        br.close()
-    } catch (e: IOException) {
-        e.printStackTrace()
-    }
-
-    return JSONObject(sb.toString())
-}
 
 /** Gets the JSON file from assets with the given [fileName] */
 fun loadJSONFile(fileName: String): String? {

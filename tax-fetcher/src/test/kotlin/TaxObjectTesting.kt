@@ -1,8 +1,12 @@
 import com.google.gson.Gson
 import org.junit.Before
 import weesner.tax_fetcher.*
+import weesner.tax_fetcher.FederalIncomeTax.Companion.withholding
 import weesner.tax_fetcher.FederalTaxModel.Companion.checkAmount
+import weesner.tax_fetcher.FederalTaxModel.Companion.ficaTaxableAmount
 import weesner.tax_fetcher.FederalTaxModel.Companion.maritalStatus
+import weesner.tax_fetcher.FederalTaxModel.Companion.payPeriodType
+import weesner.tax_fetcher.FederalTaxModel.Companion.payrollAllowances
 import weesner.tax_fetcher.FederalTaxModel.Companion.yearToDateGross
 import kotlin.test.Test
 
@@ -24,52 +28,36 @@ class TaxObjectTesting {
     }
 
     @Test
-    fun testGson() {
-        val taxModelGson = Gson().fromJson<TaxModel>(taxString, TaxModel::class.java)
-        println("TaxModel:\n${taxModelGson.values()}")
-        println("FederalIncomeTaxObject:\n${taxModelGson.federalIncomeTax.values()}")
-        println("FederalIncomeTaxObject-Married-Weekly: ${taxModelGson.federalIncomeTax.forStatus(MARRIED).forPeriod(WEEKLY)}\n")
-        println("MedicareObject:\n${taxModelGson.medicare.values()}")
-        println("MedicareLimits-Married: ${taxModelGson.medicare.forStatus(MARRIED)}\n")
-        println("SocialSecurityObject:\n${taxModelGson.socialSecurity.values()}")
-        println("TaxWithholding:\n${taxModelGson.taxWithholding.values()}")
-        println("TaxWithholding-General-Weekly: ${taxModelGson.taxWithholding.forType(GENERAL).forPeriod(WEEKLY)}\n")
-        println("TaxWithholding-NonResident-BiWeekly: ${taxModelGson.taxWithholding.forType(NON_RESIDENT).forPeriod(BIWEEKLY)}\n\n\n")
-
-
-        var check = 448.86
-        val brackets = taxModelGson.federalIncomeTax.forStatus(SINGLE).forPeriod(WEEKLY)
-        for (bracket in brackets) {
-            if (check > bracket.over && check <= bracket.notOver) {
-                val cost = (check - bracket.nonTaxable) * bracket.percent.toPercentage() + bracket.plus
-                println("SelectedBracket-Check:$check:\n" +
-                        "-nonTaxable: ${bracket.nonTaxable}\n" +
-                        "-notOver: ${bracket.notOver}\n" +
-                        "-over: ${bracket.over}\n" +
-                        "-percent: ${bracket.percent}\n" +
-                        "-plus: ${bracket.plus}\n")
-                println("fitCost: $cost")
-                break
-            }
-        }
-
-        assert(taxModelGson != null)
-    }
-
-    @Test
     fun testNewGson() {
         val taxModel = Gson().fromJson<FederalTaxes>(taxString, FederalTaxes::class.java)
         taxModel.apply {
-            yearToDateGross = 200000.0
-            checkAmount = 400.0
+            yearToDateGross = 2000000.0
+            checkAmount = 450.0
+            ficaTaxableAmount = checkAmount
             maritalStatus = SINGLE
+            payPeriodType = WEEKLY
+            payrollAllowances = 2
         }
 
         val medicare = taxModel.medicare
+        val socialSecurity = taxModel.socialSecurity
+        val taxWithholding = taxModel.taxWithholding
+        val federalIncomeTax = taxModel.federalIncomeTax
+        federalIncomeTax.apply { withholding = taxWithholding }
 
         println("TaxModel: ${taxModel.values(taxModel)}")
-        println("Medicare: ${medicare.values(medicare)}")
+        print("Medicare: ${medicare.values(medicare)}")
         println("-limit: ${medicare.limit()}")
-        println("-amountOfCheck: ${medicare.amountOfCheck()}")
+        println("-amountOfCheck: ${medicare.amountOfCheck()}\n")
+
+        print("SocialSecurity: ${socialSecurity.values(socialSecurity)}")
+        println("-amountOfCheck: ${socialSecurity.amountOfCheck()}\n")
+
+        print("TaxWithholding: ${taxWithholding.values(taxWithholding)}")
+        println("-individualCost: ${taxWithholding.getIndividualCost()}")
+        println("-totalCost: ${taxWithholding.getTotalCost()}\n")
+
+        print("FederalIncomeTax: ${federalIncomeTax.values(federalIncomeTax)}")
+        println("-amountOfCheck: ${federalIncomeTax.amountOfCheck()}")
     }
 }
