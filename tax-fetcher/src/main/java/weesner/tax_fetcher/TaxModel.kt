@@ -15,7 +15,7 @@ class TaxModel(
         @SerializedName("federalIncomeTax") var federalIncomeTax: FederalIncomeTax
 ) {
     class SocialSecurity(var percent: Double, var limit: Int) {
-        fun toReadable(): String {
+        fun values(): String {
             var itemList = ""
             SocialSecurity::class.memberProperties.forEach { itemList += "-${it.name}: ${it.get(this)}\n" }
             return itemList
@@ -34,7 +34,7 @@ class TaxModel(
             return amount
         }
 
-        fun toReadable(): String {
+        fun values(): String {
             var itemList = ""
             Medicare::class.memberProperties.forEach { itemList += "-${it.name}: ${it.get(this)}\n" }
             return itemList
@@ -56,7 +56,7 @@ class TaxModel(
             return selectedType[type]!!
         }
 
-        fun toReadable(): String {
+        fun values(): String {
             var itemList = ""
             TaxWithholding::class.memberProperties.forEach { itemList += "-${it.name}: ${it.get(this)}\n" }
             return itemList
@@ -76,7 +76,7 @@ class TaxModel(
 
         fun forPeriod(type: String): ArrayList<FITBracket> = selectedStatus[type]!!
 
-        fun toReadable(): String {
+        fun values(): String {
             var itemList = ""
             FederalIncomeTax::class.memberProperties.forEach { itemList += "-${it.name}: ${it.get(this)}\n" }
             return itemList
@@ -84,14 +84,14 @@ class TaxModel(
     }
 
     class FITBracket(var over: Double, var notOver: Double, var plus: Double, var percent: Double, var nonTaxable: Double) {
-        fun toReadable(): String {
+        fun values(): String {
             var itemList = ""
             FITBracket::class.memberProperties.forEach { itemList += "-${it.name}: ${it.get(this)}\n" }
             return itemList
         }
     }
 
-    fun toReadable(): String {
+    fun values(): String {
         var itemList = ""
         TaxModel::class.memberProperties.forEach { itemList += "-${it.name}: ${it.get(this)}\n" }
         return itemList

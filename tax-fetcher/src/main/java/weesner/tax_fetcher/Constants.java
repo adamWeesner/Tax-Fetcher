@@ -8,7 +8,7 @@ package weesner.tax_fetcher;
 public class Constants {
     // the file names in assets folder to be used in retrieving values
     /**
-     * @deprecated in version 1.1.0 move to using UtilsKt.MEDICARE
+     * @deprecated in version 1.1.0 move to using Utils.MEDICARE
      */
     public static final String MEDICARE = "medicare";
     /**
