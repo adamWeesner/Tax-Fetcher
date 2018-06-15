@@ -35,6 +35,8 @@ class Medicare(var percent: Double, var additional: Double, var limits: HashMap<
     var limit = 0
 
     fun limit(): Int {
+        maritalStatus.validate("Marital Status", listOf(MARRIED, SINGLE))
+
         for (status in limits) {
             if (status.key == maritalStatus) {
                 limit = status.value
@@ -61,13 +63,18 @@ class TaxWithholding(var general: HashMap<String, Double>, var nonResidents: Has
     var individualCost = 0.0
 
     fun getIndividualCost(type: String = GENERAL): Double {
+        payPeriodType.validate("Pay Period Type", listOf(WEEKLY, BIWEEKLY, SEMIMONTHLY, MONTHLY, QUARTERLY, SEMIANNUAL, ANNUAL, DAILY))
+
         individualCost = if (type == GENERAL) general[payPeriodType]!!
         else nonResidents[payPeriodType]!!
 
         return individualCost
     }
 
-    fun getTotalCost(): Double = individualCost * payrollAllowances
+    fun getTotalCost(): Double {
+        payrollAllowances.toString().validate("Payroll Allowances", listOf("0", "1", "2", "3", "4", "5", "6", "7", "8", "9"))
+        return individualCost * payrollAllowances
+    }
 }
 
 class FederalIncomeTax(var single: HashMap<String, ArrayList<FITBracket>>, var married: HashMap<String, ArrayList<FITBracket>>) : FederalTaxModel() {
@@ -76,6 +83,9 @@ class FederalIncomeTax(var single: HashMap<String, ArrayList<FITBracket>>, var m
     }
 
     fun amountOfCheck(): Double {
+        payPeriodType.validate("Pay Period Type", listOf(WEEKLY, BIWEEKLY, SEMIMONTHLY, MONTHLY, QUARTERLY, SEMIANNUAL, ANNUAL, DAILY))
+        maritalStatus.validate("Marital Status", listOf(MARRIED, SINGLE))
+
         val taxable = checkAmount - withholding!!.getTotalCost()
         println("-taxable: $taxable\n")
         val brackets = when (maritalStatus) {

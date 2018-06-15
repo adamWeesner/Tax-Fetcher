@@ -1,11 +1,7 @@
 package weesner.tax_fetcher
 
-import android.content.Context
 import android.content.res.Resources
-import org.json.JSONObject
-import java.io.BufferedReader
 import java.io.IOException
-import java.io.InputStreamReader
 
 /**
  * Created for Weesner Development
