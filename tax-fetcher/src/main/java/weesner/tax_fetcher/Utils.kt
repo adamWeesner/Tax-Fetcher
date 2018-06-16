@@ -24,10 +24,10 @@ const val SEMIANNUAL = "Semiannual"
 const val ANNUAL = "Annual"
 /** Daily */
 const val DAILY = "Daily"
-/** Single */
-const val SINGLE = "Single"
-/** Married */
-const val MARRIED = "Married"
+/** single */
+const val SINGLE = "single"
+/** married */
+const val MARRIED = "married"
 /** "Separate" this used for Married filing separate status */
 const val SEPARATE = "Separate"
 /** general */

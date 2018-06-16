@@ -1,7 +1,7 @@
 {
   "socialSecurity": {
     "percent": 6.2,
-    "limit": 128400
+    "limit": 127200
   },
   "medicare": {
     "percent": 1.45,
@@ -24,14 +24,14 @@
       "Daily": 15.6
     },
     "nonResidents": {
-      "Weekly": 147.38,
-      "Biweekly": 294.75,
-      "Semimonthly": 319.34,
-      "Monthly": 638.5,
-      "Quarterly": 1915.49,
-      "Semiannual": 3830.99,
-      "Annual": 7661.97,
-      "Daily": 29.51
+      "Weekly": 122.1,
+      "Biweekly": 244.3,
+      "Semimonthly": 264.6,
+      "Monthly": 529.2,
+      "Quarterly": 1587.5,
+      "Semiannual": 3175,
+      "Annual": 6350,
+      "Daily": 24.4
     }
   },
   "federalIncomeTax": {
