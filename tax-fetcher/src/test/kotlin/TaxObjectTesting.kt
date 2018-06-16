@@ -10,6 +10,7 @@ import weesner.tax_fetcher.FederalTaxModel.Companion.yearToDateGross
 import weesner.tax_fetcher.FederalTaxes
 import weesner.tax_fetcher.SINGLE
 import weesner.tax_fetcher.WEEKLY
+import weesner.tax_fetcher.getFederalTaxes
 import kotlin.test.Test
 
 /**
