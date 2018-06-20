@@ -1,5 +1,6 @@
 package weesner.tax_fetcher
 
+import android.content.Context
 import com.google.gson.Gson
 import kotlin.reflect.full.memberProperties
 
@@ -9,8 +10,8 @@ import kotlin.reflect.full.memberProperties
  * @author Adam Weesner
  * @since 6/16/2018
  */
-fun getFederalTaxes(taxesForYear: String = "2018"): FederalTaxes {
-    val loadJson = loadJSONFile(taxesForYear)
+fun getFederalTaxes(context: Context, taxesForYear: String = "2018"): FederalTaxes {
+    val loadJson = taxesForYear.loadTaxFile(context)
     return Gson().fromJson(loadJson, FederalTaxes::class.java)
 }
 

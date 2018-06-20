@@ -1,6 +1,6 @@
 package weesner.tax_fetcher
 
-import android.content.res.Resources
+import android.content.Context
 import java.io.IOException
 
 /**
@@ -36,10 +36,15 @@ const val GENERAL = "general"
 const val NON_RESIDENT = "nonResident"
 
 
-/** Gets the JSON file from assets with the given [fileName] */
-fun loadJSONFile(fileName: String): String? {
+/**
+ * Loads the tax json file for the given year
+ *
+ * @author Adam Weesner
+ * @since 1/15/2018
+ */
+fun loadTaxFile(context: Context, fileName: String): String? {
     return try {
-        val stream = Resources.getSystem().assets.open(fileName.toJson())
+        val stream = context.assets.open("$fileName.json")
         val byte = ByteArray(stream.available())
         stream.read(byte, 0, byte.size)
         String(byte)
@@ -48,8 +53,56 @@ fun loadJSONFile(fileName: String): String? {
     }
 }
 
-/** adds .json to the end of the string */
-fun String.toJson(): String = "$this.json"
+/**
+ * Loads the tax json file for the given year
+ *
+ * @author Adam Weesner
+ * @since 6/19/2018
+ */
+fun loadTaxFile(context: Context, fileName: Int): String? {
+    return try {
+        val stream = context.assets.open("$fileName.json")
+        val byte = ByteArray(stream.available())
+        stream.read(byte, 0, byte.size)
+        String(byte)
+    } catch (e: IOException) {
+        null
+    }
+}
+
+/**
+ * Loads the tax json file for the given year
+ *
+ * @author Adam Weesner
+ * @since 6/19/2018
+ */
+fun Int.loadTaxFile(context: Context): String? {
+    return try {
+        val stream = context.assets.open("$this.json")
+        val byte = ByteArray(stream.available())
+        stream.read(byte, 0, byte.size)
+        String(byte)
+    } catch (e: IOException) {
+        null
+    }
+}
+
+/**
+ * Loads the tax json file for the given year
+ *
+ * @author Adam Weesner
+ * @since 6/19/2018
+ */
+fun String.loadTaxFile(context: Context): String? {
+    return try {
+        val stream = context.assets.open("$this.json")
+        val byte = ByteArray(stream.available())
+        stream.read(byte, 0, byte.size)
+        String(byte)
+    } catch (e: IOException) {
+        null
+    }
+}
 
 /** converts the double to a percentage */
 fun Double.toPercentage(): Double = this / 100
