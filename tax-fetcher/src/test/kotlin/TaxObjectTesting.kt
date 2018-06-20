@@ -34,11 +34,11 @@ class TaxObjectTesting {
         val taxModel = Gson().fromJson<FederalTaxes>(taxString, FederalTaxes::class.java)
         taxModel.apply {
             yearToDateGross = 2000000.0
-            checkAmount = 450.0
+            checkAmount = 400.0
             ficaTaxableAmount = checkAmount
             maritalStatus = SINGLE
             payPeriodType = WEEKLY
-            payrollAllowances = 2
+            payrollAllowances = 1
         }
 
         val medicare = taxModel.medicare

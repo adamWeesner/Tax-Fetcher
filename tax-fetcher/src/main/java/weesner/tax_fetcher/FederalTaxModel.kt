@@ -191,7 +191,6 @@ class FederalIncomeTax(var single: HashMap<String, ArrayList<FITBracket>>, var m
         maritalStatus.validate("Marital Status", listOf(MARRIED, SINGLE))
 
         val taxable = checkAmount - withholding!!.getTotalCost()
-        println("-taxable: $taxable\n")
         val brackets = when (maritalStatus) {
             SINGLE -> single[payPeriodType]
             MARRIED -> married[payPeriodType]
@@ -199,9 +198,8 @@ class FederalIncomeTax(var single: HashMap<String, ArrayList<FITBracket>>, var m
         }
 
         val bracket = brackets!!.first { bracket -> taxable > bracket.over && taxable <= bracket.notOver }
-        println("FITBracket: ${bracket.values(bracket)}")
 
-        return (taxable - bracket.nonTaxable) * bracket.percent.toPercentage() + bracket.plus
+        return ((taxable - bracket.nonTaxable) * bracket.percent.toPercentage()) + bracket.plus
     }
 }
 
