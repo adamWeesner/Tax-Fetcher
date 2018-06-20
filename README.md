@@ -4,7 +4,8 @@
 ## Installation
   Add the gradle dependency to your Android project
   
-  `implementation 'weesner.tax-fetcher:tax-fetcher:1.1.7'`
+  `implementation 'weesner.tax-fetcher:tax-fetcher:1.1.8'`  
+  `implementation 'com.google.code.gson:gson:2.8.5'`
 
 ## Example Usage
 Here is an example if your check was $400 for a week, you has $80 in healthcare deductions, your marital status is single, and no payroll allowances.
