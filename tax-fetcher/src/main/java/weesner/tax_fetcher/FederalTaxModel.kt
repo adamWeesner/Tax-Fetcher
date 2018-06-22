@@ -2,6 +2,7 @@ package weesner.tax_fetcher
 
 import android.content.Context
 import com.google.gson.Gson
+import java.util.*
 import kotlin.reflect.full.memberProperties
 
 /**
@@ -10,9 +11,33 @@ import kotlin.reflect.full.memberProperties
  * @author Adam Weesner
  * @since 6/16/2018
  */
-fun getFederalTaxes(context: Context, taxesForYear: String = "2018"): FederalTaxes {
+fun getFederalTaxes(context: Context, taxesForYear: String = Calendar.getInstance().get(Calendar.YEAR).toString()): FederalTaxes {
     val loadJson = taxesForYear.loadTaxFile(context)
     return Gson().fromJson(loadJson, FederalTaxes::class.java)
+}
+
+/**
+ * Gets the federal taxes for the given [taxesForYear]
+ *
+ * @author Adam Weesner
+ * @since 6/16/2018
+ */
+fun getFederalTaxes(taxesForYear: String = Calendar.getInstance().get(Calendar.YEAR).toString()): FederalTaxes {
+    val classLoader = FederalTaxes::class.java.classLoader
+    val stream = classLoader.getResourceAsStream("assets/$taxesForYear.json")
+    val byte = ByteArray(stream.available())
+    stream.read(byte, 0, byte.size)
+    val taxString = String(byte)
+
+    return Gson().fromJson(taxString, FederalTaxes::class.java)
+}
+
+fun getFederalTaxesWithCheck(year: String = Calendar.getInstance().get(Calendar.YEAR).toString(), check: Check) {
+    val federalTaxes = getFederalTaxes(year)
+
+    check.federalTaxes = federalTaxes
+
+    check.calculateTaxes()
 }
 
 /**
@@ -23,11 +48,27 @@ fun getFederalTaxes(context: Context, taxesForYear: String = "2018"): FederalTax
  */
 abstract class FederalTaxModel {
     companion object {
+        /**
+         * the year to date amount of all of your gross check amounts, used to determine limits for
+         *  Medicare and Social Security; not required but if it is not given then Medicare and
+         *  Social Security will be calculated regardless if their limit is reached
+         */
         var yearToDateGross = 0.0
+        /**
+         * the amount of your check before any taxes or deductions are removed, aka your gross
+         * check amount
+         */
         var checkAmount = 0.0
+        /**
+         * the fica(Social Security and Medicare) taxable amount of your check after healthcare
+         * deductions are subtracted out
+         */
         var ficaTaxableAmount = 0.0
+        /** the marital status on that you put on your W-2 */
         var maritalStatus = SINGLE
+        /** how often you get paid */
         var payPeriodType = WEEKLY
+        /** the amount of payroll allowances you put on your W-2 */
         var payrollAllowances = 0
     }
 
@@ -69,10 +110,14 @@ class SocialSecurity(var percent: Double, var limit: Int) : FederalTaxModel() {
      * @since 6/16/2018
      */
     fun amountOfCheck(): Double {
+        val check =
+                if (ficaTaxableAmount == 0.0 && checkAmount != 0.0) checkAmount
+                else ficaTaxableAmount
+
         val ytdSocialSecurity = (percent * .01) * yearToDateGross
 
         return if (ytdSocialSecurity >= limit) 0.0
-        else (percent * .01) * checkAmount
+        else (percent * .01) * check
     }
 }
 
@@ -112,6 +157,10 @@ class Medicare(var percent: Double, var additional: Double, var limits: HashMap<
      * @since 6/16/2018
      */
     fun amountOfCheck(): Double {
+        val check =
+                if (ficaTaxableAmount == 0.0 && checkAmount != 0.0) checkAmount
+                else ficaTaxableAmount
+
         if (limit == 0) limit()
 
         val ytdMedicare = (percent * .01) * yearToDateGross
@@ -120,7 +169,7 @@ class Medicare(var percent: Double, var additional: Double, var limits: HashMap<
                 if (ytdMedicare >= limit) (percent + additional) * .01
                 else percent * .01
 
-        return percentage * checkAmount
+        return percentage * check
     }
 }
 

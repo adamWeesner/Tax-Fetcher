@@ -1,5 +1,6 @@
 import com.google.gson.Gson
 import org.junit.Before
+import weesner.tax_fetcher.*
 import weesner.tax_fetcher.FederalIncomeTax.Companion.withholding
 import weesner.tax_fetcher.FederalTaxModel.Companion.checkAmount
 import weesner.tax_fetcher.FederalTaxModel.Companion.ficaTaxableAmount
@@ -7,9 +8,6 @@ import weesner.tax_fetcher.FederalTaxModel.Companion.maritalStatus
 import weesner.tax_fetcher.FederalTaxModel.Companion.payPeriodType
 import weesner.tax_fetcher.FederalTaxModel.Companion.payrollAllowances
 import weesner.tax_fetcher.FederalTaxModel.Companion.yearToDateGross
-import weesner.tax_fetcher.FederalTaxes
-import weesner.tax_fetcher.SINGLE
-import weesner.tax_fetcher.WEEKLY
 import kotlin.test.Test
 
 /**
@@ -61,5 +59,18 @@ class TaxObjectTesting {
 
         print("FederalIncomeTax: ${federalIncomeTax.values(federalIncomeTax)}")
         println("-amountOfCheck: ${federalIncomeTax.amountOfCheck()}")
+    }
+
+    @Test
+    fun testCheckStuff() {
+        val federalTaxes = getFederalTaxes()
+        val check = Check(400.0, PayInfo())
+        check.federalTaxes = federalTaxes
+        check.calculateTaxes()
+        println("-------------------------------------------------")
+        check.yearToDateAmount = 1.0
+        check.updateCheck(401.0)
+        println("-------------------------------------------------")
+        check.updateCheck(check.amount)
     }
 }

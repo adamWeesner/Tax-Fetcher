@@ -5,7 +5,7 @@ apply from: 'keystore.gradle'
 ext {
     groupId = 'weesner.tax-fetcher'
     artifactId = 'tax-fetcher'
-    libVersion = '1.1.8'
+    libVersion = '1.2.0'
 }
 
 version = libVersion

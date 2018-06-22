@@ -4,7 +4,7 @@
 ## Installation
   Add the gradle dependency to your Android project
   
-  `implementation 'weesner.tax-fetcher:tax-fetcher:1.1.8'`  
+  `implementation 'weesner.tax-fetcher:tax-fetcher:1.1.9'`  
   `implementation 'com.google.code.gson:gson:2.8.5'`
 
 ## Example Usage
