@@ -50,18 +50,30 @@ class TaxObjectTesting {
 
     @Test
     fun testCheckStuff() {
-        val check = Check(400.0, PayrollInfo())
+        val check = Check(942.96, PayrollInfo())
         getFederalTaxesWithCheck(check)
 
-        check.addRetirement(Retirement(4.0, true, true))
+        //val retirement1 = Retirement("401k before", 4.0, false, true)
+        //val retirement2 = Retirement("401k after", 4.0, true, false)
 
-        println("check amount: ${check.amount}")
+        //val deduction1 = PayrollDeduction("dental", 5.00, false, true)
+
+        //check.addRetirement(listOf(retirement1, retirement2))
+        //check.addPayrollDeduction(deduction1)
+
+        val fitTaxable = check.ficaTaxable - (check.retirementBeforeTaxesAmount + check.federalTaxes.taxWithholding.getTotalCost())
+
+        println("gross check: ${check.amount}")
+        println("--fica taxable: ${check.ficaTaxable}")
+        println("--fit taxable: $fitTaxable")
+        println("-----------------------------")
         println("retirement: ${check.retirementAmount}")
-        println("social security: ${check.socialSecurity}")
-        println("medicare: ${check.medicare}")
-        println("federal income tax: ${check.federalIncomeTax}")
-        println("check after tax: ${check.afterTax}")
-
-        check.updateCheck(400.0)
+        println("deductions: ${check.deductionsAmount}")
+        println("social security: ${check.socialSecurity - 58.47}")
+        println("medicare: ${check.medicare - 13.68}")
+        println("federal income tax: ${check.federalIncomeTax - 113.71}")
+        println("total: ${check.amountTakenOut() - 240.86}")
+        println("-----------------------------")
+        println("after tax: ${check.afterTax - 702.10}")
     }
 }

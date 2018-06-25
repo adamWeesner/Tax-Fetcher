@@ -213,8 +213,9 @@ class TaxWithholding(var general: HashMap<String, Double>, var nonResidents: Has
      * @author Adam Weesner
      * @since 6/16/2018
      */
-    fun getTotalCost(): Double {
+    fun getTotalCost(type: String = GENERAL): Double {
         payrollAllowances.toString().validate("Payroll Allowances", listOf("0", "1", "2", "3", "4", "5", "6", "7", "8", "9"))
+        getIndividualCost(type)
         return individualCost * payrollAllowances
     }
 }
@@ -249,7 +250,7 @@ class FederalIncomeTax(var single: HashMap<String, ArrayList<FITBracket>>, var m
         payPeriodType.validate("Pay Period Type", listOf(WEEKLY, BIWEEKLY, SEMIMONTHLY, MONTHLY, QUARTERLY, SEMIANNUAL, ANNUAL, DAILY))
         maritalStatus.validate("Marital Status", listOf(MARRIED, SINGLE))
 
-        val taxable = checkAmount - retirementBeforeTaxes - withholding!!.getTotalCost()
+        val taxable = ficaTaxableAmount - (retirementBeforeTaxes + withholding!!.getTotalCost())
         val brackets = when (maritalStatus) {
             SINGLE -> single[payPeriodType]
             MARRIED -> married[payPeriodType]

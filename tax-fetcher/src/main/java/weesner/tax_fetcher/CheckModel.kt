@@ -2,6 +2,7 @@ package weesner.tax_fetcher
 
 import weesner.tax_fetcher.FederalTaxModel.Companion.checkAmount
 import weesner.tax_fetcher.FederalTaxModel.Companion.ficaTaxableAmount
+import weesner.tax_fetcher.FederalTaxModel.Companion.healthCareDeductionAmount
 import weesner.tax_fetcher.FederalTaxModel.Companion.maritalStatus
 import weesner.tax_fetcher.FederalTaxModel.Companion.payPeriodType
 import weesner.tax_fetcher.FederalTaxModel.Companion.payrollAllowances
@@ -12,12 +13,16 @@ class Check(
         var amount: Double,
         var payInfo: PayrollInfo
 ) {
-    var ficaTaxable: Double = 0.0
+    var ficaTaxable: Double = amount
     var yearToDateAmount: Double = amount
 
     var retirementAmount: Double = 0.0
-    private var retirementBeforeTaxesAmount: Double = 0.0
+    var retirementBeforeTaxesAmount: Double = 0.0
     private var retirementAfterTaxesAmount: Double = 0.0
+
+    var deductionsAmount: Double = 0.0
+    var healthCareDeductionsAmount: Double = 0.0
+    var nonHealthCareDeductionsAmount: Double = 0.0
 
     var medicare: Double = 0.0
     var socialSecurity: Double = 0.0
@@ -31,6 +36,7 @@ class Check(
         this.federalTaxes = federalTaxes
         updateTaxInfo()
         calculateTaxes()
+        afterTax = amount - (federalTaxesAmount - retirementAmount)
     }
 
     fun updateCheck(amount: Double) {
@@ -44,6 +50,7 @@ class Check(
         updateTaxInfo()
 
         if (amount != 0.0) calculateTaxes()
+        afterTax = amount - (federalTaxesAmount - retirementAmount)
     }
 
     fun addRetirement(listOfRetirement: List<Retirement>) {
@@ -61,15 +68,25 @@ class Check(
     }
 
     fun addRetirement(retirement: Retirement) {
-        if (retirement.isTakenBeforeTaxes) {
-            retirementBeforeTaxesAmount += retirement.amountOfCheck(amount)
-        } else {
-            if (federalTaxesAmount == 0.0) calculateTaxes()
-            retirementAfterTaxesAmount += retirement.amountOfCheck(amount - federalTaxesAmount)
+        addRetirement(listOf(retirement))
+    }
+
+    fun addPayrollDeductions(listOfDeductions: List<PayrollDeduction>) {
+        listOfDeductions.forEach {
+            val amount = it.amountOfCheck(amount)
+
+            if (it.isHealthCare) healthCareDeductionsAmount += amount
+            else nonHealthCareDeductionsAmount += amount
         }
 
-        retirementAmount = retirementBeforeTaxesAmount + retirementAfterTaxesAmount
+        ficaTaxable = amount - healthCareDeductionsAmount
+
+        deductionsAmount = healthCareDeductionsAmount + nonHealthCareDeductionsAmount
         updateTaxInfo()
+    }
+
+    fun addPayrollDeduction(deduction: PayrollDeduction) {
+        addPayrollDeductions(listOf(deduction))
     }
 
     private fun updateTaxInfo() {
@@ -78,6 +95,9 @@ class Check(
 
         if (ficaTaxableAmount != ficaTaxable)
             federalTaxes.apply { ficaTaxableAmount = ficaTaxable }
+
+        if (healthCareDeductionAmount != healthCareDeductionsAmount)
+            federalTaxes.apply { healthCareDeductionAmount = healthCareDeductionsAmount }
 
         if (checkAmount != amount)
             federalTaxes.apply { checkAmount = amount }
@@ -98,6 +118,7 @@ class Check(
     private fun calculateTaxes() {
         medicare = federalTaxes.medicare.amountOfCheck()
         socialSecurity = federalTaxes.socialSecurity.amountOfCheck()
+
         val taxWithholding = federalTaxes.taxWithholding
         federalIncomeTax = federalTaxes.federalIncomeTax.apply {
             FederalIncomeTax.withholding = taxWithholding
@@ -105,6 +126,8 @@ class Check(
 
         federalTaxesAmount = (federalIncomeTax + medicare + socialSecurity)
     }
+
+    fun amountTakenOut(): Double = federalTaxesAmount + retirementAmount
 }
 
 class PayrollInfo(
@@ -114,14 +137,25 @@ class PayrollInfo(
 )
 
 class Retirement(
+        val name: String = "retirementAccount",
         var amount: Double,
         val isPercentage: Boolean,
         val isTakenBeforeTaxes: Boolean = false
 ) {
     fun amountOfCheck(checkAmount: Double): Double {
         return if (isPercentage) (amount * .01) * checkAmount
-        else checkAmount - amount
+        else amount
     }
 }
 
-class PayrollDeduction() {}
+class PayrollDeduction(
+        val name: String = "deduction",
+        var amount: Double,
+        val isPercentage: Boolean,
+        val isHealthCare: Boolean
+) {
+    fun amountOfCheck(checkAmount: Double): Double {
+        return if (isPercentage) (amount * .01) * checkAmount
+        else amount
+    }
+}
