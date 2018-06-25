@@ -1,5 +1,3 @@
-import com.google.gson.Gson
-import org.junit.Before
 import weesner.tax_fetcher.*
 import weesner.tax_fetcher.FederalIncomeTax.Companion.withholding
 import weesner.tax_fetcher.FederalTaxModel.Companion.checkAmount
@@ -16,20 +14,9 @@ import kotlin.test.Test
  * @since 1/27/2018
  */
 class TaxObjectTesting {
-    lateinit var taxString: String
-
-    @Before
-    fun getResources() {
-        val classLoader = javaClass.classLoader
-        val stream = classLoader.getResourceAsStream("assets/2018.json")
-        val byte = ByteArray(stream.available())
-        stream.read(byte, 0, byte.size)
-        taxString = String(byte)
-    }
-
     @Test
     fun testNewGson() {
-        val taxModel = Gson().fromJson<FederalTaxes>(taxString, FederalTaxes::class.java)
+        val taxModel = getFederalTaxes()
         taxModel.apply {
             yearToDateGross = 2000000.0
             checkAmount = 400.0
@@ -63,14 +50,18 @@ class TaxObjectTesting {
 
     @Test
     fun testCheckStuff() {
-        val federalTaxes = getFederalTaxes()
-        val check = Check(400.0, PayInfo())
-        check.federalTaxes = federalTaxes
-        check.calculateTaxes()
-        println("-------------------------------------------------")
-        check.yearToDateAmount = 1.0
-        check.updateCheck(401.0)
-        println("-------------------------------------------------")
-        check.updateCheck(check.amount)
+        val check = Check(400.0, PayrollInfo())
+        getFederalTaxesWithCheck(check)
+
+        check.addRetirement(Retirement(4.0, true, true))
+
+        println("check amount: ${check.amount}")
+        println("retirement: ${check.retirementAmount}")
+        println("social security: ${check.socialSecurity}")
+        println("medicare: ${check.medicare}")
+        println("federal income tax: ${check.federalIncomeTax}")
+        println("check after tax: ${check.afterTax}")
+
+        check.updateCheck(400.0)
     }
 }

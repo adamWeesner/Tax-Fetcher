@@ -1,20 +1,8 @@
 package weesner.tax_fetcher
 
-import android.content.Context
 import com.google.gson.Gson
 import java.util.*
 import kotlin.reflect.full.memberProperties
-
-/**
- * Gets the federal taxes for the given [taxesForYear]
- *
- * @author Adam Weesner
- * @since 6/16/2018
- */
-fun getFederalTaxes(context: Context, taxesForYear: String = Calendar.getInstance().get(Calendar.YEAR).toString()): FederalTaxes {
-    val loadJson = taxesForYear.loadTaxFile(context)
-    return Gson().fromJson(loadJson, FederalTaxes::class.java)
-}
 
 /**
  * Gets the federal taxes for the given [taxesForYear]
@@ -32,12 +20,9 @@ fun getFederalTaxes(taxesForYear: String = Calendar.getInstance().get(Calendar.Y
     return Gson().fromJson(taxString, FederalTaxes::class.java)
 }
 
-fun getFederalTaxesWithCheck(year: String = Calendar.getInstance().get(Calendar.YEAR).toString(), check: Check) {
+fun getFederalTaxesWithCheck(check: Check, year: String = Calendar.getInstance().get(Calendar.YEAR).toString()) {
     val federalTaxes = getFederalTaxes(year)
-
-    check.federalTaxes = federalTaxes
-
-    check.calculateTaxes()
+    check.updateFederalTaxes(federalTaxes)
 }
 
 /**
@@ -70,6 +55,10 @@ abstract class FederalTaxModel {
         var payPeriodType = WEEKLY
         /** the amount of payroll allowances you put on your W-2 */
         var payrollAllowances = 0
+        /** the amount in healthcare deductions */
+        var healthCareDeductionAmount = 0.0
+        /** the amount in retirement before taxes are taken out */
+        var retirementBeforeTaxes = 0.0
     }
 
     /**
@@ -95,12 +84,46 @@ class FederalTaxes(val socialSecurity: SocialSecurity, val medicare: Medicare,
                    val federalIncomeTax: FederalIncomeTax, val taxWithholding: TaxWithholding) : FederalTaxModel()
 
 /**
+ * The Fica parent class for [SocialSecurity] and [Medicare]
+ *
+ * @author Adam Weesner
+ * @since 6/22/2018
+ */
+open class Fica(var percentage: Double) : FederalTaxModel() {
+    /**
+     * Gets the fica taxable amount, which is based on the gross check amount minus all healthcare
+     * deductions
+     *
+     * @author Adam Weesner
+     * @since 6/22/2018
+     */
+    fun ficaTaxable(): Double {
+        var check =
+                if (ficaTaxableAmount == 0.0 && checkAmount != 0.0) checkAmount
+                else ficaTaxableAmount
+
+        check -= healthCareDeductionAmount
+
+        return check
+    }
+
+    /**
+     * Gets the year to date amount that has been taken out for the given fica tax, used to
+     * determine if the limit of the tax has been reached
+     *
+     * @author Adam Weesner
+     * @since 6/22/2018
+     */
+    fun ytdAmount(): Double = (percentage.toPercentage() * yearToDateGross)
+}
+
+/**
  * The Social Security object
  *
  * @author Adam Weesner
  * @since 6/16/2018
  */
-class SocialSecurity(var percent: Double, var limit: Int) : FederalTaxModel() {
+class SocialSecurity(var percent: Double, var limit: Int) : Fica(percent) {
     /**
      * Gets the amount of the check given to the [FederalTaxModel], if
      * [FederalTaxModel.yearToDateGross] is given it checks to verify that it is not above the max,
@@ -110,14 +133,8 @@ class SocialSecurity(var percent: Double, var limit: Int) : FederalTaxModel() {
      * @since 6/16/2018
      */
     fun amountOfCheck(): Double {
-        val check =
-                if (ficaTaxableAmount == 0.0 && checkAmount != 0.0) checkAmount
-                else ficaTaxableAmount
-
-        val ytdSocialSecurity = (percent * .01) * yearToDateGross
-
-        return if (ytdSocialSecurity >= limit) 0.0
-        else (percent * .01) * check
+        return if (ytdAmount() >= limit) 0.0
+        else (percent * .01) * ficaTaxable()
     }
 }
 
@@ -127,7 +144,7 @@ class SocialSecurity(var percent: Double, var limit: Int) : FederalTaxModel() {
  * @author Adam Weesner
  * @since 6/16/2018
  */
-class Medicare(var percent: Double, var additional: Double, var limits: HashMap<String, Int>) : FederalTaxModel() {
+class Medicare(var percent: Double, var additional: Double, var limits: HashMap<String, Int>) : Fica(percent) {
     var limit = 0
 
     /**
@@ -157,19 +174,12 @@ class Medicare(var percent: Double, var additional: Double, var limits: HashMap<
      * @since 6/16/2018
      */
     fun amountOfCheck(): Double {
-        val check =
-                if (ficaTaxableAmount == 0.0 && checkAmount != 0.0) checkAmount
-                else ficaTaxableAmount
-
         if (limit == 0) limit()
-
-        val ytdMedicare = (percent * .01) * yearToDateGross
-
         val percentage =
-                if (ytdMedicare >= limit) (percent + additional) * .01
+                if (ytdAmount() >= limit) (percent + additional) * .01
                 else percent * .01
 
-        return percentage * check
+        return percentage * ficaTaxable()
     }
 }
 
@@ -239,7 +249,7 @@ class FederalIncomeTax(var single: HashMap<String, ArrayList<FITBracket>>, var m
         payPeriodType.validate("Pay Period Type", listOf(WEEKLY, BIWEEKLY, SEMIMONTHLY, MONTHLY, QUARTERLY, SEMIANNUAL, ANNUAL, DAILY))
         maritalStatus.validate("Marital Status", listOf(MARRIED, SINGLE))
 
-        val taxable = checkAmount - withholding!!.getTotalCost()
+        val taxable = checkAmount - retirementBeforeTaxes - withholding!!.getTotalCost()
         val brackets = when (maritalStatus) {
             SINGLE -> single[payPeriodType]
             MARRIED -> married[payPeriodType]
