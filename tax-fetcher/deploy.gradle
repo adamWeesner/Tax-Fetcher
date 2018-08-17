@@ -1,77 +1,49 @@
-apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'maven-publish'
 apply plugin: 'com.jfrog.bintray'
 apply from: 'keystore.gradle'
 
-ext {
-    groupId = 'weesner.tax-fetcher'
-    artifactId = 'tax-fetcher'
-    libVersion = '1.2.0'
-}
-
-version = libVersion
-group = groupId
-
 bintray {
     user = 'alweesner'
-    key = bintray_key
-    configurations = ['archives']
-    publish = true
+    key = '5218d3da0c33a58ae4bc475aeb8e677d8a7d041c'
     override = true
+    publications = ['Production']
+    configurations = ['archives']
     pkg {
         repo = 'maven'
         name = 'Tax-Fetcher'
+        description = 'A small library to fetch tax information for a given amount. Calculates Federal Income Tax, Medicare, Social Security, and Allowance cost for 2016, 2017 and 2018.'
+        publish = true
+        publicDownloadNumbers = true
+        vcsUrl = 'https://github.com/adamWeesner/Tax-Fetcher.git'
+        labels = ['taxes', 'federal taxes', 'medicare tax', 'social security tax', '2018', '2017', '2016']
+        dryRun = true
         version {
             name = libVersion
+            released = new Date()
+            vcsTag = codeVersion
         }
     }
 }
 
-install {
-    repositories.mavenInstaller {
-        pom.project {
-            packaging 'aar'
-            groupId groupId
-            artifactId artifactId
+publishing {
+    publications {
+        Production(MavenPublication) {
+            artifactId
+            groupId
+            artifact("$buildDir/outputs/aar/tax-fetcher-release.aar")
             version libVersion
-            name artifactId
+
+            pom.withXml {
+                def dependenciesNode = asNode().appendNode('dependencies')
+                configurations.implementation.allDependencies.each {
+                    if (it.name != 'unspecified') {
+                        def dependencyNode = dependenciesNode.appendNode('dependency')
+                        dependencyNode.appendNode('groupId', it.group)
+                        dependencyNode.appendNode('artifactId', it.name)
+                        dependencyNode.appendNode('version', it.version)
+                    }
+                }
+            }
         }
     }
-}
-
-//just copy paste the lines below
-if (project.hasProperty("kotlin")) { //Kotlin libraries
-    task sourcesJar(type: Jar) {
-        classifier = 'sources'
-        from android.sourceSets.main.java.srcDirs
-    }
-
-    task javadoc(type: Javadoc, dependsOn: dokka) {
-
-    }
-} else if (project.hasProperty("android")) {
-    task sourcesJar(type: Jar) {
-        classifier = 'sources'
-        from android.sourceSets.main.java.srcDirs
-    }
-
-    task javadoc(type: Javadoc) {
-        source = android.sourceSets.main.java.srcDirs
-        classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
-    }
-} else { // Java libraries
-    task sourcesJar(type: Jar, dependsOn: classes) {
-        classifier = 'sources'
-        from sourceSets.main.allSource
-    }
-}
-
-task javadocJar(type: Jar, dependsOn: javadoc) {
-    classifier = 'javadoc'
-    from javadoc.destinationDir
-    // options.encoding = 'UTF-8'
-}
-
-artifacts {
-    archives javadocJar
-    archives sourcesJar
 }

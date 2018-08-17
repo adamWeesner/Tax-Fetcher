@@ -11,6 +11,8 @@ import kotlin.reflect.full.memberProperties
  * @since 6/16/2018
  */
 fun getFederalTaxes(taxesForYear: String = Calendar.getInstance().get(Calendar.YEAR).toString()): FederalTaxes {
+    //checkForGsonDependency()
+
     val classLoader = FederalTaxes::class.java.classLoader
     val stream = classLoader.getResourceAsStream("assets/$taxesForYear.json")
     val byte = ByteArray(stream.available())
@@ -72,6 +74,8 @@ abstract class FederalTaxModel {
         T::class.memberProperties.forEach { itemList += "-${it.name}: ${it.get(target)}\n" }
         return itemList
     }
+
+    open fun amountOfCheck(): Double = 0.0
 }
 
 /**
@@ -90,6 +94,7 @@ class FederalTaxes(val socialSecurity: SocialSecurity, val medicare: Medicare,
  * @since 6/22/2018
  */
 open class Fica(var percentage: Double) : FederalTaxModel() {
+
     /**
      * Gets the fica taxable amount, which is based on the gross check amount minus all healthcare
      * deductions
@@ -132,7 +137,7 @@ class SocialSecurity(var percent: Double, var limit: Int) : Fica(percent) {
      * @author Adam Weesner
      * @since 6/16/2018
      */
-    fun amountOfCheck(): Double {
+    override fun amountOfCheck(): Double {
         return if (ytdAmount() >= limit) 0.0
         else (percent * .01) * ficaTaxable()
     }
@@ -173,7 +178,7 @@ class Medicare(var percent: Double, var additional: Double, var limits: HashMap<
      * @author Adam Weesner
      * @since 6/16/2018
      */
-    fun amountOfCheck(): Double {
+    override fun amountOfCheck(): Double {
         if (limit == 0) limit()
         val percentage =
                 if (ytdAmount() >= limit) (percent + additional) * .01
@@ -246,7 +251,7 @@ class FederalIncomeTax(var single: HashMap<String, ArrayList<FITBracket>>, var m
      * @author Adam Weesner
      * @since 6/16/2018
      */
-    fun amountOfCheck(): Double {
+    override fun amountOfCheck(): Double {
         payPeriodType.validate("Pay Period Type", listOf(WEEKLY, BIWEEKLY, SEMIMONTHLY, MONTHLY, QUARTERLY, SEMIANNUAL, ANNUAL, DAILY))
         maritalStatus.validate("Marital Status", listOf(MARRIED, SINGLE))
 
