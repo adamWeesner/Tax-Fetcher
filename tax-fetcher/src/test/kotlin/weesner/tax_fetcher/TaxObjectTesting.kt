@@ -1,7 +1,3 @@
-import weesner.tax_fetcher.FITBracket
-import weesner.tax_fetcher.parseP15FederalIncomeTaxData
-import weesner.tax_fetcher.parseP15WithholdingData
-import weesner.tax_fetcher.withholdingToJson
 import kotlin.test.Test
 
 /**
@@ -10,46 +6,44 @@ import kotlin.test.Test
  * @since 1/27/2018
  */
 class TaxObjectTesting {
-    /*@Test
+    @Test
     fun testNewGson() {
-        val taxModel = getFederalTaxes()
+        /*val taxModel = getFederalTaxes()
         taxModel.apply {
-            yearToDateGross = 2000000.0
-            checkAmount = 400.0
+            //yearToDateGross = 2000000.0
+            checkAmount = 1211.6999999999998
             ficaTaxableAmount = checkAmount
             maritalStatus = SINGLE
             payPeriodType = WEEKLY
-            payrollAllowances = 1
+            payrollAllowances = 0
         }
 
-        val medicare = taxModel.medicare
-        val socialSecurity = taxModel.socialSecurity
+        val medicareAmount = taxModel.medicareAmount
+        val socialSecurityAmount = taxModel.socialSecurityAmount
         val taxWithholding = taxModel.taxWithholding
-        val federalIncomeTax = taxModel.federalIncomeTax
-        federalIncomeTax.apply { withholding = taxWithholding }
+        val federalIncomeTaxAmount = taxModel.federalIncomeTaxAmount
+        federalIncomeTaxAmount.apply { withholding = taxWithholding }
 
         println("TaxModel: ${taxModel.values(taxModel)}")
-        print("Medicare: ${medicare.values(medicare)}")
-        println("-limit: ${medicare.limit()}")
-        println("-amountOfCheck: ${medicare.amountOfCheck()}\n")
+        print("Medicare: ${medicareAmount.values(medicareAmount)}")
+        println("-limit: ${medicareAmount.limit()}")
+        println("-amountOfCheck: ${medicareAmount.amountOfCheck()}\n")
 
-        print("SocialSecurity: ${socialSecurity.values(socialSecurity)}")
-        println("-amountOfCheck: ${socialSecurity.amountOfCheck()}\n")
+        print("SocialSecurity: ${socialSecurityAmount.values(socialSecurityAmount)}")
+        println("-amountOfCheck: ${socialSecurityAmount.amountOfCheck()}\n")
 
         print("TaxWithholding: ${taxWithholding.values(taxWithholding)}")
         println("-individualCost: ${taxWithholding.getIndividualCost()}")
         println("-totalCost: ${taxWithholding.getTotalCost()}\n")
 
-        print("FederalIncomeTax: ${federalIncomeTax.values(federalIncomeTax)}")
-        println("-amountOfCheck: ${federalIncomeTax.amountOfCheck()}")
+        print("FederalIncomeTax: ${federalIncomeTaxAmount.values(federalIncomeTaxAmount)}")
+        println("-amountOfCheck: ${federalIncomeTaxAmount.amountOfCheck()}")*/
     }
 
     @Test
     fun testCheckStuff() {
-        val baseCheck = 17.31 * 40
-        val overtime = ((17.31 * 1.5) * 15)
-        println("base: $baseCheck ot: $overtime both: ${baseCheck + overtime}")
-        val check = Check(baseCheck + overtime, PayrollInfo())
+        /*//val check = Check(baseCheck + overtime, PayrollInfo())
+        val check = Check(payInfo = PayInfo(17.31, 40.0, 0.0), payrollInfo = PayrollInfo())
         getFederalTaxesWithCheck(check)
 
         val fitTaxable = check.ficaTaxable - (check.retirementBeforeTaxesAmount + check.federalTaxes.taxWithholding.getTotalCost())
@@ -60,15 +54,14 @@ class TaxObjectTesting {
         println("-----------------------------")
         println("retirement: ${check.retirementAmount}")
         println("deductions: ${check.deductionsAmount}")
-        println("social security: ${check.socialSecurity}")
-        println("medicare: ${check.medicare}")
-        println("federal income tax: ${check.federalIncomeTax}")
+        println("social security: ${check.socialSecurityAmount}")
+        println("medicareAmount: ${check.medicareAmount}")
+        println("federal income tax: ${check.federalIncomeTaxAmount}")
         println("total: ${check.amountTakenOut()}")
         println("-----------------------------")
-        println("after tax: ${check.afterTax}")
+        println("after tax: ${check.afterTax}")*/
     }
-    */
-
+/*
     @Test
     fun testGettingP15Withholding() {
         val general = parseP15WithholdingData("Weekly .......................... \$ 79.80\n" +
@@ -175,4 +168,5 @@ class TaxObjectTesting {
 
         brackets.forEach { println(it.toString()) }
     }
+    */
 }

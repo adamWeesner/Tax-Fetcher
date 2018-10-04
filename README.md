@@ -4,38 +4,36 @@
 ## Installation
   Add the gradle dependency to your Android project
   
-  `implementation 'weesner.tax-fetcher:tax-fetcher:1.1.9'`  
+  `implementation 'weesner.tax-fetcher:tax-fetcher:1.2.3'`
   `implementation 'com.google.code.gson:gson:2.8.5'`
 
 ## Example Usage
-Here is an example if your check was $400 for a week, you has $80 in healthcare deductions, your marital status is single, and no payroll allowances.
+Here is an example if your check was $400 for a week, you has $80 in healthcare deductions, 10% of your gross check amount goes to your retirement, your marital status is single, and 1 payroll allowance.
 ```kotlin
-val federalTaxes = getFederalTaxes("2018").apply {
-    // optional, for medicare and social security maxes
-    yearToDateGross = 20000
-    // the amount of the check you want to get taxes on
-    checkAmount = 400
-    // the federal income taxable amount; check amount minus any healthcare deductions       
-    ficaTaxableAmount = 320
-    // the marital status
-    // "single" or "married"
-    maritalStatus = SINGLE
-    // the pay period length 
-    // "Weekly","BiWeekly","Semimonthly","Quarterly","Semiannual","Annual" or "Daily"
-    payPeriodType = WEEKLY
-    // the amount of allowances from your W-2; 0-9 only
-    payrollAllowances = 0
-}
+// the pay information for the check, this example just passes in the $400 gross check amount
+val payInfo = PayInfo(400.0)
+// the retirement that is 10 percent of your check before taxes
+val retirement = Retirement("My retirement fund", 10.0, true, true)
+// the $80 healthcare deduction being taken out of your check
+val deduction = PayrollDeduction(name = "my deduction", amount = 80, isPercentage = false, isHealthCare = true)
+// the check object, passing in all of the values from above
+val check = Check(payInfo, PayrollInfo(), retirement, deduction)
+// create a federal tax object for 2018
+val federalTaxes = getFederalTaxes(taxesForYear = 2018)
 ```
 
-Getting the amounts the taxes will be for the given information above would look like this.
+Calculating the taxes for the above information would look like this.
 ```kotlin
-val medicareAmount = federalTaxes.medicare.amountOfCheck()
-val socialSecurityAmount = federalTaxes.socialSecurity.amountOfCheck()
-// needed to determine how much each payroll allowance is worth
-val taxWithholding = federalTaxes.taxWithholding
-val federalIncomeTax = federalTaxes.federalIncomeTax.apply {
-    // adds the taxWithholding to the federalIncomeTax to calculate federal income tax correctly
-    withholding = taxWithholding
-}.amountOfCheck()
-```  
+check.calculateTaxes(federalTaxes!!)
+
+println("medicare: ${check.medicareAmount}")
+println("social security: ${check.socialSecurityAmount}")
+println("federal income tax: ${check.federalIncomeTaxAmount}")
+println("federal taxes total: ${check.federalTaxesAmount}")
+
+println("deductions amount: ${check.deductionsAmount}")
+println("retirement amount: ${check.retirementAmount}")
+
+println("after taxes and deductions: ${check.afterTax}")
+
+```

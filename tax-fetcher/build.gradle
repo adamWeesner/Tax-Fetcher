@@ -6,13 +6,13 @@ apply plugin: 'org.jetbrains.dokka-android'
 ext {
     groupId = 'weesner.tax-fetcher'
     artifactId = 'tax-fetcher'
-    libVersion = '1.2.2'
-    codeVersion = 29
+    libVersion = '1.2.3'
+    codeVersion = 30
 }
 
 android {
     compileSdkVersion 28
-    buildToolsVersion '28.0.0 rc2'
+    buildToolsVersion '28.0.2'
 
     defaultConfig {
         minSdkVersion 14
@@ -28,9 +28,12 @@ android {
     }
 
     sourceSets {
-        test.java.srcDirs += 'src/test/kotlin'
+        main.java.srcDirs += 'src/main/kotlin'
         androidTest.java.srcDirs += 'src/androidTest/kotlin'
-        test.resources.srcDirs += ['src/main']
+        test {
+            java.srcDirs += 'src/test/kotlin'
+            resources.srcDirs += 'src/test/resources'
+        }
     }
 }
 
@@ -46,6 +49,7 @@ dependencies {
     compileOnly 'com.google.code.gson:gson:2.8.5'
 
     testImplementation 'junit:junit:4.12'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.1.0'
     testImplementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     testImplementation "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
 }

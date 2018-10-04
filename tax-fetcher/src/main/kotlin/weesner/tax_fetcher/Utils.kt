@@ -1,10 +1,13 @@
 package weesner.tax_fetcher
 
+import kotlin.reflect.full.memberProperties
+
 /**
  * Created for Weesner Development
  * @author Adam Weesner
  * @since 1/15/2018
  */
+
 /** Weekly */
 const val WEEKLY = "Weekly"
 /** Biweekly */
@@ -21,19 +24,21 @@ const val SEMIANNUAL = "Semiannual"
 const val ANNUAL = "Annual"
 /** Daily */
 const val DAILY = "Daily"
+
 /** single */
 const val SINGLE = "single"
 /** married */
 const val MARRIED = "married"
 /** "Separate" this used for Married filing separate status */
 const val SEPARATE = "Separate"
+
 /** general */
 const val GENERAL = "general"
 /** nonResident */
 const val NON_RESIDENT = "nonResident"
 
 /** converts the double to a percentage */
-fun Double.toPercentage(): Double = this / 100
+val Double.asPercent get() = this * .01
 
 fun String.validate(stringName: String, validItems: List<String>): String {
     var validList = ""
@@ -44,15 +49,6 @@ fun String.validate(stringName: String, validItems: List<String>): String {
 
     if (validItems.contains(this)) return this
     else throw IllegalArgumentException("$stringName can only be one of the following: $validList")
-}
-
-fun checkForGsonDependency(): Boolean {
-    try {
-        Class.forName("com.google.gson")
-        return true
-    } catch (e: ClassNotFoundException) {
-        throw ClassNotFoundException("Gson dependency 'com.google.code.gson:gson:2.8.5' or higher is required for ${FederalTaxes::class.java.`package`.name} to work.")
-    }
 }
 
 fun getP15Data(file: String): String {
@@ -160,4 +156,16 @@ fun ArrayList<String>.withholdingToJson(name: String): String {
     json += "}"
 
     return json
+}
+
+/**
+ * Gets all of the [T] parameters and returns them in a string
+ *
+ * @author Adam Weesner
+ * @since 10/4/2018
+ */
+inline fun <reified T : Any> valuesOf(target: T): String {
+    var itemList = "${T::class.simpleName}\n"
+    T::class.memberProperties.forEach { itemList += "-${it.name}: ${it.get(target)}\n" }
+    return itemList
 }

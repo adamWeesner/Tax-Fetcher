@@ -15,7 +15,7 @@ bintray {
         publish = true
         publicDownloadNumbers = true
         vcsUrl = 'https://github.com/adamWeesner/Tax-Fetcher.git'
-        labels = ['taxes', 'federal taxes', 'medicare tax', 'social security tax', '2018', '2017', '2016']
+        labels = ['taxes', 'federal taxes', 'medicareAmount tax', 'social security tax', '2018', '2017', '2016']
         dryRun = true
         version {
             name = libVersion
