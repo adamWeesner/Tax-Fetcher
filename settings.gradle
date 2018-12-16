@@ -1,1 +1,1 @@
-include ':tax-fetcher'
+include ':tax-fetcher', 'example'

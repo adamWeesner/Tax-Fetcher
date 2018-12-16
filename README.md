@@ -1,11 +1,12 @@
 # Tax-Fetcher
-  A small library to fetch tax information for a given amount. Calculates Federal Income Tax, Medicare, Social Security, and Allowance cost for 2016, 2017 and 2018.
+ [ ![Download](https://api.bintray.com/packages/alweesner/maven/Tax-Fetcher/images/download.svg) ](https://bintray.com/alweesner/maven/Tax-Fetcher/_latestVersion)
+
+ A small library to fetch tax information for a given amount. Calculates Federal Income Tax, Medicare, Social Security, and Allowance cost for 2016, 2017 and 2018.
 
 ## Installation
   Add the gradle dependency to your Android project
   
-  `implementation 'weesner.tax-fetcher:tax-fetcher:1.2.3'`
-  `implementation 'com.google.code.gson:gson:2.8.5'`
+  `implementation 'weesner.tax-fetcher:tax-fetcher:${latestVersion}'`
 
 ## Example Usage
 Here is an example if your check was $400 for a week, you has $80 in healthcare deductions, 10% of your gross check amount goes to your retirement, your marital status is single, and 1 payroll allowance.
